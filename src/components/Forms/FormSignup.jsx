@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { UserContext } from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
-import { Redirect  } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 class FormSignup extends Component {
   static contextType = UserContext;
@@ -10,6 +10,8 @@ class FormSignup extends Component {
   state = {
     email: "",
     password: "",
+    firstName: "",
+    lastName: "",
   };
 
   handleChange = (event) => {
@@ -38,9 +40,26 @@ class FormSignup extends Component {
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div class="formcontainersignup">
+      <form onSubmit={this.handleSubmit} className="signupform">
+        <label htmlFor="firstName">First Name</label>
+        <input className="signupinput"
+          onChange={this.handleChange}
+          value={this.state.firstName}
+          type="text"
+          id="firstName"
+          name="firstName"
+        />
+        <label htmlFor="lastName">Last Name</label>
+        <input className="signupinput"
+          onChange={this.handleChange}
+          value={this.state.lastName}
+          type="text"
+          id="lastName"
+          name="lastName"
+        />
         <label htmlFor="email">Email</label>
-        <input
+        <input className="signupinput"
           onChange={this.handleChange}
           value={this.state.email}
           type="email"
@@ -48,15 +67,16 @@ class FormSignup extends Component {
           name="email"
         />
         <label htmlFor="password">Password</label>
-        <input
+        <input className="signupinput"
           onChange={this.handleChange}
           value={this.state.password}
           type="password"
           id="password"
           name="password"
         />
-        <button>Submit</button>
+        <button> Register </button>
       </form>
+      </div>
     );
   }
 }

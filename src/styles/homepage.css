@@ -1,17 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap");
+
 .homepage {
   background-image: url("https://media1.popsugar-assets.com/files/thumbor/sjkE0uzFsuxdfWzPvivx0j-UA18/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2020/04/07/792/n/1922507/882090f7336c9e28_EUsNPN3XsAEanhV/i/Plant-Lover-Living-Room-Zoom-Background.jpeg");
   background-position: 0 -200px;
   background-repeat: no-repeat;
   background-size: cover;
   height: 750px;
-  padding-top: 50px;
+  padding-bottom: 0px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
 }
 
 .hometitle {
   color: white;
+  font-size: 11em;
+  margin-bottom: 0;
+  font-family: Just Another Hand;
+  font-weight: 300;
+  text-shadow: 8px 8px 16px black;
 }
 
 .homesubtitle {
   color: white;
+  font-size: 3em;
+  font-family: Roboto;
+  font-weight: 300;
+  text-shadow: 16px 16px 32px black;
+  margin-top: 40px;
+  padding-top: 20px;
+}
+
+.containertext {
+  font-size: 1.5em;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.homecontainer h3 {
+  font-size: 2.2em;
+  text-align: center;
+  line-height: 1em;
+}
+
+.homeinfos {
+  display: flex;
+  margin: 0px 50px;
+  justify-content: space-evenly;
+}
+
+.homecontainer {
+  margin: 20px 110px;
+  padding-bottom: 50px;
 }

@@ -44,10 +44,35 @@ export default {
       .catch(errorHandler);
   },
 
-  getItems() {
+  getPlants() {
     return service
-      .get("/api/items")
+      .get("/api/plants")
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  createPlant(plantInfo) {
+    return service
+      .post("/api/plants", plantInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  deleteItem(itemId) {
+    return service
+      .delete("/api/plants/" + itemId)
+      .then(() => {
+        console.log("successfully deleted");
+      })
+      .catch(errorHandler);
+  },
+
+  editItem(itemId, itemInfo) {
+    return service
+      .patch("/api/plants/" + itemId, itemInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+
 };

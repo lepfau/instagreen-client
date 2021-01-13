@@ -27,24 +27,19 @@ const NavMain = (props) => {
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>
-              <li>
-              <NavLink to="/profile">
-                My Plants
-              </NavLink>
+            <li>
+              <NavLink to="/myplants">My Plants</NavLink>
+            </li>
+            <li>
+              <NavLink to="/greenclinic">Green Clinic</NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/map">Map</NavLink>
             </li>
             <li>
               <NavLink to="/profile">
-                Green Clinic
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/profile">
-                Wall
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/profile">
-                {context.user && context.user.name}
+                {context.user && context.user.firstName}
               </NavLink>
             </li>
             <li>
@@ -54,6 +49,9 @@ const NavMain = (props) => {
         )}
         {!context.isLoggedIn && (
           <React.Fragment>
+            <li>
+              <NavLink to="/wall">Wall</NavLink>
+            </li>
             <li>
               <NavLink to="/signin">Log in</NavLink>
             </li>

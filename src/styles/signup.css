@@ -1,0 +1,18 @@
+.formcontainersignup {
+  display: flex;
+}
+
+.signupform {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-top: 100px;
+}
+
+.signupinput {
+  width: 300px;
+}
+
+.signupform button {
+  width: 90px;
+}
