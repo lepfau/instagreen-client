@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { UserContext } from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
+import { Redirect  } from 'react-router-dom';
 
 class FormSignup extends Component {
   static contextType = UserContext;

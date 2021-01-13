@@ -1,0 +1,17 @@
+.homepage {
+  background-image: url("https://media1.popsugar-assets.com/files/thumbor/sjkE0uzFsuxdfWzPvivx0j-UA18/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2020/04/07/792/n/1922507/882090f7336c9e28_EUsNPN3XsAEanhV/i/Plant-Lover-Living-Room-Zoom-Background.jpeg");
+  background-position: 0 -200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 750px;
+  padding-top: 50px;
+  position: relative;
+}
+
+.hometitle {
+  color: white;
+}
+
+.homesubtitle {
+  color: white;
+}
