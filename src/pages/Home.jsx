@@ -9,22 +9,22 @@ class Home extends React.Component {
           <h2 className="homesubtitle"> Your plant care starts here...</h2>
         </div>
 
-        <section class="homeinfos">
-          <article class="homecontainer">
+        <section className="homeinfos">
+          <article className="homecontainer">
             <h3> Share </h3>
-            <p class="containertext">
+            <p className="containertext">
               Add your plants and share them with your friends !
             </p>
           </article>
-          <article class="homecontainer">
+          <article className="homecontainer">
             <h3> Care </h3>
-            <p class="containertext">
+            <p className="containertext">
               Know how to treat your plants and get helped by the community
             </p>
           </article>
-          <article class="homecontainer">
+          <article className="homecontainer">
             <h3> Exchange </h3>
-            <p class="containertext">
+            <p className="containertext">
               Exchange your plants or offer cuttings to anyone !
             </p>
           </article>

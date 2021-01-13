@@ -37,6 +37,7 @@ class Myplants extends Component {
           return (
             <div key={plant._id}>
               <p>{plant.name}</p>
+              <img src={plant.image}/>
               <button
                 onClick={() => {
                   this.deleteItem(plant._id);

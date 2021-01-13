@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
 import { buildFormData } from "../../utils";
-import UploadWidget from "../UploadWidget";
+
 
 class FormCreatePlant extends Component {
   state = {
     name: "",
     description: "",
+    image:null,
     age: 0,
     enlightment: "",
     watering: "",
@@ -16,10 +17,6 @@ class FormCreatePlant extends Component {
     error: null,
   };
 
-
-  showConsole = () => {
-      this.props.showConsole()
-  }
 
   handleChange = (event) => {
     const key = event.target.name;
@@ -47,6 +44,7 @@ class FormCreatePlant extends Component {
       this.setState({
         name: "",
         description: "",
+        image: null,
         httpResponse: {
           status: "success",
           message: "Item successfully added.",
@@ -108,10 +106,9 @@ class FormCreatePlant extends Component {
             ></textarea>
           </div>
 
-          <div className="form-group">
-            <UploadWidget ref={this.imageRef} name="image">
-              Upload image
-            </UploadWidget>
+          <div>
+            <input type="file"  name="image" onChange={this.handleChange} >
+            </input>
           </div>
 
           <button className="btn-submit">Add Item</button>
