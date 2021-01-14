@@ -1,19 +1,31 @@
 import React, { Component } from "react";
 import FormCreatePlant from "../components/Forms/FormCreatePlant";
 import apiHandler from "../api/apiHandler";
+import { Link } from "react-router-dom";
+import { withUser } from "../components/Auth/withUser";
 
 class Myplants extends Component {
+  //STATE INITIAL REMPLACE PAR COMPONENT DID MOUNT
   state = {
     plants: [],
   };
 
+
+  //AFFICHER PLANTES SUR LA PAGE DEPUIS LA DB
   componentDidMount() {
-    apiHandler.getPlants().then((respFromApi) => {
+  
+    apiHandler.getPlants()
+    .then((apiResp) => {
+      console.log(apiResp);
+      const userPlants = apiResp.filter((plant) => plant.id_user === this.props.context.user._id);
       this.setState({
-        plants: respFromApi,
+        plants: userPlants,
       });
+    })
+    .catch((error) => {
+      console.log(error);
     });
-  }
+}
 
   addItem = (plant) => {
     this.setState({ plants: [...this.state.plants, plant] });
@@ -27,17 +39,26 @@ class Myplants extends Component {
     });
   };
 
+
+
   render() {
+
     return (
       <div>
         {" "}
         <FormCreatePlant addItem={this.addItem} />
         <h1>My plants</h1>
-        {this.state.plants.map((plant) => {
+        <div className="plantcards">
+                  {this.state.plants.map((plant) => {
           return (
-            <div key={plant._id}>
-              <p>{plant.name}</p>
-              <img src={plant.image}/>
+
+            <div className="plantcard" key={plant._id}>
+              <p className="plantcardname">{plant.name}</p>
+              <img className="plantcardimage" src={plant.image}/>
+              <p className="plantcardinfo">Enlightment: {plant.enlightment}</p>
+              <p className="plantcardinfo">Watering: {plant.watering}</p>
+              <p className="plantcardinfo">Water interval: {plant.wateringinterval} days</p>
+              <p className="plantcardinfo">Last watering: {plant.waterDate} </p>
               <button
                 onClick={() => {
                   this.deleteItem(plant._id);
@@ -45,18 +66,21 @@ class Myplants extends Component {
               >
                 Delete
               </button>
-              <button
-                onClick={() => {
-                  this.updateItem(plant._id);
-                }}
-              >
-                Update
+              <button>
+                <Link to={`/plant/edit/${plant._id}`}>Edit</Link>
+  
               </button>
+              {/* <button  onClick={() => {
+                  this.waterDate(plant._id)}}>
+                Give me water ! 
+              </button> */}
             </div>
+            
           );
         })}
+        </div>
       </div>
     );
   }
 }
-export default Myplants;
+export default withUser(Myplants);

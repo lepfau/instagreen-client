@@ -9,6 +9,7 @@ import "./styles/global.css";
 import "./styles/homepage.css";
 import "./styles/login.css";
 import "./styles/signup.css";
+import "./styles/myplants.css";
 
 ReactDOM.render(
   <BrowserRouter>

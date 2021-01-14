@@ -1,0 +1,34 @@
+.plantcards {
+  display: flex;
+  align-items: center;
+}
+
+.plantcard {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 220px;
+  margin: 30px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.plantcardname {
+  text-align: center;
+}
+
+.plantcardimage {
+  width: auto;
+  height: 100px;
+  margin: 15px;
+}
+
+.plantcard button {
+  align-self: center;
+  margin-top: 10px;
+  width: 80px;
+}
+
+.plantcardinfo {
+  margin-left: 10px;
+}

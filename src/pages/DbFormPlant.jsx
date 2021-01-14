@@ -1,21 +1,17 @@
 import React, { Component } from "react";
-import apiHandler from "../../api/apiHandler";
+import apiHandler from "../api/apiHandler";
 import { withRouter } from "react-router-dom";
-import { buildFormData } from "../../utils";
+import { buildFormData } from "../utils";
 
 
 class FormCreatePlant extends Component {
-
   state = {
     name: "",
     description: "",
     image:null,
     enlightment: "",
     watering: "",
-    wateringinterval: "",
     growingperiod: "",
-    isWatered: true,
-    waterDate: "",
     httpResponse: null,
     error: null,
   };
@@ -41,16 +37,18 @@ class FormCreatePlant extends Component {
     // Function implemented by user "Vladi Vlad" @stackoverflow : ) => https://stackoverflow.com/a/42241875/13374041
 
     apiHandler
-    .createPlant(fd)
+    .createDbPlant(fd)
     .then((data) => {
         this.props.addItem(data);
       this.setState({
         name: "",
         description: "",
-        enlightment:"",
+        enlightment: "",
         watering:"",
-        wateringinterval: 0,
-        growingperiod: "",
+        waterdays: 0,
+        mintemp: 0,
+        maxtemp:0,
+        growingperiod:"",
         image: null,
         httpResponse: {
           status: "success",
@@ -113,6 +111,7 @@ class FormCreatePlant extends Component {
             ></textarea>
           </div>
 
+
           <div className="form-group">
             <label className="label" htmlFor="enlightment">
               enlightment
@@ -141,18 +140,50 @@ class FormCreatePlant extends Component {
           </div>
 
           <div className="form-group">
-            <label className="label" htmlFor="wateringinterval">
+            <label className="label" htmlFor="waterdays">
               Watering interval
             </label>
             <input
-              id="wateringinterval"
-              name="wateringinterval"
+              id="waterdays"
+              name="waterdays"
               
               type="number"
               onChange={this.handleChange}
-              value={this.state.wateringinterval}
+              value={this.state.waterdays}
             />
           </div>
+
+          <div className="form-group">
+            <label className="label" htmlFor="mintemp">
+              Minimum temp
+            </label>
+            <input
+              id="mintemp"
+              name="mintemp"
+              
+              type="number"
+              onChange={this.handleChange}
+              value={this.state.mintemp}
+            />
+          </div>
+
+
+          <div className="form-group">
+            <label className="label" htmlFor="mintemp">
+              Maximum temp
+            </label>
+            <input
+              id="maxtemp"
+              name="maxtemp"
+              
+              type="number"
+              onChange={this.handleChange}
+              value={this.state.maxtemp}
+            />
+          </div>
+
+          
+
 
           <div>
             <input type="file"  name="image" onChange={this.handleChange} value={this.props.image}>

@@ -58,6 +58,13 @@ export default {
       .catch(errorHandler);
   },
 
+  createDbPlant(plantInfo) {
+    return service
+      .post("/api/dbplants", plantInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   deleteItem(itemId) {
     return service
       .delete("/api/plants/" + itemId)
@@ -73,6 +80,8 @@ export default {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+
 
 
 };

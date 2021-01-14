@@ -9,7 +9,9 @@ import Greenclinic from "./pages/Greenclinic"
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Wall from "./pages/Wall"
-import Map from "./pages/Exchangemap"
+import Map from "./pages/Exchangemap";
+import FormEditPlant from "./components/Forms/FormEditPlant";
+import DbFormPlant from "./pages/DbFormPlant"
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
         <ProtectedRoute exact path="/profile" component={Profile} />
         <ProtectedRoute exact path="/greenclinic" component={Greenclinic} />
         <ProtectedRoute exact path="/map" component={Map} />
+        <ProtectedRoute exact path="/plant/edit/:id" component={FormEditPlant} />
+        <Route exact path="/dbplantcreate" component={DbFormPlant} />
+
       </Switch>
     </div>
   );

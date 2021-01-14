@@ -33,6 +33,9 @@ const NavMain = (props) => {
             <li>
               <NavLink to="/greenclinic">Green Clinic</NavLink>
             </li>
+            <li>
+              <NavLink to="/wall">Wall</NavLink>
+            </li>
 
             <li>
               <NavLink to="/map">Map</NavLink>
