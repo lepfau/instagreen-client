@@ -37,8 +37,7 @@ class FormCreatePlant extends Component {
 
     const fd = new FormData();
     const { httpResponse, ...data } = this.state;
-    buildFormData(fd, data); // You can find this function in ./src/utils.js
-    // Function implemented by user "Vladi Vlad" @stackoverflow : ) => https://stackoverflow.com/a/42241875/13374041
+    buildFormData(fd, data);  
 
     apiHandler
     .createPlant(fd)

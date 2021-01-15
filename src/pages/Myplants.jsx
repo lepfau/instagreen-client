@@ -80,7 +80,7 @@ class Myplants extends Component {
     });
   };
 
-  
+ 
  
   render() {
     return (
@@ -91,7 +91,7 @@ class Myplants extends Component {
         <div className="plantcards">
           {this.state.plants.map((plant) => {
             return (
-            <div>
+            
               <div className="plantcard"  key={plant._id}>
                 
                 <p className="plantcardname">{plant.name}</p>
@@ -125,7 +125,7 @@ class Myplants extends Component {
                   Give me water !
                 </button>
               </div>
-              </div>
+              
             );
           })}
         </div>

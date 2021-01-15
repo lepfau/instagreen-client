@@ -81,7 +81,26 @@ export default {
       .catch(errorHandler);
   },
 
+  getWall() {
+    return service
+      .get("/api/wall")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 
+  createWall(wallInfo) {
+    return service
+      .post("/api/wall", wallInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 
+  editWall(itemId, itemInfo) {
+    return service
+      .patch("/api/wall/" + itemId, itemInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+
+  }
 
 };

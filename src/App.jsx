@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/wall" component={Wall} />
+        <ProtectedRoute exact path="/wall" component={Wall} />
         <ProtectedRoute exact path="/myplants" component={Myplants}/>
         <ProtectedRoute exact path="/profile" component={Profile} />
         <ProtectedRoute exact path="/greenclinic" component={Greenclinic} />
