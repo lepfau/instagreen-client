@@ -10,6 +10,7 @@ import "./styles/homepage.css";
 import "./styles/login.css";
 import "./styles/signup.css";
 import "./styles/myplants.css";
+import "./styles/wall.css"
 
 ReactDOM.render(
   <BrowserRouter>

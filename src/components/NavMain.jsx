@@ -52,12 +52,8 @@ const NavMain = (props) => {
         )}
         {!context.isLoggedIn && (
           <React.Fragment>
-            <li>
-              <NavLink to="/wall">Wall</NavLink>
-            </li>
-            <li>
-              <NavLink to="/signin">Log in</NavLink>
-            </li>
+        
+            
             <li>
               <NavLink to="/signup">Create account</NavLink>
             </li>

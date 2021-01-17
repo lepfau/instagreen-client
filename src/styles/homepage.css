@@ -33,31 +33,6 @@
   font-family: Roboto;
   font-weight: 300;
   text-shadow: 16px 16px 32px black;
-  margin-top: 40px;
+  margin-top: 150px;
   padding-top: 20px;
-}
-
-.containertext {
-  font-size: 1.5em;
-  font-weight: 100;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.homecontainer h3 {
-  font-size: 2.2em;
-  text-align: center;
-  line-height: 1em;
-}
-
-.homeinfos {
-  display: flex;
-  margin: 0px 50px;
-  justify-content: space-evenly;
-}
-
-.homecontainer {
-  margin: 20px 110px;
-  padding-bottom: 50px;
 }

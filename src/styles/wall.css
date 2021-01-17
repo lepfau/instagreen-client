@@ -1,0 +1,25 @@
+.wallpostcontainer {
+  border: 1px solid black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  width: 90%;
+  padding-left: 25px;
+}
+
+.wallpostuser {
+  align-self: flex-start;
+}
+
+.wallPost {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+}

@@ -26,7 +26,7 @@ class FormSignin extends Component {
       .signin(this.state)
       .then((data) => {
         this.context.setUser(data);
-        this.props.history.push("/");
+        this.props.history.push("/wall");
       })
       .catch((error) => {
         console.log(error);
@@ -40,13 +40,20 @@ class FormSignin extends Component {
     }
 
     return (
+      <div className="signinParent">
+
       <form onChange={this.handleChange} onSubmit={this.handleSubmit} className="signinform">
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <button>Submit</button>
+
+        <label className="signinform_label" htmlFor="email">email</label>
+        <input type="email" id="email" name="email" className="signinform_input"/>
+
+        <label className="signinform_label" htmlFor="password">password</label>
+        <input type="password" id="password" name="password" className="signinform_input" />
+
+        <button className="signinform_button">Log In</button>
+
       </form>
+      </div>
     );
   }
 }

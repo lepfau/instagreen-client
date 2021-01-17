@@ -3,13 +3,11 @@ import apiHandler from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
 import { buildFormData } from "../../utils";
 
-
 class FormCreatePlant extends Component {
-
   state = {
     name: "",
     description: "",
-    image:null,
+    image: null,
     enlightment: "",
     watering: "",
     wateringinterval: "",
@@ -20,7 +18,6 @@ class FormCreatePlant extends Component {
     error: null,
   };
 
-
   handleChange = (event) => {
     const key = event.target.name;
     const value =
@@ -30,58 +27,53 @@ class FormCreatePlant extends Component {
     this.setState({ [key]: value });
   };
 
-
-
   handleSubmit = (event) => {
     event.preventDefault();
 
     const fd = new FormData();
     const { httpResponse, ...data } = this.state;
-    buildFormData(fd, data);  
+    buildFormData(fd, data);
 
     apiHandler
-    .createPlant(fd)
-    .then((data) => {
+      .createPlant(fd)
+      .then((data) => {
         this.props.addItem(data);
-      this.setState({
-        name: "",
-        description: "",
-        enlightment:"",
-        watering:"",
-        wateringinterval: 0,
-        growingperiod: "",
-        image: null,
-        httpResponse: {
-          status: "success",
-          message: "Item successfully added.",
-        },
-        
-
+        this.setState({
+          name: "",
+          description: "",
+          enlightment: "",
+          watering: "",
+          wateringinterval: 0,
+          growingperiod: "",
+          image: null,
+          httpResponse: {
+            status: "success",
+            message: "Item successfully added.",
+          },
+        });
+        this.timeoutId = setTimeout(() => {
+          this.setState({ httpResponse: null });
+        }, 1000);
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({
+          httpResponse: {
+            status: "failure",
+            message: "An error occured, try again later.",
+          },
+        });
+        this.timeoutId = setTimeout(() => {
+          this.setState({ httpResponse: null });
+        }, 1000);
       });
-      this.timeoutId = setTimeout(() => {
-        this.setState({ httpResponse: null });
-      }, 1000);
-    })
-    .catch((error) => {
-        console.log(error)
-      this.setState({
-        httpResponse: {
-          status: "failure",
-          message: "An error occured, try again later.",
-        },
-      });
-      this.timeoutId = setTimeout(() => {
-        this.setState({ httpResponse: null });
-      }, 1000);
-    });
-};
-
+  };
 
   render() {
     return (
-      <div className="ItemForm-container">
-        <form className="form" onSubmit={this.handleSubmit}>
-          <h2 className="title">Add a new Plant</h2>
+      <div className="PlantFormContainer">
+        <form className="PlantForm" onSubmit={this.handleSubmit}>
+          <h2 className="PlantForm__title">Add a new plant</h2>
 
           <div className="form-group">
             <label className="label" htmlFor="name">
@@ -97,45 +89,36 @@ class FormCreatePlant extends Component {
             />
           </div>
 
-
-          <div className="form-group">
-            <label className="label" htmlFor="description">
-              Description
-            </label>
-            <textarea
-              id="description"
-              name="description"
-              className="text-area"
-              placeholder="Tell us something about this plant"
-              onChange={this.handleChange}
-              value={this.state.description}
-            ></textarea>
-          </div>
-
           <div className="form-group">
             <label className="label" htmlFor="enlightment">
-              enlightment
+              Enlightment
             </label>
-          <select name="enlightment" onChange={this.handleChange}
-              value={this.state.enlightment}>
-          <option value="">--Please choose an option--</option>
-    <option value="Direct sun">Direct sun</option>
-    <option value="Bright light">Bright light</option>
-    <option value="Filtered light">Filtered light</option>
-    <option value="Shade">Shade</option>
-          </select>
+            <select
+              name="enlightment"
+              onChange={this.handleChange}
+              value={this.state.enlightment}
+            >
+              <option value="">--Please choose an option--</option>
+              <option value="Direct sun">Direct sun</option>
+              <option value="Bright light">Bright light</option>
+              <option value="Filtered light">Filtered light</option>
+              <option value="Shade">Shade</option>
+            </select>
           </div>
 
           <div className="form-group">
             <label className="label" htmlFor="watering">
-              watering
+              Watering level
             </label>
-          <select name="watering" onChange={this.handleChange}
-              value={this.state.watering}>
-          <option value="">--Please choose an option--</option>
-    <option value="Heavy">Heavy</option>
-    <option value="Medium">Medium</option>
-    <option value="Low">Low</option>
+            <select
+              name="watering"
+              onChange={this.handleChange}
+              value={this.state.watering}
+            >
+              <option value="">--Please choose an option--</option>
+              <option value="Heavy">Heavy</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
             </select>
           </div>
 
@@ -146,7 +129,6 @@ class FormCreatePlant extends Component {
             <input
               id="wateringinterval"
               name="wateringinterval"
-              
               type="number"
               onChange={this.handleChange}
               value={this.state.wateringinterval}
@@ -154,8 +136,12 @@ class FormCreatePlant extends Component {
           </div>
 
           <div>
-            <input type="file"  name="image" onChange={this.handleChange} value={this.props.image}>
-            </input>
+            <input
+              type="file"
+              name="image"
+              onChange={this.handleChange}
+              value={this.props.image}
+            ></input>
           </div>
 
           <button className="btn-submit">Add Item</button>

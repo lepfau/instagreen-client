@@ -18,16 +18,3 @@ a {
 ul {
   list-style-type: none;
 }
-
-.homePage {
-  background: url("/images/bgplants.jpg");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  color: red;
-}

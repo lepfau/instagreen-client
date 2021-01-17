@@ -101,6 +101,15 @@ export default {
       .then((res) => res.data)
       .catch(errorHandler);
 
+  },
+
+  deleteWall(itemId) {
+    return service
+      .delete("/api/wall/" + itemId)
+      .then(() => {
+        console.log("successfully deleted");
+      })
+      .catch(errorHandler);
   }
 
 };

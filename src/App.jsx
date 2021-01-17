@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <NavMain />
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Signin} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/wall" component={Wall} />
