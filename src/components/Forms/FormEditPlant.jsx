@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
 import { buildFormData } from "../../utils";
+import UploadWidget from "../UploadWidget";
 
 require("dotenv").config();
 // import mapboxgl from "mapbox-gl";
@@ -11,8 +12,8 @@ class FormEditPlant extends Component {
 
   state = {
     name: "",
+    image:"",
     description: "",
-    image:null,
     enlightment: "",
     watering: "",
     wateringinterval: "",
@@ -35,7 +36,7 @@ class FormEditPlant extends Component {
         this.setState({
           name: plantToEdit[0].name,
           description: plantToEdit[0].description,
-          image: plantToEdit[0].image,
+         
           id: plantToEdit[0]._id,
         });
       })
@@ -108,8 +109,9 @@ class FormEditPlant extends Component {
           </div>
 
           <div>
-          <input type="file"  name="image" onChange={this.handleChange} value={this.props.image}>
-            </input>
+          <UploadWidget onFileSelect={this.handleFileSelect} name="image">
+              Upload image
+            </UploadWidget>
           </div>
 
           <button className="btn-submit">Save Changes</button>

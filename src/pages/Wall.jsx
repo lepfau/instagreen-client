@@ -54,7 +54,6 @@ class Wall extends Component {
 
   displayUserPost = (post) => {
 
-
 if (this.props.context.user.email === post.id_user.email) {
   return (
     <h3 className="wallpostuser">

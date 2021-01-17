@@ -3,19 +3,23 @@ import { withRouter } from "react-router-dom";
 import { UserContext } from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
 import { Redirect } from "react-router-dom";
+import { buildFormData } from "../../utils";
 
 class FormSignup extends Component {
   static contextType = UserContext;
 
   state = {
     email: "",
+    image: null,
     password: "",
     firstName: "",
     lastName: "",
   };
 
   handleChange = (event) => {
-    const value = event.target.value;
+    const value =
+    event.target.type === "file" ? event.target.files[0] : event.target.value;
+    
     const key = event.target.name;
 
     this.setState({ [key]: value });
@@ -24,8 +28,15 @@ class FormSignup extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
+
+    const fd = new FormData();
+    const { httpResponse, ...data } = this.state;
+    buildFormData(fd, data);
+
+
+
     apiHandler
-      .signup(this.state)
+      .signup(fd)
       .then((data) => {
         this.context.setUser(data);
       })
@@ -74,6 +85,15 @@ class FormSignup extends Component {
           id="password"
           name="password"
         />
+ <div>
+            <input
+              type="file"
+              name="profileImg"
+              onChange={this.handleChange}
+              value={this.props.image}
+            ></input>
+          </div>
+        
         <button> Register </button>
       </form>
       </div>
