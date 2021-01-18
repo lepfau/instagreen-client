@@ -133,7 +133,14 @@ export default {
       .post("/api/comment", postId)
       .then((res) => res.data)
       .catch(errorHandler);
-  }
+  },
 
-
+  deleteComment(itemId) {
+    return service
+      .delete("/api/comment/" + itemId)
+      .then(() => {
+        console.log("successfully deleted");
+      })
+      .catch(errorHandler);
+  },
 };

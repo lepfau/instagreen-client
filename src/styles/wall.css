@@ -27,3 +27,9 @@
 .ppcomment {
   height: 35px;
 }
+
+.usercommenting {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}

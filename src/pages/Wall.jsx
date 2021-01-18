@@ -39,6 +39,16 @@ class Wall extends Component {
 
   }
 
+  deleteComment = (commentId) => {
+    apiHandler.deleteComment(commentId).then(() => {
+      this.setState({
+        comments: this.state.wall.filter((it) => it._id == commentId),
+      });
+    });
+  };
+
+
+  
   addItem = (plant) => {
     apiHandler
     .getWall()
@@ -71,9 +81,7 @@ class Wall extends Component {
 
  }
 
- updateComments = (comment) => {
 
- }
 
   displayUserPost = (post) => {
 
@@ -108,13 +116,17 @@ displayUserPostButtons = (post) => {
   }
 }
 
+
+
 deleteItem = (itemId) => {
   apiHandler.deleteWall(itemId).then(() => {
     this.setState({
       wall: this.state.wall.filter((it) => it._id !== itemId),
     });
-  });
+  })
+  
 };
+
 
   render() {
     return (
@@ -132,19 +144,8 @@ deleteItem = (itemId) => {
 {this.displayUserPostButtons(post)}
                 <img className="wallpic" src={post.image} />
 
-                {/* <h5>Comments</h5> */}
-
-                {/* {post.comments.map((comment) => {
-                  return (
-                  
-                <div key={comment._id}>
-                  <p> {comment}</p>
-                  </div>)
-                })}
-                
-                <FormComment usercommenting={post.id_user} postId={post._id} showComments={this.showComments} /> */}
              <FormComment addCommentUpdate={this.addCommentUpdate} postId={post._id}/>
-             <Comments key={this.state.comments._id} postId={post._id} userCommenting={this.props.context.user.firstName}/>
+             <Comments key={this.state.comments._id} postId={post._id} userCommenting={this.props.context.user.firstName} deleteComment={this.deleteComment} userEmail={this.props.context.user.email} />
            
               <h4>{post.created_at.slice(0,10)}</h4>
               </div>
