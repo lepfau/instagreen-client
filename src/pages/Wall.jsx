@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FormCreateWall from "../components/Forms/FormCreateWall";
 import FormComment from "../components/Forms/FormComment";
+import Comments from "../components/Comments"
 import apiHandler from "../api/apiHandler";
 import { Link } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
@@ -35,22 +36,44 @@ class Wall extends Component {
       .catch((error) => {
         console.log(error);
       });
+
   }
 
   addItem = (plant) => {
+    apiHandler
+    .getWall()
+    .then((apiResp) => {
+      console.log(apiResp);
+      this.sortByKey(apiResp, "created_at");
+
+      this.setState({
+        wall: apiResp,
+        currentUser: this.props.context.user.firstName,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
     this.setState({
       wall: [plant, ...this.state.wall],
     });
   };
 
-  showComments = () => {
-    apiHandler.getWall().then((apiResp) => {
-      this.sortByKey(apiResp, "created_at");
+ addCommentUpdate = (comment) => {
+  apiHandler.getComment()
+  .then((apiResp) => {
+      console.log(apiResp)
+      const commentsPost = apiResp.filter((comm) => comm.id_wall["_id"] === this.state.wall.postId_id )
       this.setState({
-        wall: apiResp,
-      });
-    });
-  };
+          comments: comment
+      })
+  })
+
+ }
+
+ updateComments = (comment) => {
+
+ }
 
   displayUserPost = (post) => {
 
@@ -62,6 +85,7 @@ if (this.props.context.user.email === post.id_user.email) {
   </h3>)
 } else {
     return (
+      
       <h3 className="wallpostuser">
                   <img className="ppwall" src={post.id_user["profileImg"]} />
                   {post.id_user["firstName"]} {post.id_user["lastName"]}
@@ -108,13 +132,23 @@ deleteItem = (itemId) => {
 {this.displayUserPostButtons(post)}
                 <img className="wallpic" src={post.image} />
 
-                <h5>Comments</h5>
+                {/* <h5>Comments</h5> */}
 
-                {post.comments["comment"].map((comment) => {
-                  return <p> {comment}</p>;
+                {/* {post.comments.map((comment) => {
+                  return (
+                  
+                <div key={comment._id}>
+                  <p> {comment}</p>
+                  </div>)
                 })}
-                <FormComment usercommenting={post.id_user} postId={post._id} />
+                
+                <FormComment usercommenting={post.id_user} postId={post._id} showComments={this.showComments} /> */}
+             <FormComment addCommentUpdate={this.addCommentUpdate} postId={post._id}/>
+             <Comments key={this.state.comments._id} postId={post._id} userCommenting={this.props.context.user.firstName}/>
+           
+              <h4>{post.created_at.slice(0,10)}</h4>
               </div>
+
             );
           })}
         </div>

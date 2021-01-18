@@ -80,6 +80,12 @@ export default {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+  editItem(itemId, itemInfo) {
+    return service
+      .patch("/api/plants/" + itemId, itemInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 
   getWall() {
     return service
@@ -103,6 +109,7 @@ export default {
 
   },
 
+
   deleteWall(itemId) {
     return service
       .delete("/api/wall/" + itemId)
@@ -110,6 +117,23 @@ export default {
         console.log("successfully deleted");
       })
       .catch(errorHandler);
+  },
+
+
+  getComment() {
+    return service
+      .get("/api/comment")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+
+  addComment(postId) {
+    return service
+      .post("/api/comment", postId)
+      .then((res) => res.data)
+      .catch(errorHandler);
   }
+
 
 };

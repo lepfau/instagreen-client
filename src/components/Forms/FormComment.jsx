@@ -1,35 +1,36 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
+import { buildFormData } from "../../utils";
 
 class FormComment extends Component {
   state = {
-    comments: [],
-    userCommenting: ""
+    text: "",
+    id_wall: this.props.postId
   };
 
   handleChange = (event) => {
     const key = event.target.name;
-    const value =
-      event.target.type === "file" ? event.target.files[0] : event.target.value;
+    const value = event.target.value;
 
-    console.log(key, value);
-    this.setState({ [key]: value });
+    console.log("--------" + key, value);
+
+    this.setState({ text: value });
+    console.log(this.state);
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const commentData = this.state.comments;
-
-    apiHandler
-      .editWall(this.props.postId, { $push: { 
-        comments: commentData } })
-      .then((data) => {
-        console.log(data);
- 
-      });
-
+    const commentData = this.state;
+    apiHandler.addComment(commentData)
+    .then((data) => {
+      this.props.addCommentUpdate(data);
+      this.setState({
+        text: ""
+      })
+    })
+    console.log("wowowow")
   };
 
   render() {
@@ -42,7 +43,8 @@ class FormComment extends Component {
             type="text"
             placeholder="Comment this"
             id="comment"
-            name="comments"
+            name="text"
+            value={this.state.text}
           ></input>
           <button>Post comment!</button>
         </form>
