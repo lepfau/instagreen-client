@@ -11,6 +11,7 @@ class Wall extends Component {
   state = {
     wall: [],
     comments: [],
+    showForm: false
   };
 
   sortByKey(array, key) {
@@ -20,6 +21,20 @@ class Wall extends Component {
       return x < y ? 1 : x > y ? -1 : 0;
     });
   }
+
+  showForm = () => {
+    if (this.state.showForm === false) {
+      this.setState({ showForm: true})
+    } else {
+      this.setState({ showForm: false})
+    }
+      }
+
+      renderForm () {
+        return (
+          <FormCreateWall addItem={this.addItem} />
+        )
+      }
 
   componentDidMount() {
     apiHandler
@@ -48,8 +63,7 @@ class Wall extends Component {
   };
 
 
-  
-  addItem = (plant) => {
+    addItem = (plant) => {
     apiHandler
     .getWall()
     .then((apiResp) => {
@@ -59,6 +73,7 @@ class Wall extends Component {
       this.setState({
         wall: apiResp,
         currentUser: this.props.context.user.firstName,
+        showForm: false
       });
     })
     .catch((error) => {
@@ -111,7 +126,9 @@ displayUserPostButtons = (post) => {
                 >
                   Delete
                 </button>
-      <button>Edit</button>
+                <button>
+                  <Link to={`/wall/edit/${post._id}`}>Edit</Link>
+                </button>
     </div>)
   }
 }
@@ -129,11 +146,14 @@ deleteItem = (itemId) => {
 
 
   render() {
+
+    const { showForm } = this.state;
     return (
       <div>
-        <FormCreateWall addItem={this.addItem} />
-
-        <h1> Plants Wall</h1>
+        {/* <FormCreateWall addItem={this.addItem} /> */}
+        <button onClick={() => this.showForm()}>Add a new post !</button>
+        {showForm && this.renderForm()}
+        <h1 className="myplantstitle"> Plants Wall</h1>
         <div className="wallPost">
           {this.state.wall.map((post) => {
             return (

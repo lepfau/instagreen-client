@@ -1,6 +1,6 @@
 .NavMain {
-  background-color: transparent;
-  color: rgb(57, 57, 57);
+  background-color: darkgreen;
+  color: white;
   display: flex;
   align-items: center;
   padding: 20px;

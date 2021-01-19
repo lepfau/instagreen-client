@@ -30,9 +30,7 @@ const NavMain = (props) => {
             <li>
               <NavLink to="/myplants">My Plants</NavLink>
             </li>
-            <li>
-              <NavLink to="/greenclinic">Green Clinic</NavLink>
-            </li>
+      
             <li>
               <NavLink to="/wall">Wall</NavLink>
             </li>

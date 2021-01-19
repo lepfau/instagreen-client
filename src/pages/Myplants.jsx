@@ -9,7 +9,20 @@ class Myplants extends Component {
   state = {
     plants: [],
     date: "",
+    showForm: false,
   };
+
+  showForm = () => {
+    if (this.state.showForm === false) {
+      this.setState({ showForm: true });
+    } else {
+      this.setState({ showForm: false });
+    }
+  };
+
+  renderForm() {
+    return <FormCreatePlant addItem={this.addItem} />;
+  }
 
   //AFFICHER PLANTES SUR LA PAGE DEPUIS LA DB
   componentDidMount() {
@@ -30,7 +43,7 @@ class Myplants extends Component {
   }
 
   addItem = (plant) => {
-    this.setState({ plants: [...this.state.plants, plant] });
+    this.setState({ plants: [...this.state.plants, plant], showForm: false });
   };
 
   deleteItem = (itemId) => {
@@ -80,52 +93,60 @@ class Myplants extends Component {
     });
   };
 
- 
- 
   render() {
+    const { showForm } = this.state;
     return (
-      <div>
+      <div className="myplantspage">
         {" "}
-        <FormCreatePlant addItem={this.addItem} />
-        <h1>My plants</h1>
+        {/* <FormCreatePlant addItem={this.addItem} /> */}
+        <h1 className="myplantstitle">My plants</h1>
+        <button className="addplantbtn" onClick={() => this.showForm()}>
+          Add a new plant
+        </button>
+        {showForm && this.renderForm()}
         <div className="plantcards">
           {this.state.plants.map((plant) => {
             return (
-            
-              <div className="plantcard"  key={plant._id}>
-                
-                <p className="plantcardname">{plant.name}</p>
-                <img className="plantcardimage" src={plant.image} />
-                <p className="plantcardinfo">
-                  Enlightment: {plant.enlightment}
-                </p>
-                <p className="plantcardinfo">Watering: {plant.watering}</p>
-                <p className="plantcardinfo">
-                  Water interval: {plant.wateringinterval} days
-                </p>
+              <div className="plantcard" key={plant._id}>
+                <div className="plantcardtop">
+                  <p className="plantcardname">{plant.name}</p>
+                  <div className="plantcardtopbtn">
+                    
 
-               <p className="plantcardinfo">
-                  Last watering: {plant.waterDate}{" "}
+                    <Link to={`/plant/edit/${plant._id}`}>
+                      <i class="fas fa-edit"></i>
+                    </Link>
+                    <i
+                      onClick={() => {
+                        this.deleteItem(plant._id);
+                      }}
+                      class="fas fa-trash-alt"
+                    ></i>
+                  </div>
+                </div>
+
+                <img className="plantcardimage" src={plant.image} />
+                <div className="plantcardallinfo">
+                <p className="plantcardinfo">
+                 <b>Enlightment</b>: {plant.enlightment}
                 </p>
-                <button
-                  onClick={() => {
-                    this.deleteItem(plant._id);
-                  }}
-                >
-                  Delete
-                </button>
-                <button>
-                  <Link to={`/plant/edit/${plant._id}`}>Edit</Link>
-                </button>
-                <button
+                <p className="plantcardinfo"><b>Watering: </b>{plant.watering}</p>
+                <p className="plantcardinfo">
+                <b> Water interval:</b> {plant.wateringinterval} days
+                </p>
+<br></br>
+                <p className="plantcardinfo">
+                <b> Last watering:</b> {plant.waterDate}{" "}
+                </p>
+</div>
+                <button className="givemewater"
                   onClick={() => {
                     this.waterDate(plant._id);
                   }}
                 >
-                  Give me water !
+                  Water me ! <i class="fas fa-hand-holding-water"></i>
                 </button>
               </div>
-              
             );
           })}
         </div>

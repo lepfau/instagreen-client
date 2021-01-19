@@ -18,13 +18,11 @@ componentDidMount() {
     apiHandler.getComment()
     .then((apiResp) => {
         console.log(apiResp)
-        const commentsPost = apiResp.filter((comm) => comm.id_wall === this.props.postId)
+        const commentsPost = apiResp.filter((comm) => comm.id_wall == this.props.postId)
         this.setState({
             comments: commentsPost
         })
     })
-
-
 }
 
 displayUserPostButtons = (comm) => {

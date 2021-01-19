@@ -80,9 +80,10 @@ export default {
       .then((res) => res.data)
       .catch(errorHandler);
   },
-  editItem(itemId, itemInfo) {
+
+  editWall(itemId, itemInfo) {
     return service
-      .patch("/api/plants/" + itemId, itemInfo)
+      .patch("/api/wall/" + itemId, itemInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },

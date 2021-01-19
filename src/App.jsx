@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import Wall from "./pages/Wall"
 import Map from "./pages/Exchangemap";
 import FormEditPlant from "./components/Forms/FormEditPlant";
+import FormEditWall from "./components/Forms/FormEditWall";
 import DbFormPlant from "./pages/DbFormPlant"
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <ProtectedRoute exact path="/greenclinic" component={Greenclinic} />
         <ProtectedRoute exact path="/map" component={Map} />
         <ProtectedRoute exact path="/plant/edit/:id" component={FormEditPlant} />
+        <ProtectedRoute exact path="/wall/edit/:id" component={FormEditWall} />
         <Route exact path="/dbplantcreate" component={DbFormPlant} />
 
       </Switch>

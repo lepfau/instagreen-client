@@ -73,16 +73,15 @@ class FormCreatePlant extends Component {
     return (
       <div className="PlantFormContainer">
         <form className="PlantForm" onSubmit={this.handleSubmit}>
-          <h2 className="PlantForm__title">Add a new plant</h2>
-
+         
           <div className="form-group">
-            <label className="label" htmlFor="name">
+            <label className="labelplant" htmlFor="name">
               Name
             </label>
             <input
               id="name"
               name="name"
-              className="input"
+              className="inputplant"
               type="text"
               onChange={this.handleChange}
               value={this.state.name}
@@ -90,15 +89,15 @@ class FormCreatePlant extends Component {
           </div>
 
           <div className="form-group">
-            <label className="label" htmlFor="enlightment">
+            <label className="labelplant" htmlFor="enlightment">
               Enlightment
             </label>
-            <select
+            <select className="selectplant"
               name="enlightment"
               onChange={this.handleChange}
               value={this.state.enlightment}
             >
-              <option value="">--Please choose an option--</option>
+              <option value="">Choose an option</option>
               <option value="Direct sun">Direct sun</option>
               <option value="Bright light">Bright light</option>
               <option value="Filtered light">Filtered light</option>
@@ -107,15 +106,15 @@ class FormCreatePlant extends Component {
           </div>
 
           <div className="form-group">
-            <label className="label" htmlFor="watering">
+            <label className="labelplant" htmlFor="watering">
               Watering level
             </label>
-            <select
+            <select className="selectplant"
               name="watering"
               onChange={this.handleChange}
               value={this.state.watering}
             >
-              <option value="">--Please choose an option--</option>
+              <option value="">Choose an option</option>
               <option value="Heavy">Heavy</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
@@ -123,10 +122,11 @@ class FormCreatePlant extends Component {
           </div>
 
           <div className="form-group">
-            <label className="label" htmlFor="wateringinterval">
-              Watering interval
+            <label className="labelplant" htmlFor="wateringinterval">
+              Water interval
             </label>
             <input
+            className="inputplant"
               id="wateringinterval"
               name="wateringinterval"
               type="number"
@@ -137,6 +137,7 @@ class FormCreatePlant extends Component {
 
           <div>
             <input
+            className="fileplant"
               type="file"
               name="image"
               onChange={this.handleChange}
@@ -144,7 +145,7 @@ class FormCreatePlant extends Component {
             ></input>
           </div>
 
-          <button className="btn-submit">Add Item</button>
+          <button className="btn-submit-plant">Add Plant</button>
         </form>
       </div>
     );
