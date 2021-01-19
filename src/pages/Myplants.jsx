@@ -120,7 +120,7 @@ class Myplants extends Component {
                       onClick={() => {
                         this.deleteItem(plant._id);
                       }}
-                      class="fas fa-trash-alt"
+                      class="fas fa-trash"
                     ></i>
                   </div>
                 </div>

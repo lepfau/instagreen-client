@@ -35,7 +35,8 @@ class FormComment extends Component {
 
   render() {
     return (
-      <div>
+      <div className="commentForm">
+     <div className="ppusercontainercomment "><img src={this.props.userpic} className="ppwall "/></div>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="comment"></label>
           <input
@@ -46,8 +47,9 @@ class FormComment extends Component {
             name="text"
             value={this.state.text}
           ></input>
-          <button>Post comment!</button>
+          <button class="commentsubbtn"><i class="fas fa-location-arrow"></i></button>
         </form>
+        
       </div>
     );
   }

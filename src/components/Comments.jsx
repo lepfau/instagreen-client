@@ -31,7 +31,7 @@ displayUserPostButtons = (comm) => {
       return (
       
       <div>
-   <button onClick={() => {this.props.deleteComment(comm._id)}}>delete</button>
+   <i class="fas fa-trash" onClick={() => {this.props.deleteComment(comm._id)}}></i>
        
       </div>)
     }
@@ -39,19 +39,30 @@ displayUserPostButtons = (comm) => {
 
     render() {
         return (
-            <div>
-                <h1>comments</h1>
+            <div class="completecomment">
+            
                 {this.state.comments.map((comment) => {
                     return (
-                      <div key={comment._id}>
+                      <div className="commentpart" key={comment._id}>
                         <div  className="usercommenting">
-                            <img className="ppcomment" src={comment.id_user["profileImg"]}/>
-                        <p>{comment.id_user["firstName"]} {comment.id_user["lastName"]} </p>
-                        <p>{comment.created_at.slice(0,10)} </p>
+                            <div className="ppusercontainercomment">
+                            <img className="ppwall" src={comment.id_user["profileImg"]}/>
+                            </div>
+                         </div> 
+                         <div className="commentinside">  
+                         <div className="commetuser">
+                        <p className="commentuserinfo"><b>{comment.id_user["firstName"]} {comment.id_user["lastName"]}</b> </p>
+                        <p className="commenttext">{comment.text}</p>
+                        <p className="commentuserinfo">{comment.created_at.slice(0,10)} </p>
                         </div>
-                        <p>{comment.text}</p>
-                        {/* <button onClick={() => this.props.deleteComment(comment._id)}>delete</button> */}
-                    {this.displayUserPostButtons(comment)}
+                        <div className="commentbtndelete">
+                        {this.displayUserPostButtons(comment)}
+                        </div>
+                        </div>
+                       
+                        
+                        
+                   
                     </div>
                     
                     )
