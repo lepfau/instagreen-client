@@ -27,6 +27,7 @@ class OneUser extends Component {
       const userPlants = apiResp.filter(
         (userplant) => userplant.id_user === this.props.match.params.id
       );
+      
       this.setState({
         plant: userPlants,
       });
@@ -76,20 +77,24 @@ class OneUser extends Component {
   render() {
     return (
       <div>
-        <h1>one user</h1>
+  
         {this.state.user.map((user) => {
-          return <p>{user.firstName}</p>;
+            
+          return <h1>{user.firstName} profile page</h1>;
         })}
 
+<h1>User plants</h1>
         {this.state.plant.map((plant) => {
-          return (
-            <div>
+        return (
+            <div key={plant._id}>
               <p>{plant.name}</p>
               <img src={plant.image} />
             </div>
           );
         })}
 
+
+<h1>User Posts</h1>
         {this.state.wall.map((post) => {
           return (
             <div className="wallbody" key={post._id}>

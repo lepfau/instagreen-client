@@ -51,6 +51,16 @@ export default {
       .catch(errorHandler);
   },
 
+
+
+  searchUsers(str) {
+    return this.service.get("/api/user/search/api", {
+      params: {
+        search: str
+      }
+    })
+  },
+
   getPlants() {
     return service
       .get("/api/plants")
