@@ -44,6 +44,13 @@ export default {
       .catch(errorHandler);
   },
 
+  getUsers() {
+    return service
+      .get("/api/user")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   getPlants() {
     return service
       .get("/api/plants")

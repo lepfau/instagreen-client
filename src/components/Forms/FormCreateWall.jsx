@@ -75,18 +75,17 @@ class FormCreateWall extends Component {
 
   render() {
     return (
-      <div className="ItemForm-container">
+      <div className="wallForm">
         <form className="form" onSubmit={this.handleSubmit}>
-          <h2 className="title">Add a new picture to the wall</h2>
-
+      
           <div className="form-group">
-            <label className="label" htmlFor="title">
+            <label className="labelwall" htmlFor="title">
               Title
             </label>
             <input
               id="title"
               name="title"
-              className="input"
+              className="inputwall"
               type="text"
               onChange={this.handleChange}
               value={this.state.title}
@@ -95,27 +94,27 @@ class FormCreateWall extends Component {
 
 
           <div className="form-group">
-            <label className="label" htmlFor="description">
+            <label className="labelwall" htmlFor="description">
               Subtitle
             </label>
-            <textarea
+            <input
               id="subtitle"
               name="subtitle"
-              className="text-area"
+              className="inputwall"
               placeholder="Tell us something about this plant"
               onChange={this.handleChange}
               value={this.state.subtitle}
-            ></textarea>
+            ></input>
           </div>
 
 
 
                 <div>
-            <input type="file"  name="image" onChange={this.handleChange} value={this.props.picture}>
+            <input className="fileplant" type="file"  name="image" onChange={this.handleChange} value={this.props.picture}>
             </input>
           </div>
 
-          <button className="btn-submit">Post on the wall !</button>
+          <button className="btn-submit-plant">Post on the wall !</button>
         </form>
       </div>
     );

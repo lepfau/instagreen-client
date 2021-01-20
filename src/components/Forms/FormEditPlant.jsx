@@ -4,25 +4,16 @@ import { withRouter } from "react-router-dom";
 import { buildFormData } from "../../utils";
 import UploadWidget from "../UploadWidget";
 
+
 require("dotenv").config();
 // import mapboxgl from "mapbox-gl";
 // mapboxgl.accessToken = "MAPBOX_ACCESS_TOKEN";
 
 class FormEditPlant extends Component {
-
+ 
   state = {
-    name: "",
-    image:"",
-    description: "",
-    enlightment: "",
-    watering: "",
-    wateringinterval: "",
-    growingperiod: "",
-    isWatered: true,
-    waterDate: "",
     httpResponse: null,
-    error: null,
-     };
+      };
 
   formRef = React.createRef();
 
@@ -78,16 +69,16 @@ class FormEditPlant extends Component {
     return (
       <div className="ItemForm-container">
         <form className="form" onSubmit={this.handleSubmit}>
-          <h2 className="title">Edit this Plant</h2>
+          <h2 className="myplantstitle">Edit this Plant</h2>
 
           <div className="form-group">
-            <label className="label" htmlFor="name">
+            <label className="labelplant" htmlFor="name">
               Name
             </label>
             <input
               id="name"
               name="name"
-              className="input"
+              className="inputplant"
               type="text"
               onChange={this.handleChange}
               defaultValue={this.state.name}
@@ -95,26 +86,65 @@ class FormEditPlant extends Component {
           </div>
 
           <div className="form-group">
-            <label className="label" htmlFor="description">
-              Description
+            <label className="labelplant" htmlFor="enlightment">
+              Enlightment
             </label>
-            <textarea
-              id="description"
-              name="description"
-              className="text-area"
-              placeholder="Tell us something about this item"
+            <select className="selectplant"
+              name="enlightment"
               onChange={this.handleChange}
-              defaultValue={this.state.description}
-            ></textarea>
+              defaultValue={this.state.enlightment}
+            >
+              <option value="">Choose an option</option>
+              <option value="Direct sun">Direct sun</option>
+              <option value="Bright light">Bright light</option>
+              <option value="Filtered light">Filtered light</option>
+              <option value="Shade">Shade</option>
+            </select>
           </div>
+
+          <div className="form-group">
+            <label className="labelplant" htmlFor="watering">
+              Watering level
+            </label>
+            <select className="selectplant"
+              name="watering"
+              onChange={this.handleChange}
+              defaultvalue={this.state.watering}
+            >
+              <option value="">Choose an option</option>
+              <option value="Heavy">Heavy</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+
+
+          <div className="form-group">
+            <label className="labelplant" htmlFor="wateringinterval">
+              Water interval
+            </label>
+            <input
+            className="inputplant"
+              id="wateringinterval"
+              name="wateringinterval"
+              type="number"
+              onChange={this.handleChange}
+              value={this.state.wateringinterval}
+            />
+          </div>
+
 
           <div>
-          <UploadWidget onFileSelect={this.handleFileSelect} name="image">
-              Upload image
-            </UploadWidget>
+            <input
+            className="fileplant"
+              type="file"
+              name="image"
+              onChange={this.handleFileSelect}
+          
+            ></input>
           </div>
 
-          <button className="btn-submit">Save Changes</button>
+          <button className="btn-submit-plant">Save Changes</button>
         </form>
       </div>
     );

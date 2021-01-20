@@ -22,7 +22,7 @@ const NavMain = (props) => {
   return (
     <nav className="NavMain">
       <NavLink exact to="/">
-        <h3 className="logo">InstaGreen</h3>
+        <h3 className="logoApp">InstaGreen</h3>
       </NavLink>
       <ul className="nav-list">
         {context.isLoggedIn && (
@@ -37,6 +37,9 @@ const NavMain = (props) => {
 
             <li>
               <NavLink to="/map">Map</NavLink>
+            </li>
+            <li>
+              <NavLink to="/users">Users</NavLink>
             </li>
             <li>
               <NavLink to="/profile">

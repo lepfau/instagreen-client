@@ -8,11 +8,9 @@ import UploadWidget from "../UploadWidget";
 class FormEditWall extends Component {
 
     state = {
-    title: "",
-    subtitle:"",
-   image: "",
+      title: "",
+      subtitle: "",
       httpResponse: null,
-      error: null,
        };
   
     formRef = React.createRef();
@@ -21,9 +19,12 @@ class FormEditWall extends Component {
       apiHandler
         .getWall()
         .then((apiResp) => {
+          console.log(apiResp)
           const postToEdit = apiResp.filter(
             (post) => post._id === this.props.match.params.id
+            
           );
+          console.log(postToEdit)
           this.setState({
             title: postToEdit[0].title,
             subtitle: postToEdit[0].subtitle,
@@ -52,7 +53,7 @@ class FormEditWall extends Component {
       buildFormData(fd, data);
   
       apiHandler
-        .editItem(this.state.id, fd)
+        .editWall(this.state.id, fd)
         .then((data) => {
           this.props.history.push("/wall");
         })
@@ -69,34 +70,36 @@ class FormEditWall extends Component {
       return (
         <div className="ItemForm-container">
           <form className="form" onSubmit={this.handleSubmit}>
-            <h2 className="title">Edit this Post</h2>
+            <h2 className="myplantstitle">Edit this Post</h2>
   
             <div className="form-group">
-              <label className="label" htmlFor="name">
+              <label className="labelplant" htmlFor="name">
                 Title
               </label>
               <input
                 id="title"
                 name="title"
-                className="input"
+                className="inputplant"
+                placeholder="Post title"
                 type="text"
                 onChange={this.handleChange}
-                defaultValue={this.state.name}
+                defaultValue={this.state.title}
               />
             </div>
   
             <div className="form-group">
-              <label className="label" htmlFor="description">
+              <label className="labelplant" htmlFor="description">
                 Subtitle
               </label>
-              <textarea
+              <input
                 id="subtitle"
                 name="subtitle"
-                className="text-area"
-                placeholder="Tell us something about this picture"
+                type="text"
+                className="inputplant"
+                placeholder="About this picture"
                 onChange={this.handleChange}
-                defaultValue={this.state.description}
-              ></textarea>
+                defaultValue={this.state.subtitle}
+              ></input>
             </div>
   
             <div>

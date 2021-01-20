@@ -13,6 +13,8 @@ import Map from "./pages/Exchangemap";
 import FormEditPlant from "./components/Forms/FormEditPlant";
 import FormEditWall from "./components/Forms/FormEditWall";
 import DbFormPlant from "./pages/DbFormPlant"
+import Users from "./pages/Users"
+import OneUser from "./pages/OneUser"
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <ProtectedRoute exact path="/plant/edit/:id" component={FormEditPlant} />
         <ProtectedRoute exact path="/wall/edit/:id" component={FormEditWall} />
         <Route exact path="/dbplantcreate" component={DbFormPlant} />
+        <ProtectedRoute exact path="/users" component={Users} />
+        <ProtectedRoute exact path="/users/:id" component={OneUser} />
 
       </Switch>
     </div>

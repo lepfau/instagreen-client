@@ -104,7 +104,7 @@ class Wall extends Component {
              </div>
 
             <div className="posttopuserinfo">
-           <p> <b>Me</b> </p>
+           <p><Link to={"/profile"}> <b>Me</b> </Link> </p>
           
           <div className="postdate">{post.created_at.slice(0, 10)}  </div>
           </div>
@@ -124,13 +124,13 @@ class Wall extends Component {
            </div>
 
           <div className="posttopuserinfo">
-         <p><b>{post.id_user["firstName"]} {post.id_user["lastName"]}</b></p>
+         <p><Link to={`/users/${post.id_user._id}`}><b>{post.id_user["firstName"]} {post.id_user["lastName"]}</b></Link></p>
         
         <div className="postdate">{post.created_at.slice(0, 10)}  </div>
         </div>
         </div>
       </div>
-     
+
       );
     }
   };
@@ -166,11 +166,12 @@ class Wall extends Component {
   render() {
     const { showForm } = this.state;
     return (
-      <div>
+      <div className="fullbodywall">
         {/* <FormCreateWall addItem={this.addItem} /> */}
-        <button onClick={() => this.showForm()}>Add a new post !</button>
-        {showForm && this.renderForm()}
+       
         <h1 className="myplantstitle"> Main Wall</h1>
+        <button className="btnaddwall" onClick={() => this.showForm()}>Add something to the wall..</button>
+        {showForm && this.renderForm()}
         <div className="wallPost">
           {this.state.wall.map((post) => {
             return (
@@ -186,6 +187,7 @@ class Wall extends Component {
 
                   <img className="wallpic" src={post.image} />
                   <h5 className="postsubtitle">{post.subtitle}</h5>
+                  <hr></hr>
                   <FormComment userpic={this.props.context.user.profileImg}
                     addCommentUpdate={this.addCommentUpdate}
                     postId={post._id}
