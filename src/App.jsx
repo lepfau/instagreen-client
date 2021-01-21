@@ -15,7 +15,7 @@ import FormEditWall from "./components/Forms/FormEditWall";
 import DbFormPlant from "./pages/DbFormPlant"
 import Users from "./pages/Users"
 import OneUser from "./pages/OneUser"
-
+import UserPage from "./pages/UserPage"
 function App() {
   return (
     <div className="App">
@@ -32,7 +32,7 @@ function App() {
         <ProtectedRoute exact path="/plant/edit/:id" component={FormEditPlant} />
         <ProtectedRoute exact path="/wall/edit/:id" component={FormEditWall} />
         <Route exact path="/dbplantcreate" component={DbFormPlant} />
-        <ProtectedRoute exact path="/users" component={Users} />
+        <ProtectedRoute exact path="/users" component={UserPage} />
         <ProtectedRoute exact path="/users/:id" component={OneUser} />
 
       </Switch>

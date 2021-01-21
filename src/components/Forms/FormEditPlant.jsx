@@ -68,7 +68,7 @@ class FormEditPlant extends Component {
   render() {
     return (
       <div className="ItemForm-container">
-        <form className="form" onSubmit={this.handleSubmit}>
+        <form className="formEditplant" onSubmit={this.handleSubmit}>
           <h2 className="myplantstitle">Edit this Plant</h2>
 
           <div className="form-group">
@@ -109,7 +109,7 @@ class FormEditPlant extends Component {
             <select className="selectplant"
               name="watering"
               onChange={this.handleChange}
-              defaultvalue={this.state.watering}
+              defaultValue={this.state.watering}
             >
               <option value="">Choose an option</option>
               <option value="Heavy">Heavy</option>
@@ -136,12 +136,14 @@ class FormEditPlant extends Component {
 
           <div>
             <input
-            className="fileplant"
+            className="inputfile"
               type="file"
               name="image"
               onChange={this.handleChange}
+              id="image"
           
             ></input>
+            <label for="image">Choose a file</label>
           </div>
 
           <button className="btn-submit-plant">Save Changes</button>

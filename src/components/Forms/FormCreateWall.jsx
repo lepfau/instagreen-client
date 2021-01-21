@@ -107,12 +107,18 @@ class FormCreateWall extends Component {
             ></input>
           </div>
 
-
-
-                <div>
-            <input className="fileplant" type="file"  name="image" onChange={this.handleChange} value={this.props.picture}>
-            </input>
+          <div>
+            <input
+            id="file"
+            className="inputfile"
+              type="file"
+              name="image"
+              onChange={this.handleChange}
+              value={this.props.picture}
+            ></input>
+            <label htmlFor="file">Choose a file</label>
           </div>
+
 
           <button className="btn-submit-plant">Post on the wall !</button>
         </form>

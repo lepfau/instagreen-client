@@ -137,12 +137,14 @@ class FormCreatePlant extends Component {
 
           <div>
             <input
-            className="fileplant"
+            id="file"
+            className="inputfile"
               type="file"
               name="image"
               onChange={this.handleChange}
               value={this.props.image}
             ></input>
+            <label for="file">Choose a file</label>
           </div>
 
           <button className="btn-submit-plant">Add Plant</button>

@@ -31,7 +31,7 @@ displayUserPostButtons = (comm) => {
       return (
       
       <div>
-   <i class="fas fa-trash" onClick={() => {this.props.deleteComment(comm._id)}}></i>
+   <i className="fas fa-trash" onClick={() => {this.props.deleteComment(comm._id)}}></i>
        
       </div>)
     }
@@ -39,7 +39,7 @@ displayUserPostButtons = (comm) => {
 
     render() {
         return (
-            <div class="completecomment">
+            <div className="completecomment">
             
                 {this.state.comments.map((comment) => {
                     return (

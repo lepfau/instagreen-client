@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
 import { Link } from "react-router-dom";
 
-export default class Users extends Component {
+export default class UserPage extends Component {
   state = {
     users: [],
     plants: [],
@@ -55,18 +55,18 @@ export default class Users extends Component {
     return (<div className="fulluserpagebody">
         <h1 className="myplantstitle">Users list</h1>
 
-<form className="searchform" onSubmit={this.submitSearch}>
+<form className="searchformuserpage" onSubmit={this.submitSearch}>
           <label className="labelplant" htmlFor="search">Search by name</label>
           <input className="inputplant" type="text" value={this.state.inputValue} onChange={this.userFilterOnChange}/>
           </form>
-      <div className="userpagebody">
+      <div className="userpagebodyuserpage">
 
 
-          <div className="allusercontainer">
+          <div className="allusercontainerpage">
         {this.state.users.map((user) => {
           return (
               <div key={user._id}>
-            <div className="usercontainer" key={user._id}>
+            <div className="usercontainerpage" key={user._id}>
                 <div className="ppusercontainer">
               <img className="ppwall" src={user.profileImg} />
              </div>

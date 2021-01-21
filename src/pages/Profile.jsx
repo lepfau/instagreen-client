@@ -84,25 +84,32 @@ class Profile extends Component {
   };
 
   render() {
-    return (
-      <div className="fullbodyprofile">
-        <h1>My plants</h1>
-        <div className="profilemyplants">
-          {this.state.plants.map((plant) => {
-            return (
-              <div className="profilemyplants" key={plant._id}>
-                <div className="profileplantcard">
-                  <p className="">{plant.name}</p>
-                  <img className="profileplant" src={plant.image} />
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <h1> My Posts</h1>
+    return (<div className="fullbodyprofile">
+      <h1 className="userpagetitle">My profile</h1>
+<div className="flexuserpageprofile">
+
+   
+        <div className="userplantspartleft">
+        <h1 className="userpageplantstitle" >My plants</h1>
+
+        <div className="usersplants">
+        {this.state.plants.map((plant) => {
+        return (
+          <div key={plant._id} className="userplantsbody">
+            <div className="userplantscontainer" key={plant._id}>
+              <p className="userplantname">{plant.name}</p>
+              <img className="userplantimage" src={plant.image} />
+            </div>
+          </div>
+          );
+        })}
+</div>
+</div>
+<div className="userplantspartright">
+        <h1 className="userpageplantstitle"> My Posts</h1>
         {this.state.posts.map((post) => {
           return (
-            <div className="wallbodyprofile" key={post._id}>
+            <div className="wallbody" key={post._id}>
               <div className="wallpostcontainer">
                 <div className="profiletoppost">
                   <h3 className="posttitleprofile">{post.title}</h3>
@@ -135,8 +142,11 @@ class Profile extends Component {
                 />
               </div>
             </div>
+            
           );
         })}
+      </div>
+      </div>
       </div>
     );
   }

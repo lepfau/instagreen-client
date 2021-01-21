@@ -47,7 +47,7 @@ class FormComment extends Component {
             name="text"
             value={this.state.text}
           ></input>
-          <button class="commentsubbtn"><i class="fas fa-location-arrow"></i></button>
+          <button className="commentsubbtn"><i className="fas fa-location-arrow"></i></button>
         </form>
         
       </div>

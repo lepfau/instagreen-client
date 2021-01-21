@@ -114,13 +114,13 @@ class Myplants extends Component {
                     
 
                     <Link to={`/plant/edit/${plant._id}`}>
-                      <i class="fas fa-edit"></i>
+                      <i className="fas fa-edit"></i>
                     </Link>
                     <i
                       onClick={() => {
                         this.deleteItem(plant._id);
                       }}
-                      class="fas fa-trash"
+                      className="fas fa-trash"
                     ></i>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ class Myplants extends Component {
                     this.waterDate(plant._id);
                   }}
                 >
-                  Water me ! <i class="fas fa-hand-holding-water"></i>
+                  Water me ! <i className="fas fa-hand-holding-water"></i>
                 </button>
               </div>
             );

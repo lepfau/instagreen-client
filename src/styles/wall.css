@@ -216,7 +216,7 @@ hr {
 
   background-color: white;
   width: 680px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 15px;
   box-shadow: 2px 2px 4px darkgrey;
 }
@@ -274,12 +274,22 @@ hr {
 }
 
 .posttitleprofile {
-  width: 500px;
+  width: 600px;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .searchform {
   margin-left: 0px;
+  margin-top: 20px;
+  width: 350px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.searchformuserpage {
+  margin-left: 50px;
   margin-top: 20px;
   width: 350px;
   background-color: white;
@@ -298,6 +308,17 @@ hr {
   align-items: center;
 }
 
+.usercontainerpage {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  margin-bottom: 20px;
+  background-color: white;
+  width: 500px;
+  align-items: center;
+}
+
 .allusercontainer {
   display: flex;
   flex-direction: column;
@@ -311,6 +332,18 @@ hr {
   height: 450px;
 
   overflow-x: hidden;
+}
+
+.allusercontainerpage {
+  display: flex;
+  flex-direction: column;
+  align-self: left;
+  background-color: white;
+  border-radius: 15px;
+
+  width: 600px;
+  align-items: center;
+  margin-left: 50px;
 }
 
 .hruser {
@@ -359,7 +392,8 @@ p {
 }
 
 .userplantimage {
-  width: 150px;
+  width: 250px;
+  border-radius: 10px;
 }
 
 .usersplants {
@@ -378,4 +412,33 @@ p {
 
 .fileplant {
   font-size: 1em;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1.1em;
+  font-weight: 200;
+  color: white;
+  background-color: #4a7f37;
+  display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: #4a7f37;
+}
+
+.inputfile + label {
+  cursor: pointer; /* "hand" cursor */
 }

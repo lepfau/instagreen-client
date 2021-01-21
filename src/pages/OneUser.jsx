@@ -89,14 +89,20 @@ class OneUser extends Component {
   
         {this.state.user.map((user) => {
             
-          return <h1>{user.firstName} profile page</h1>;
+          return <h1 key={user._id} className="userpagetitle">{user.firstName} profile page</h1>;
+
         })}
 
-<h1>User plants</h1>
+
+<div className="flexuserpage">
+
+<div className="userplantspartleft">
+<h1 className="userpageplantstitle">User plants</h1>
+
 <div className="usersplants">
         {this.state.plant.map((plant) => {
         return (
-          <div className="userplantsbody">
+          <div key={plant._id} className="userplantsbody">
             <div className="userplantscontainer" key={plant._id}>
               <p className="userplantname">{plant.name}</p>
               <img className="userplantimage" src={plant.image} />
@@ -105,8 +111,9 @@ class OneUser extends Component {
           );
         })}
 </div>
-
-<h1>User Posts</h1>
+</div>
+<div className="userplantspartright">
+<h1 className="userpageplantstitle">User Posts</h1>
         {this.state.wall.map((post) => {
 
               return (
@@ -137,6 +144,8 @@ class OneUser extends Component {
           </div>
         );
         })}
+        </div>
+        </div>
       </div>
     );
   }
