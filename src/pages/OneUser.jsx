@@ -12,6 +12,15 @@ class OneUser extends Component {
     comments: [],
   };
 
+  sortByKey(array, key) {
+    return array.sort(function (a, b) {
+      var x = a[key];
+      var y = b[key];
+      return x < y ? 1 : x > y ? -1 : 0;
+    });
+  }
+
+
   componentDidMount() {
     apiHandler.getUsers().then((apiResp) => {
       console.log(apiResp);
@@ -34,7 +43,7 @@ class OneUser extends Component {
     });
 
     apiHandler.getWall().then((apiResp) => {
-      console.log(apiResp);
+      this.sortByKey(apiResp, "created_at");
       const userPosts = apiResp.filter(
         (userPost) => userPost.id_user._id === this.props.match.params.id
       );

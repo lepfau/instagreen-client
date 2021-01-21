@@ -62,9 +62,9 @@ class FormEditWall extends Component {
         });
     };
   
-    handleFileSelect = ({ tmpUrl, file }) => {
-      this.setState({ image: file });
-    };
+    // handleFileSelect = ({ tmpUrl, file }) => {
+    //   this.setState({ image: file });
+    // };
   
     render() {
       return (
@@ -103,10 +103,14 @@ class FormEditWall extends Component {
             </div>
   
             <div>
-            <UploadWidget onFileSelect={this.handleFileSelect} name="image">
-                Upload image
-              </UploadWidget>
-            </div>
+            <input
+            className="fileplant"
+              type="file"
+              name="image"
+              onChange={this.handleChange}
+          
+            ></input>
+          </div>
   
             <button className="btn-submit">Save Changes</button>
           </form>

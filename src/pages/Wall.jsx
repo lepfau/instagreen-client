@@ -166,7 +166,7 @@ class Wall extends Component {
       <div className="fullbodywall">
         {/* <FormCreateWall addItem={this.addItem} /> */}
        
-        {/* <h1 className="walltitle"> Main Wall</h1> */}
+        <h1 className="walltitle"> Main Wall</h1>
         
         <FormCreateWall addItem={this.addItem} />
         <div className="wallPost">

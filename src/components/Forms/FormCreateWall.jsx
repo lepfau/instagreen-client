@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
 import { buildFormData } from "../../utils";
-
+import UploadWidget from "../UploadWidget";
 
 class FormCreateWall extends Component {
 

@@ -139,7 +139,7 @@ class FormEditPlant extends Component {
             className="fileplant"
               type="file"
               name="image"
-              onChange={this.handleFileSelect}
+              onChange={this.handleChange}
           
             ></input>
           </div>
