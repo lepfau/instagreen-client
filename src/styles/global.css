@@ -22,3 +22,16 @@ ul {
 body {
   background-color: #f0f2f5;
 }
+
+body::-webkit-scrollbar {
+  width: 0.8em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 1px 1px 6px rgba(96, 219, 14, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #255713;
+  outline: 1px solid rgb(1, 29, 5);
+}

@@ -95,6 +95,16 @@
   margin-right: 10px;
 }
 
+.ppusercontainer2 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+
+  margin-bottom: 20px;
+}
+
 .ppusercontainercomment {
   width: 40px;
   height: 40px;
@@ -334,6 +344,19 @@ hr {
   overflow-x: hidden;
 }
 
+.allusercontainer::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+.allusercontainer::-webkit-scrollbar-track {
+  box-shadow: inset 1px 1px 6px rgba(96, 219, 14, 0.3);
+}
+
+.allusercontainer::-webkit-scrollbar-thumb {
+  background-color: #4a7f37;
+  outline: 1px solid rgb(1, 29, 5);
+}
+
 .allusercontainerpage {
   display: flex;
   flex-direction: column;
@@ -441,4 +464,11 @@ p {
 
 .inputfile + label {
   cursor: pointer; /* "hand" cursor */
+}
+
+.usernameppfu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
 }

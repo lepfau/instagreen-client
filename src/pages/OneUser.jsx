@@ -89,8 +89,13 @@ class OneUser extends Component {
   
         {this.state.user.map((user) => {
             
-          return <h1 key={user._id} className="userpagetitle">{user.firstName} profile page</h1>;
-
+          return (
+          <div className="usernameppfu">
+          <div className="ppusercontainer2"><img className="ppwall" src={user.profileImg}/></div>
+          <h1 key={user._id} className="userpagetitle">
+            {user.firstName} profile page</h1>
+            </div>
+          )
         })}
 
 
