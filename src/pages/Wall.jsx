@@ -6,12 +6,13 @@ import apiHandler from "../api/apiHandler";
 import { Link } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
 import UserContext from "../components/Auth/UserContext";
+import Users from "../pages/Users"
 
 class Wall extends Component {
   state = {
     wall: [],
     comments: [],
-    showForm: false,
+    showForm: true,
   };
 
   sortByKey(array, key) {
@@ -22,16 +23,10 @@ class Wall extends Component {
     });
   }
 
-  showForm = () => {
-    if (this.state.showForm === false) {
-      this.setState({ showForm: true });
-    } else {
-      this.setState({ showForm: false });
-    }
-  };
+
 
   renderForm() {
-    return <FormCreateWall addItem={this.addItem} />;
+    return ;
   }
 
   componentDidMount() {
@@ -69,7 +64,7 @@ class Wall extends Component {
         this.setState({
           wall: apiResp,
           currentUser: this.props.context.user.firstName,
-          showForm: false,
+          
         });
       })
       .catch((error) => {
@@ -164,14 +159,16 @@ class Wall extends Component {
   };
 
   render() {
-    const { showForm } = this.state;
+    
     return (
+      <div className="wallFullPage">
+        <div></div>
       <div className="fullbodywall">
         {/* <FormCreateWall addItem={this.addItem} /> */}
        
-        <h1 className="myplantstitle"> Main Wall</h1>
-        <button className="btnaddwall" onClick={() => this.showForm()}>Add something to the wall..</button>
-        {showForm && this.renderForm()}
+        {/* <h1 className="walltitle"> Main Wall</h1> */}
+        
+        <FormCreateWall addItem={this.addItem} />
         <div className="wallPost">
           {this.state.wall.map((post) => {
             return (
@@ -205,8 +202,14 @@ class Wall extends Component {
             );
           })}
         </div>
+        
+      </div> 
+      <div className="userswallpageee">
+      <Users/>
+      </div>
       </div>
     );
+    
   }
 }
 export default withUser(Wall);

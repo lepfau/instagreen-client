@@ -3,6 +3,7 @@ import apiHandler from "../api/apiHandler";
 import { withUser } from "../components/Auth/withUser";
 import Comments from "../components/Comments";
 import FormComment from "../components/Forms/FormComment";
+import { Link } from "react-router-dom";
 
 class Profile extends Component {
   state = {
@@ -84,7 +85,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div>
+      <div className="fullbodyprofile">
         <h1>My plants</h1>
         <div className="profilemyplants">
           {this.state.plants.map((plant) => {
@@ -101,7 +102,7 @@ class Profile extends Component {
         <h1> My Posts</h1>
         {this.state.posts.map((post) => {
           return (
-            <div className="wallbody" key={post._id}>
+            <div className="wallbodyprofile" key={post._id}>
               <div className="wallpostcontainer">
                 <div className="profiletoppost">
                   <h3 className="posttitleprofile">{post.title}</h3>
@@ -112,6 +113,9 @@ class Profile extends Component {
                         this.deleteItem(post._id);
                       }}
                     ></i>
+                        <Link to={`/wall/edit/${post._id}`}>
+            <i className="fas fa-edit"></i>
+          </Link>
                   </div>
                 </div>
                 <img className="wallpic" src={post.image} />

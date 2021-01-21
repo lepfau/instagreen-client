@@ -34,16 +34,18 @@ const NavMain = (props) => {
             <li>
               <NavLink to="/wall">Wall</NavLink>
             </li>
-
-            <li>
-              <NavLink to="/map">Map</NavLink>
-            </li>
             <li>
               <NavLink to="/users">Users</NavLink>
             </li>
             <li>
+              <NavLink to="/map">Map</NavLink>
+            </li>
+          
+            <li>
               <NavLink to="/profile">
+                
                 {context.user && context.user.firstName}
+                
               </NavLink>
             </li>
             <li>

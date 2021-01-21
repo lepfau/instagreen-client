@@ -18,3 +18,7 @@ a {
 ul {
   list-style-type: none;
 }
+
+body {
+  background-color: #f0f2f5;
+}

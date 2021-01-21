@@ -76,7 +76,7 @@ class OneUser extends Component {
 
   render() {
     return (
-      <div>
+      <div className="oneuserbody">
   
         {this.state.user.map((user) => {
             
@@ -84,19 +84,23 @@ class OneUser extends Component {
         })}
 
 <h1>User plants</h1>
+<div className="usersplants">
         {this.state.plant.map((plant) => {
         return (
-            <div key={plant._id}>
-              <p>{plant.name}</p>
-              <img src={plant.image} />
+          <div className="userplantsbody">
+            <div className="userplantscontainer" key={plant._id}>
+              <p className="userplantname">{plant.name}</p>
+              <img className="userplantimage" src={plant.image} />
             </div>
+          </div>
           );
         })}
-
+</div>
 
 <h1>User Posts</h1>
         {this.state.wall.map((post) => {
-          return (
+
+              return (
             <div className="wallbody" key={post._id}>
             <div className="wallpostcontainer">
               <div className="profiletoppost">

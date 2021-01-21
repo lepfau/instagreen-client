@@ -2,12 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap");
 
 .NavMain {
-  background-color: darkgreen;
+  position: fixed;
+  background-color: #4a7f37;
   color: white;
   display: flex;
   align-items: center;
   padding: 20px;
   height: 70px;
+  width: 100%;
+  z-index: 2;
 }
 
 .NavMain .nav-list {
