@@ -1,6 +1,7 @@
 # Instagreen
 
 > Mini social app about plants; share pictures with others and follow up your plant watering.
+> The site is deployed [here](https://instagreeno.herokuapp.com/)
 
 ## Table of contents
 
@@ -19,7 +20,7 @@ It uses "vanilla" react with class components mostly;
 
 ## Screenshots
 
-![App screenshot](./public/instagreen.gif)
+![App screenshot](./instagreenapp2.gif)
 ![Create form screenshot](./public/instagreenscreen2.png)
 
 ## Technologies
