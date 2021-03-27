@@ -6,7 +6,7 @@ import apiHandler from "../api/apiHandler";
 import { Link } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
 import UserContext from "../components/Auth/UserContext";
-import Users from "../pages/Users"
+import Users from "../pages/Users";
 
 class Wall extends Component {
   state = {
@@ -21,12 +21,6 @@ class Wall extends Component {
       var y = b[key];
       return x < y ? 1 : x > y ? -1 : 0;
     });
-  }
-
-
-
-  renderForm() {
-    return ;
   }
 
   componentDidMount() {
@@ -64,7 +58,6 @@ class Wall extends Component {
         this.setState({
           wall: apiResp,
           currentUser: this.props.context.user.firstName,
-          
         });
       })
       .catch((error) => {
@@ -91,41 +84,45 @@ class Wall extends Component {
     if (this.props.context.user.email === post.id_user.email) {
       return (
         <div className="posttopuser">
-
           <div className="wallpostuser">
-
-             <div className="ppusercontainer">
-               <img className="ppwall" src={post.id_user["profileImg"]} />
-             </div>
+            <div className="ppusercontainer">
+              <img className="ppwall" src={post.id_user["profileImg"]} />
+            </div>
 
             <div className="posttopuserinfo">
-           <p><Link to={"/profile"}> <b>Me</b> </Link> </p>
-          
-          <div className="postdate">{post.created_at.slice(0, 10)}  </div>
-          </div>
+              <p>
+                <Link to={"/profile"}>
+                  {" "}
+                  <b>Me</b>{" "}
+                </Link>{" "}
+              </p>
+
+              <div className="postdate">{post.created_at.slice(0, 10)} </div>
+            </div>
           </div>
         </div>
       );
-
-      
     } else {
       return (
         <div className="posttopuser">
+          <div className="wallpostuser">
+            <div className="ppusercontainer">
+              <img className="ppwall" src={post.id_user["profileImg"]} />
+            </div>
 
-        <div className="wallpostuser">
+            <div className="posttopuserinfo">
+              <p>
+                <Link to={`/users/${post.id_user._id}`}>
+                  <b>
+                    {post.id_user["firstName"]} {post.id_user["lastName"]}
+                  </b>
+                </Link>
+              </p>
 
-           <div className="ppusercontainer">
-             <img className="ppwall" src={post.id_user["profileImg"]} />
-           </div>
-
-          <div className="posttopuserinfo">
-         <p><Link to={`/users/${post.id_user._id}`}><b>{post.id_user["firstName"]} {post.id_user["lastName"]}</b></Link></p>
-        
-        <div className="postdate">{post.created_at.slice(0, 10)}  </div>
+              <div className="postdate">{post.created_at.slice(0, 10)} </div>
+            </div>
+          </div>
         </div>
-        </div>
-      </div>
-
       );
     }
   };
@@ -134,8 +131,6 @@ class Wall extends Component {
     if (this.props.context.user.email === post.id_user.email) {
       return (
         <div className="posttopbtns">
-        
-
           <Link to={`/wall/edit/${post._id}`}>
             <i className="fas fa-edit"></i>
           </Link>
@@ -159,57 +154,54 @@ class Wall extends Component {
   };
 
   render() {
-    
     return (
       <div className="wallFullPage">
-        <div></div>
-      <div className="fullbodywall">
-        {/* <FormCreateWall addItem={this.addItem} /> */}
-       
-        <h1 className="walltitle"> Main Wall</h1>
-        
-        <FormCreateWall addItem={this.addItem} />
-        <div className="wallPost">
-          {this.state.wall.map((post) => {
-            return (
-              <div className="wallbody" key={post._id}>
-                <div className="wallpostcontainer">
-                  <div className="posttop">
-                    {this.displayUserPost(post)}
-                    {this.displayUserPostButtons(post)}
+        <div className="wallpage">
+          <div className="fullbodywall">
+            {/* <FormCreateWall addItem={this.addItem} /> */}
+
+            <h1 className="walltitle"> Main Wall</h1>
+
+            <FormCreateWall addItem={this.addItem} />
+            <div className="wallPost">
+              {this.state.wall.map((post) => {
+                return (
+                  <div className="wallbody" key={post._id}>
+                    <div className="wallpostcontainer">
+                      <div className="posttop">
+                        {this.displayUserPost(post)}
+                        {this.displayUserPostButtons(post)}
+                      </div>
+                      <hr></hr>
+                      <h3 className="posttitle">{post.title}</h3>
+
+                      <img className="wallpic" src={post.image} />
+                      <h5 className="postsubtitle">{post.subtitle}</h5>
+                      <hr></hr>
+                      <FormComment
+                        userpic={this.props.context.user.profileImg}
+                        addCommentUpdate={this.addCommentUpdate}
+                        postId={post._id}
+                      />
+                      <Comments
+                        key={this.state.comments._id}
+                        postId={post._id}
+                        userCommenting={this.props.context.user.firstName}
+                        deleteComment={this.deleteComment}
+                        userEmail={this.props.context.user.email}
+                      />
+                    </div>
                   </div>
-                  <hr></hr>
-                  <h3 className="posttitle">{post.title}</h3>
-                  
-
-                  <img className="wallpic" src={post.image} />
-                  <h5 className="postsubtitle">{post.subtitle}</h5>
-                  <hr></hr>
-                  <FormComment userpic={this.props.context.user.profileImg}
-                    addCommentUpdate={this.addCommentUpdate}
-                    postId={post._id}
-                  />
-                  <Comments
-                    key={this.state.comments._id}
-                    postId={post._id}
-                    userCommenting={this.props.context.user.firstName}
-                    deleteComment={this.deleteComment}
-                    userEmail={this.props.context.user.email}
-                  />
-
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
+          <div className="userswallpageee">
+            <Users />
+          </div>
         </div>
-        
-      </div> 
-      <div className="userswallpageee">
-      <Users/>
-      </div>
       </div>
     );
-    
   }
 }
 export default withUser(Wall);

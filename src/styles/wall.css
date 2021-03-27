@@ -49,11 +49,8 @@
   background-color: #f0f2f5;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 100px;
-  right: 410px;
+
   justify-content: space-evenly;
-  align-self: center;
 }
 
 .wallpic {
@@ -376,14 +373,10 @@ hr {
 
 .wallFullPage {
   display: flex;
-  justify-content: space-evenly;
-  background-color: red;
+  flex-direction: column;
 }
 
 .userswallpageee {
-  position: fixed;
-  top: 100px;
-  left: 30px;
 }
 
 .fullbodywall {
@@ -471,4 +464,12 @@ p {
   justify-content: center;
   align-items: center;
   margin-bottom: 40px;
+}
+
+.wallpage {
+  display: flex;
+  margin-top: 71px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: baseline;
 }
