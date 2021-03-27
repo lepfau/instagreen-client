@@ -20,7 +20,7 @@ It uses "vanilla" react with class components mostly;
 
 ## Screenshots
 
-![App screenshot](instagreenapp2.gif)
+![App screenshot](./public/instagreenapp2.gif)
 ![Create form screenshot](./public/instagreenscreen2.png)
 
 ## Technologies
