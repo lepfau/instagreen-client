@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   background-image: url("https://cdn.apartmenttherapy.info/image/upload/v1586153210/at/news-culture/2020-04/200402-bloomscape-zoom-2.png");
-  height: 690px;
+  height: 100vh;
   width: 70%;
   flex-wrap: nowrap;
   justify-content: center;
@@ -52,13 +52,15 @@
 }
 
 .signin_right {
-  padding-top: 200px;
-  width: 20%;
+  padding: 15px;
+  width: 25%;
+  border-radius: 15px;
   background-color: white;
-  height: 690px;
+  height: 377px;
   display: flex;
-
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .signin_right_text {
@@ -85,6 +87,11 @@
   font-size: 1em;
   background-color: darkgreen;
   color: white;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 1px 1px 2px grey;
+  align-self: center;
+  cursor: pointer;
 }
 
 input:focus,
@@ -117,7 +124,7 @@ button:focus {
 
 .homeinfos {
   display: flex;
-  margin: 0px 50px;
+  align-items: baseline;
   justify-content: space-evenly;
 }
 
