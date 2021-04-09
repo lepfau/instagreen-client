@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { withUser } from "../components/Auth/withUser";
-import apiHandler from "../api/apiHandler";
+import { withUser } from "../Auth/withUser";
+import apiHandler from "../../api/apiHandler";
 
-import "../styles/NavMain.css";
+import "../../styles/NavMain.css";
 
 const NavMain = (props) => {
   const { context } = props;
@@ -30,7 +30,7 @@ const NavMain = (props) => {
             <li>
               <NavLink to="/myplants">My Plants</NavLink>
             </li>
-      
+
             <li>
               <NavLink to="/wall">Wall</NavLink>
             </li>
@@ -40,12 +40,10 @@ const NavMain = (props) => {
             <li>
               <NavLink to="/map">Map</NavLink>
             </li>
-          
+
             <li>
               <NavLink to="/profile">
-                
                 {context.user && context.user.firstName}
-                
               </NavLink>
             </li>
             <li>
@@ -55,8 +53,6 @@ const NavMain = (props) => {
         )}
         {!context.isLoggedIn && (
           <React.Fragment>
-        
-            
             <li>
               <NavLink to="/signup">Create account</NavLink>
             </li>

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FormComment from "../components/Forms/FormComment";
-import Comments from "../components/Comments";
-import { withUser } from "../components/Auth/withUser";
+import FormComment from "../Forms/FormComment";
+import Comments from "./Comments";
+import { withUser } from "../Auth/withUser";
 
 function WallPost(post) {
   return (

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
 import { withUser } from "../components/Auth/withUser";
-import OneProfileWall from "../pages/OneProfileWall";
+import OneProfileWall from "../components/Wall/OneProfileWall";
 
 class OneUser extends Component {
   state = {

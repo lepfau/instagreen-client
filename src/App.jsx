@@ -1,10 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import NavMain from "./components/NavMain";
+import NavMain from "./components/Divers/NavMain";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Myplants from "./pages/Myplants";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/Divers/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Wall from "./pages/Wall";
 import FormEditPlant from "./components/Forms/FormEditPlant";

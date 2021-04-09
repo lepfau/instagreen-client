@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
 import { withUser } from "../components/Auth/withUser";
-import ProfileWall from "../pages/ProfileWall";
+import ProfileWall from "../components/Wall/ProfileWall";
 
 class Profile extends Component {
   state = {

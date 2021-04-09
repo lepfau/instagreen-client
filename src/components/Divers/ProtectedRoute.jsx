@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
-import { withUser } from "../components/Auth/withUser";
+import { withUser } from "../Auth/withUser";
 
 const ProtectedRoute = ({ component: Component, context, ...rest }) => {
   if (context.isLoading) {

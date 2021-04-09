@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import apiHandler from "../api/apiHandler";
-import { withUser } from "../components/Auth/withUser";
-import WallPost from "../components/WallPost";
-import loadingGif from "../assets/loadinggif.gif";
-class OneProfileWall extends Component {
+import FormCreateWall from "../Forms/FormCreateWall";
+import apiHandler from "../../api/apiHandler";
+import { withUser } from "../Auth/withUser";
+import WallPost from "../Wall/WallPost";
+import loadingGif from "../../assets/loadinggif.gif";
+class ProfileWall extends Component {
   state = {
     wall: [],
     loading: true,
@@ -20,7 +21,7 @@ class OneProfileWall extends Component {
 
   componentDidMount() {
     apiHandler
-      .getProfileId(this.props.user)
+      .getProfileWall()
       .then((apiResp) => {
         this.sortByKey(apiResp, "created_at");
         setTimeout(() => {
@@ -35,6 +36,20 @@ class OneProfileWall extends Component {
       });
   }
 
+  addPost = (post) => {
+    apiHandler
+      .getProfileWall()
+      .then((apiResp) => {
+        this.sortByKey(apiResp, "created_at");
+        this.setState({
+          wall: apiResp,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   deletePost = (postId) => {
     apiHandler.deleteWall(postId).then(() => {
       this.setState({
@@ -45,7 +60,7 @@ class OneProfileWall extends Component {
 
   seeNewComment = () => {
     apiHandler
-      .getProfileId(this.props.user)
+      .getProfileWall()
       .then((apiResp) => {
         this.sortByKey(apiResp, "created_at");
         this.setState({
@@ -60,7 +75,7 @@ class OneProfileWall extends Component {
   deleteComment = (commentId) => {
     apiHandler.deleteComment(commentId).then((apiResp) => {
       apiHandler
-        .getProfileId(this.props.user)
+        .getProfileWall()
         .then((apiResp) => {
           this.sortByKey(apiResp, "created_at");
           this.setState({
@@ -78,6 +93,7 @@ class OneProfileWall extends Component {
       <div className="wallFullPage">
         <div className="wallpage">
           <div className="fullbodywall">
+            <FormCreateWall addPost={this.addPost} />
             <div className="wallPost">
               {this.state.loading ? (
                 <img
@@ -118,4 +134,4 @@ class OneProfileWall extends Component {
     );
   }
 }
-export default withUser(OneProfileWall);
+export default withUser(ProfileWall);
