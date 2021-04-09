@@ -7,7 +7,9 @@ class FormCreatePlant extends Component {
   state = {
     name: "",
     description: "",
-    image: null,
+    image:
+      "https://cdn1.iconfinder.com/data/icons/gardening-filled-line/614/1935_-_Growing_Plant-512.png",
+
     enlightment: "",
     watering: "",
     wateringinterval: "",
@@ -22,8 +24,6 @@ class FormCreatePlant extends Component {
     const key = event.target.name;
     const value =
       event.target.type === "file" ? event.target.files[0] : event.target.value;
-
-    console.log(key, value);
     this.setState({ [key]: value });
   };
 
@@ -51,9 +51,6 @@ class FormCreatePlant extends Component {
             message: "Item successfully added.",
           },
         });
-        this.timeoutId = setTimeout(() => {
-          this.setState({ httpResponse: null });
-        }, 1000);
       })
       .catch((error) => {
         console.log(error);
@@ -73,7 +70,6 @@ class FormCreatePlant extends Component {
     return (
       <div className="PlantFormContainer">
         <form className="PlantForm" onSubmit={this.handleSubmit}>
-         
           <div className="form-group">
             <label className="labelplant" htmlFor="name">
               Name
@@ -92,7 +88,8 @@ class FormCreatePlant extends Component {
             <label className="labelplant" htmlFor="enlightment">
               Enlightment
             </label>
-            <select className="selectplant"
+            <select
+              className="selectplant"
               name="enlightment"
               onChange={this.handleChange}
               value={this.state.enlightment}
@@ -109,7 +106,8 @@ class FormCreatePlant extends Component {
             <label className="labelplant" htmlFor="watering">
               Watering level
             </label>
-            <select className="selectplant"
+            <select
+              className="selectplant"
               name="watering"
               onChange={this.handleChange}
               value={this.state.watering}
@@ -126,7 +124,7 @@ class FormCreatePlant extends Component {
               Water interval
             </label>
             <input
-            className="inputplant"
+              className="inputplant"
               id="wateringinterval"
               name="wateringinterval"
               type="number"
@@ -137,14 +135,14 @@ class FormCreatePlant extends Component {
 
           <div>
             <input
-            id="file"
-            className="inputfile"
+              id="file"
+              className="inputfile"
               type="file"
               name="image"
               onChange={this.handleChange}
               value={this.props.image}
             ></input>
-            <label for="file">Choose a file</label>
+            <label htmlFor="file">Choose a file</label>
           </div>
 
           <button className="btn-submit-plant">Add Plant</button>

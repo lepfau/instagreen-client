@@ -51,19 +51,24 @@ export default {
       .catch(errorHandler);
   },
 
-
-
   searchUsers(str) {
     return this.service.get("/api/user/search/api", {
       params: {
-        search: str
-      }
-    })
+        search: str,
+      },
+    });
   },
 
   getPlants() {
     return service
       .get("/api/plants")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getUserPlants() {
+    return service
+      .get("/api/plants/userPlants")
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -98,16 +103,16 @@ export default {
       .catch(errorHandler);
   },
 
-  editWall(itemId, itemInfo) {
+  getWall() {
     return service
-      .patch("/api/wall/" + itemId, itemInfo)
+      .get("/api/wall")
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  getWall() {
+  getUserWall() {
     return service
-      .get("/api/wall")
+      .get("/api/wall/userposts")
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -124,9 +129,7 @@ export default {
       .patch("/api/wall/" + itemId, itemInfo)
       .then((res) => res.data)
       .catch(errorHandler);
-
   },
-
 
   deleteWall(itemId) {
     return service
@@ -137,7 +140,6 @@ export default {
       .catch(errorHandler);
   },
 
-
   getComment() {
     return service
       .get("/api/comment")
@@ -145,10 +147,9 @@ export default {
       .catch(errorHandler);
   },
 
-
-  addComment(postId) {
+  addComment(postId, comment) {
     return service
-      .post("/api/comment", postId)
+      .post(`/api/wall/${postId}/comments`, comment)
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -159,6 +160,34 @@ export default {
       .then(() => {
         console.log("successfully deleted");
       })
+      .catch(errorHandler);
+  },
+
+  getUser(userId) {
+    return service
+      .get(`/api/user/${userId}`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getProfile() {
+    return service
+      .get("/api/user/myprofile")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getProfileWall() {
+    return service
+      .get("/api/wall/profileposts")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getProfileId(userId) {
+    return service
+      .get(`/api/wall/` + userId)
+      .then((res) => res.data)
       .catch(errorHandler);
   },
 };

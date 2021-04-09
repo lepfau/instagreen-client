@@ -2,18 +2,15 @@ import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
 import { buildFormData } from "../../utils";
-import UploadWidget from "../UploadWidget";
-
 
 require("dotenv").config();
 // import mapboxgl from "mapbox-gl";
 // mapboxgl.accessToken = "MAPBOX_ACCESS_TOKEN";
 
 class FormEditPlant extends Component {
- 
   state = {
     httpResponse: null,
-      };
+  };
 
   formRef = React.createRef();
 
@@ -27,7 +24,7 @@ class FormEditPlant extends Component {
         this.setState({
           name: plantToEdit[0].name,
           description: plantToEdit[0].description,
-         
+
           id: plantToEdit[0]._id,
         });
       })
@@ -89,7 +86,8 @@ class FormEditPlant extends Component {
             <label className="labelplant" htmlFor="enlightment">
               Enlightment
             </label>
-            <select className="selectplant"
+            <select
+              className="selectplant"
               name="enlightment"
               onChange={this.handleChange}
               defaultValue={this.state.enlightment}
@@ -106,7 +104,8 @@ class FormEditPlant extends Component {
             <label className="labelplant" htmlFor="watering">
               Watering level
             </label>
-            <select className="selectplant"
+            <select
+              className="selectplant"
               name="watering"
               onChange={this.handleChange}
               defaultValue={this.state.watering}
@@ -118,13 +117,12 @@ class FormEditPlant extends Component {
             </select>
           </div>
 
-
           <div className="form-group">
             <label className="labelplant" htmlFor="wateringinterval">
               Water interval
             </label>
             <input
-            className="inputplant"
+              className="inputplant"
               id="wateringinterval"
               name="wateringinterval"
               type="number"
@@ -133,15 +131,13 @@ class FormEditPlant extends Component {
             />
           </div>
 
-
           <div>
             <input
-            className="inputfile"
+              className="inputfile"
               type="file"
               name="image"
               onChange={this.handleChange}
               id="image"
-          
             ></input>
             <label for="image">Choose a file</label>
           </div>

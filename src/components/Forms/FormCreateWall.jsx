@@ -2,21 +2,20 @@ import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
 import { buildFormData } from "../../utils";
-import UploadWidget from "../UploadWidget";
+import loadingwall from "../../assets/loadingwall.gif";
 
 class FormCreateWall extends Component {
-
   state = {
     title: "",
     author: "",
     subtitle: "",
     comments: "",
-    picture: null,
+    picture:
+      "https://cdn1.iconfinder.com/data/icons/gardening-filled-line/614/1935_-_Growing_Plant-512.png",
     httpResponse: null,
     error: null,
- 
+    loading: false,
   };
-
 
   handleChange = (event) => {
     const key = event.target.name;
@@ -27,57 +26,55 @@ class FormCreateWall extends Component {
     this.setState({ [key]: value });
   };
 
-
   handleSubmit = (event) => {
     event.preventDefault();
 
     const fd = new FormData();
     const { httpResponse, ...data } = this.state;
-    buildFormData(fd, data);  
+    buildFormData(fd, data);
 
     apiHandler
-    .createWall(fd)
-    .then((data) => {
-      console.log(data["id_user"].firstName)
-        this.props.addItem(data);
-      this.setState({
-        title: "",
-        subtitle: "",
-        image: "",
-        comments: "",
-               
-        httpResponse: {
-          status: "success",
-          message: "Item successfully added.",
-        },
-        
-
+      .createWall(fd)
+      .then((data) => {
+        setTimeout(() => {
+          this.props.addPost(data);
+          this.setState({
+            title: "",
+            subtitle: "",
+            image: "",
+            comments: "",
+            loading: false,
+            httpResponse: {
+              status: "success",
+              message: "Item successfully added.",
+            },
+          });
+        }, 1500);
+        this.setState({
+          loading: true,
+        });
+        this.timeoutId = setTimeout(() => {
+          this.setState({ httpResponse: null });
+        }, 1000);
       })
-   
-      this.timeoutId = setTimeout(() => {
-        this.setState({ httpResponse: null });
-      }, 1000);
-    })
-    .catch((error) => {
-        console.log(error)
-      this.setState({
-        httpResponse: {
-          status: "failure",
-          message: "An error occured, try again later.",
-        },
+      .catch((error) => {
+        console.log(error);
+        this.setState({
+          httpResponse: {
+            status: "failure",
+            message: "An error occured, try again later.",
+          },
+        });
+        this.timeoutId = setTimeout(() => {
+          this.setState({ httpResponse: null });
+        }, 1000);
       });
-      this.timeoutId = setTimeout(() => {
-        this.setState({ httpResponse: null });
-      }, 1000);
-    });
-};
-
+  };
 
   render() {
     return (
       <div className="wallForm">
         <form className="form" onSubmit={this.handleSubmit}>
-      
           <div className="form-group">
             <label className="labelwall" htmlFor="title">
               Title
@@ -91,7 +88,6 @@ class FormCreateWall extends Component {
               value={this.state.title}
             />
           </div>
-
 
           <div className="form-group">
             <label className="labelwall" htmlFor="description">
@@ -109,8 +105,8 @@ class FormCreateWall extends Component {
 
           <div>
             <input
-            id="file"
-            className="inputfile"
+              id="file"
+              className="inputfile"
               type="file"
               name="image"
               onChange={this.handleChange}
@@ -119,8 +115,13 @@ class FormCreateWall extends Component {
             <label htmlFor="file">Choose a file</label>
           </div>
 
-
-          <button className="btn-submit-plant">Post on the wall !</button>
+          {this.state.loading ? (
+            <button className="btn-submit-plant">
+              <img style={{ height: "35px" }} src={loadingwall} alt="loading" />
+            </button>
+          ) : (
+            <button className="btn-submit-plant">Poster sur le mur</button>
+          )}
         </form>
       </div>
     );

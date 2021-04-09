@@ -27,14 +27,10 @@ class Myplants extends Component {
   //AFFICHER PLANTES SUR LA PAGE DEPUIS LA DB
   componentDidMount() {
     apiHandler
-      .getPlants()
+      .getUserPlants()
       .then((apiResp) => {
-        console.log(apiResp);
-        const userPlants = apiResp.filter(
-          (plant) => plant.id_user === this.props.context.user._id
-        );
         this.setState({
-          plants: userPlants,
+          plants: apiResp,
         });
       })
       .catch((error) => {
@@ -111,8 +107,6 @@ class Myplants extends Component {
                 <div className="plantcardtop">
                   <p className="plantcardname">{plant.name}</p>
                   <div className="plantcardtopbtn">
-                    
-
                     <Link to={`/plant/edit/${plant._id}`}>
                       <i className="fas fa-edit"></i>
                     </Link>
@@ -125,21 +119,25 @@ class Myplants extends Component {
                   </div>
                 </div>
 
-                <img className="plantcardimage" src={plant.image} />
+                <img className="plantcardimage" src={plant.image} alt="plant" />
                 <div className="plantcardallinfo">
-                <p className="plantcardinfo">
-                 <b>Enlightment</b>: {plant.enlightment}
-                </p>
-                <p className="plantcardinfo"><b>Watering: </b>{plant.watering}</p>
-                <p className="plantcardinfo">
-                <b> Water interval:</b> {plant.wateringinterval} days
-                </p>
-<br></br>
-                <p className="plantcardinfo">
-                <b> Last watering:</b> {plant.waterDate}{" "}
-                </p>
-</div>
-                <button className="givemewater"
+                  <p className="plantcardinfo">
+                    <b>Enlightment</b>: {plant.enlightment}
+                  </p>
+                  <p className="plantcardinfo">
+                    <b>Watering: </b>
+                    {plant.watering}
+                  </p>
+                  <p className="plantcardinfo">
+                    <b> Water interval:</b> {plant.wateringinterval} days
+                  </p>
+                  <br></br>
+                  <p className="plantcardinfo">
+                    <b> Last watering:</b> {plant.waterDate}{" "}
+                  </p>
+                </div>
+                <button
+                  className="givemewater"
                   onClick={() => {
                     this.waterDate(plant._id);
                   }}

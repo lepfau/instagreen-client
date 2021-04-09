@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
-import Comments from "../components/Comments";
-import FormComment from "../components/Forms/FormComment";
 import { withUser } from "../components/Auth/withUser";
+import OneProfileWall from "../pages/OneProfileWall";
 
 class OneUser extends Component {
   state = {
-    user: [],
     plant: [],
-    wall: [],
-    comments: [],
+    user: "",
   };
 
   sortByKey(array, key) {
@@ -20,15 +17,11 @@ class OneUser extends Component {
     });
   }
 
-
   componentDidMount() {
-    apiHandler.getUsers().then((apiResp) => {
+    apiHandler.getUser(this.props.match.params.id).then((apiResp) => {
       console.log(apiResp);
-      const userInfo = apiResp.filter(
-        (user) => user._id === this.props.match.params.id
-      );
       this.setState({
-        user: userInfo,
+        user: apiResp,
       });
     });
 
@@ -36,125 +29,57 @@ class OneUser extends Component {
       const userPlants = apiResp.filter(
         (userplant) => userplant.id_user === this.props.match.params.id
       );
-      
+
       this.setState({
         plant: userPlants,
       });
     });
-
-    apiHandler.getWall().then((apiResp) => {
-      this.sortByKey(apiResp, "created_at");
-      const userPosts = apiResp.filter(
-        (userPost) => userPost.id_user._id === this.props.match.params.id
-      );
-      this.setState({
-        wall: userPosts,
-      });
-    });
-
-    apiHandler.getComment().then((apiResp) => {
-      console.log(apiResp);
-      const commentsPost = apiResp.filter(
-        (comm) => comm.id_wall["_id"] === this.state.wall.postId_id
-      );
-      this.setState({
-        comments: commentsPost,
-      });
-    });
   }
-
-  addCommentUpdate = (comment) => {
-    apiHandler.getComment().then((apiResp) => {
-      console.log(apiResp);
-      const commentsPost = apiResp.filter(
-        (comm) => comm.id_wall._id === this.state.wall.postId_id
-      );
-      this.setState({
-        comments: comment,
-      });
-    });
-  };
-
-  deleteComment = (commentId) => {
-    apiHandler.deleteComment(commentId).then(() => {
-      this.setState({
-        comments: "this.state.posts.filter((it) => it._id == commentId)",
-      });
-    });
-  };
 
   render() {
     return (
       <div className="oneuserbody">
-  
-        {this.state.user.map((user) => {
-            
-          return (
-          <div className="usernameppfu">
-          <div className="ppusercontainer2"><img className="ppwall" src={user.profileImg}/></div>
-          <h1 key={user._id} className="userpagetitle">
-            {user.firstName} profile page</h1>
-            </div>
-          )
-        })}
-
-
-<div className="flexuserpage">
-
-<div className="userplantspartleft">
-<h1 className="userpageplantstitle">User plants</h1>
-
-<div className="usersplants">
-        {this.state.plant.map((plant) => {
-        return (
-          <div key={plant._id} className="userplantsbody">
-            <div className="userplantscontainer" key={plant._id}>
-              <p className="userplantname">{plant.name}</p>
-              <img className="userplantimage" src={plant.image} />
-            </div>
+        <div className="usernameppfu">
+          <div className="ppusercontainer2">
+            <img
+              className="ppwall"
+              src={this.state.user.profileImg}
+              alt="userpic"
+            />
           </div>
-          );
-        })}
-</div>
-</div>
-<div className="userplantspartright">
-<h1 className="userpageplantstitle">User Posts</h1>
-        {this.state.wall.map((post) => {
-
-              return (
-            <div className="wallbody" key={post._id}>
-            <div className="wallpostcontainer">
-              <div className="profiletoppost">
-                <h3 className="posttitleprofile">{post.title}</h3>
-                <div className="posttop">
-           
-                </div>
-              </div>
-              <img className="wallpic" src={post.image} />
-              <h5 className="postsubtitle">{post.subtitle}</h5>
-              <hr></hr>
-              <FormComment
-                userpic={this.props.context.user.profileImg}
-                addCommentUpdate={this.addCommentUpdate}
-                postId={post._id}
-              />
-              <Comments
-                key={this.state.comments._id}
-                postId={post._id}
-                userCommenting={this.props.context.user.firstName}
-                deleteComment={this.deleteComment}
-                userEmail={this.props.context.user.email}
-              />
-            </div>
-          </div>
-        );
-        })}
+          <h1 key={this.state.user._id} className="userpagetitle">
+            {this.state.user.firstName} profile page
+          </h1>
         </div>
+        <div className="flexuserpage">
+          <div className="userplantspartleft">
+            <h1 className="userpageplantstitle">User plants</h1>
+
+            <div className="usersplants">
+              {this.state.plant.map((plant) => {
+                return (
+                  <div key={plant._id} className="userplantsbody">
+                    <div className="userplantscontainer" key={plant._id}>
+                      <p className="userplantname">{plant.name}</p>
+                      <img
+                        className="userplantimage"
+                        src={plant.image}
+                        alt="plantimg"
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="userplantspartright">
+            <h1 className="userpageplantstitle">User Posts</h1>
+            <OneProfileWall user={this.props.match.params.id} />
+          </div>
         </div>
       </div>
     );
   }
 }
-
 
 export default withUser(OneUser);

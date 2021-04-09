@@ -1,42 +1,36 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
-import { buildFormData } from "../../utils";
 
 class FormComment extends Component {
   state = {
     text: "",
-    id_wall: this.props.postId
+    id_wall: this.props.postId,
   };
 
   handleChange = (event) => {
-    const key = event.target.name;
     const value = event.target.value;
-
-    console.log("--------" + key, value);
-
     this.setState({ text: value });
-    console.log(this.state);
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-
     const commentData = this.state;
-    apiHandler.addComment(commentData)
-    .then((data) => {
-      this.props.addCommentUpdate(data);
+    apiHandler.addComment(this.props.postId, commentData).then((data) => {
+      console.log(data);
       this.setState({
-        text: ""
-      })
-    })
-    console.log("wowowow")
+        text: "",
+      });
+      this.props.seeNewComment();
+    });
   };
 
   render() {
     return (
       <div className="commentForm">
-     <div className="ppusercontainercomment "><img src={this.props.userpic} className="ppwall "/></div>
+        <div className="ppusercontainercomment ">
+          <img src={this.props.userpic} className="ppwall " alt="userpic" />
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="comment"></label>
           <input
@@ -47,9 +41,10 @@ class FormComment extends Component {
             name="text"
             value={this.state.text}
           ></input>
-          <button className="commentsubbtn"><i className="fas fa-location-arrow"></i></button>
+          <button className="commentsubbtn">
+            <i className="fas fa-location-arrow"></i>
+          </button>
         </form>
-        
       </div>
     );
   }

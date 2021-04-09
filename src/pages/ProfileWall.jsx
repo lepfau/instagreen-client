@@ -4,7 +4,7 @@ import apiHandler from "../api/apiHandler";
 import { withUser } from "../components/Auth/withUser";
 import WallPost from "../components/WallPost";
 import loadingGif from "../assets/loadinggif.gif";
-class Wall extends Component {
+class ProfileWall extends Component {
   state = {
     wall: [],
     loading: true,
@@ -21,7 +21,7 @@ class Wall extends Component {
 
   componentDidMount() {
     apiHandler
-      .getWall()
+      .getProfileWall()
       .then((apiResp) => {
         this.sortByKey(apiResp, "created_at");
         setTimeout(() => {
@@ -38,7 +38,7 @@ class Wall extends Component {
 
   addPost = (post) => {
     apiHandler
-      .getWall()
+      .getProfileWall()
       .then((apiResp) => {
         this.sortByKey(apiResp, "created_at");
         this.setState({
@@ -60,7 +60,7 @@ class Wall extends Component {
 
   seeNewComment = () => {
     apiHandler
-      .getWall()
+      .getProfileWall()
       .then((apiResp) => {
         this.sortByKey(apiResp, "created_at");
         this.setState({
@@ -75,7 +75,7 @@ class Wall extends Component {
   deleteComment = (commentId) => {
     apiHandler.deleteComment(commentId).then((apiResp) => {
       apiHandler
-        .getWall()
+        .getProfileWall()
         .then((apiResp) => {
           this.sortByKey(apiResp, "created_at");
           this.setState({
@@ -93,8 +93,6 @@ class Wall extends Component {
       <div className="wallFullPage">
         <div className="wallpage">
           <div className="fullbodywall">
-            <h1 className="walltitle"> Main Wall</h1>
-
             <FormCreateWall addPost={this.addPost} />
             <div className="wallPost">
               {this.state.loading ? (
@@ -136,4 +134,4 @@ class Wall extends Component {
     );
   }
 }
-export default withUser(Wall);
+export default withUser(ProfileWall);
