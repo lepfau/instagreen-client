@@ -116,7 +116,7 @@ class Myplants extends Component {
                   </p>
                   <br></br>
                   <p className="plantcardinfo">
-                    <b> Last watering:</b> {plant.waterDate}{" "}
+                    <b> Last watering:</b> {plant.waterDate.slice(0, 10)}{" "}
                   </p>
                 </div>
                 <button
