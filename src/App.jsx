@@ -6,11 +6,12 @@ import Signup from "./pages/Signup";
 import Myplants from "./pages/Myplants";
 import ProtectedRoute from "./components/Divers/ProtectedRoute";
 import Profile from "./pages/Profile";
-import Wall from "./pages/Wall";
+import Wall from "./components/Wall/Wall";
 import FormEditPlant from "./components/Forms/FormEditPlant";
 import FormEditWall from "./components/Forms/FormEditWall";
 import OneUser from "./pages/OneUser";
 import UserPage from "./pages/UserPage";
+import WallPage from "./pages/WallPage";
 function App() {
   return (
     <div className="App">
@@ -19,7 +20,7 @@ function App() {
         <Route exact path="/" component={Signin} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
-        <ProtectedRoute exact path="/wall" component={Wall} />
+        <ProtectedRoute exact path="/wall" component={WallPage} />
         <ProtectedRoute exact path="/myplants" component={Myplants} />
         <ProtectedRoute exact path="/profile" component={Profile} />
 

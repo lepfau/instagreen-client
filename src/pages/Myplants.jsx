@@ -3,6 +3,7 @@ import FormCreatePlant from "../components/Forms/FormCreatePlant";
 import apiHandler from "../api/apiHandler";
 import { Link } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
+import dayjs from "dayjs";
 
 class Myplants extends Component {
   //STATE INITIAL REMPLACE PAR COMPONENT DID MOUNT
@@ -51,27 +52,9 @@ class Myplants extends Component {
   };
 
   waterDate = (itemId) => {
-    var today = new Date();
-    var dd = today.getDate();
+    var now = dayjs();
 
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-      dd = "0" + dd;
-    }
-
-    if (mm < 10) {
-      mm = "0" + mm;
-    }
-    today = mm + "-" + dd + "-" + yyyy;
-    console.log(today);
-    today = mm + "/" + dd + "/" + yyyy;
-    console.log(today);
-    today = dd + "-" + mm + "-" + yyyy;
-    console.log(today);
-    today = mm + "/" + dd + "/" + yyyy;
-
-    apiHandler.editItem(itemId, { waterDate: today }).then((data) => {
+    apiHandler.editItem(itemId, { waterDate: now }).then((data) => {
       apiHandler
         .getPlants()
         .then((apiResp) => {

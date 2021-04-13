@@ -49,47 +49,49 @@ export default class UserPage extends Component {
 
   render() {
     return (
-      <div className="fulluserpagebody">
-        <h1 className="myplantstitle">Users list</h1>
+      <div>
+        <div className="fulluserpagebody2">
+          <h1 className="myplantstitle">Users list</h1>
 
-        <form className="searchformuserpage" onSubmit={this.submitSearch}>
-          <label className="labelplant" htmlFor="search">
-            Search by name
-          </label>
-          <input
-            className="inputplant"
-            type="text"
-            value={this.state.inputValue}
-            onChange={this.userFilterOnChange}
-          />
-        </form>
-        <div className="userpagebodyuserpage">
-          <div className="allusercontainerpage">
-            {this.state.users.map((user) => {
-              return (
-                <div key={user._id}>
-                  <div className="usercontainerpage" key={user._id}>
-                    <div className="ppusercontainer">
-                      <img
-                        className="ppwall"
-                        src={user.profileImg}
-                        alt="userpic"
-                      />
-                    </div>
-                    <p>
-                      {" "}
-                      <Link to={`/users/${user._id}`}>
+          <form className="searchformuserpage" onSubmit={this.submitSearch}>
+            <label className="labelplant" htmlFor="search">
+              Search by name
+            </label>
+            <input
+              className="inputplant"
+              type="text"
+              value={this.state.inputValue}
+              onChange={this.userFilterOnChange}
+            />
+          </form>
+          <div className="userpagebodyuserpage">
+            <div className="allusercontainerpage">
+              {this.state.users.map((user) => {
+                return (
+                  <div key={user._id}>
+                    <div className="usercontainerpage" key={user._id}>
+                      <div className="ppusercontainer">
+                        <img
+                          className="ppwall"
+                          src={user.profileImg}
+                          alt="userpic"
+                        />
+                      </div>
+                      <p>
                         {" "}
-                        <b>
-                          {user.firstName} {user.lastName}{" "}
-                        </b>
-                      </Link>
-                    </p>
+                        <Link to={`/users/${user._id}`}>
+                          {" "}
+                          <b>
+                            {user.firstName} {user.lastName}{" "}
+                          </b>
+                        </Link>
+                      </p>
+                    </div>
+                    <hr className="hruser"></hr>
                   </div>
-                  <hr className="hruser"></hr>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

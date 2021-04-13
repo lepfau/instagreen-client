@@ -18,6 +18,11 @@
   margin: 0;
 }
 
+.fulluserpagebody2 {
+  margin-top: 90px;
+  position: absolute;
+}
+
 .hometitle {
   color: white;
   font-size: 11em;

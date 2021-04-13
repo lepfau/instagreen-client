@@ -16,14 +16,16 @@ function WallPost(post) {
               </div>
 
               <div className="posttopuserinfo">
-                <p>
+                <p style={{ fontSize: "0.9em" }}>
                   <Link to={`/users/${post.userId}`}>
                     <b>
                       {post.userFirst} {post.userLast}
                     </b>
                   </Link>
                 </p>
-                <div className="postdate">{post.date.slice(0, 10)} </div>
+                <pre className="postdate">
+                  {post.date.slice(0, 10)} {post.date.slice(11, 16)}
+                </pre>
               </div>
             </div>
           </div>

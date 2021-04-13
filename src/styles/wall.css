@@ -372,6 +372,7 @@ hr {
 }
 
 .wallFullPage {
+  margin-top: 90px;
   display: flex;
   flex-direction: column;
 }
@@ -383,8 +384,8 @@ hr {
 }
 
 .fulluserpagebody {
-  position: relative;
-  top: 0px;
+  position: sticky;
+  top: 90px;
 }
 
 p {
@@ -468,7 +469,7 @@ p {
 
 .wallpage {
   display: flex;
-  margin-top: 71px;
+
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: baseline;

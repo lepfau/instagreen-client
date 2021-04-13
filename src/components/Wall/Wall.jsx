@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import FormCreateWall from "../components/Forms/FormCreateWall";
-import apiHandler from "../api/apiHandler";
-import { withUser } from "../components/Auth/withUser";
-import WallPost from "../components/Wall/WallPost";
-import loadingGif from "../assets/loadinggif.gif";
+import FormCreateWall from "../Forms/FormCreateWall";
+import apiHandler from "../../api/apiHandler";
+import { withUser } from "../Auth/withUser";
+import WallPost from "./WallPost";
+import loadingGif from "../../assets/loadinggif.gif";
+
 class Wall extends Component {
   state = {
     wall: [],

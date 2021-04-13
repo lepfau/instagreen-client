@@ -16,7 +16,10 @@ function Comments(comment) {
             </b>{" "}
           </p>
           <p className="commenttext">{comment.text}</p>
-          <p className="commentuserinfo">{comment.date.slice(0, 10)} </p>
+
+          <pre>
+            {comment.date.slice(0, 10)} {comment.date.slice(11, 16)}
+          </pre>
         </div>
         <div className="commentbtndelete">
           {comment.userEmail === comment.userLogged ? (
