@@ -48,7 +48,7 @@ class OneUser extends Component {
             />
           </div>
           <h1 key={this.state.user._id} className="userpagetitle">
-            {this.state.user.firstName} profile page
+            {this.state.user.firstName}
           </h1>
         </div>
         <div className="flexuserpage">
@@ -56,20 +56,26 @@ class OneUser extends Component {
             <h1 className="userpageplantstitle">User plants</h1>
 
             <div className="usersplants">
-              {this.state.plant.map((plant) => {
-                return (
-                  <div key={plant._id} className="userplantsbody">
-                    <div className="userplantscontainer" key={plant._id}>
-                      <p className="userplantname">{plant.name}</p>
-                      <img
-                        className="userplantimage"
-                        src={plant.image}
-                        alt="plantimg"
-                      />
+              {this.state.plant > 0 ? (
+                this.state.plant.map((plant) => {
+                  return (
+                    <div key={plant._id} className="userplantsbody">
+                      <div className="userplantscontainer" key={plant._id}>
+                        <p className="userplantname">{plant.name}</p>
+                        <img
+                          className="userplantimage"
+                          src={plant.image}
+                          alt="plantimg"
+                        />
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })
+              ) : (
+                <p className="noplants">
+                  User has no plants registered for now...
+                </p>
+              )}
             </div>
           </div>
           <div className="userplantspartright">

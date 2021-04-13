@@ -7,13 +7,16 @@ function WallPage() {
     <div
       style={{
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: "center",
         alignItems: "flex-start",
         flexWrap: "wrap",
       }}
     >
       <Users />
-      <Wall />
+      <div style={{ marginTop: "90px" }}>
+        {" "}
+        <Wall />
+      </div>
     </div>
   );
 }

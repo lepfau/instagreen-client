@@ -75,18 +75,18 @@
 }
 
 .myplantstitle {
-  margin-left: 100px;
+  text-align: center;
 
   font-family: Just Another Hand;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 200;
   text-shadow: 2px 2px 4px darkgrey;
 }
 
 .walltitle {
-  margin-left: 300px;
+  text-align: center;
   font-family: Just Another Hand;
-  font-size: 5em;
+  font-size: 3em;
   font-weight: 200;
   text-shadow: 2px 2px 4px darkgrey;
 }
@@ -249,7 +249,7 @@
   margin-left: 10px;
   margin-bottom: 30px;
   font-family: Just Another Hand;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 200;
   text-shadow: 2px 2px 4px darkgrey;
 }

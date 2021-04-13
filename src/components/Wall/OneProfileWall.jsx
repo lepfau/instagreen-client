@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import { withUser } from "../Auth/withUser";
 import WallPost from "../Wall/WallPost";
-import loadingGif from "../../assets/loadingwall.gif";
+import loadingGif from "../../assets/loadinggif.gif";
 class OneProfileWall extends Component {
   state = {
     wall: [],

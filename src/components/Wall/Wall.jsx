@@ -103,6 +103,7 @@ class Wall extends Component {
                   style={{ height: "100px", marginLeft: "70px" }}
                   src={loadingGif}
                   alt="loading gif"
+                  position="relative"
                 />
               ) : (
                 this.props.context.isLoggedIn &&
