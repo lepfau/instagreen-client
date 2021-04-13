@@ -56,7 +56,7 @@ class OneUser extends Component {
             <h1 className="userpageplantstitle">User plants</h1>
 
             <div className="usersplants">
-              {this.state.plant > 0 ? (
+              {this.state.plant.length > 0 ? (
                 this.state.plant.map((plant) => {
                   return (
                     <div key={plant._id} className="userplantsbody">
