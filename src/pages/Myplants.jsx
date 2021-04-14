@@ -78,13 +78,13 @@ class Myplants extends Component {
           {this.state.plants.length > 0 ? (
             this.state.plants.map((plant) => {
               var GivenDate = new Date(`${plant.waterDate}`);
-              GivenDate.setDate(
-                GivenDate.getDate() - `${plant.wateringinterval}`
-              );
 
               var CurrentDate = new Date();
+              CurrentDate.setDate(
+                CurrentDate.getDate() - `${plant.wateringinterval}`
+              );
 
-              if (GivenDate > CurrentDate) {
+              if (GivenDate < CurrentDate) {
                 console.log("La plante a besoin d'eau");
                 return (
                   <div className="plantcard" key={plant._id}>
@@ -204,7 +204,7 @@ class Myplants extends Component {
                         color: "green",
                       }}
                     >
-                      <i class="fas fa-check-circle"></i>No water needed
+                      <i className="fas fa-check-circle"></i>No water needed
                     </div>
                   </div>
                 );
