@@ -18,6 +18,7 @@ class FormCreatePlant extends Component {
     waterDate: "",
     httpResponse: null,
     error: null,
+    file: null,
   };
 
   handleChange = (event) => {
@@ -25,6 +26,14 @@ class FormCreatePlant extends Component {
     const value =
       event.target.type === "file" ? event.target.files[0] : event.target.value;
     this.setState({ [key]: value });
+  };
+
+  handleChangeFile = (event) => {
+    event.preventDefault();
+    this.setState({
+      image: event.target.files[0],
+      file: URL.createObjectURL(event.target.files[0]),
+    });
   };
 
   handleSubmit = (event) => {
@@ -46,6 +55,7 @@ class FormCreatePlant extends Component {
           wateringinterval: 0,
           growingperiod: "",
           image: null,
+          file: null,
           httpResponse: {
             status: "success",
             message: "Item successfully added.",
@@ -60,9 +70,6 @@ class FormCreatePlant extends Component {
             message: "An error occured, try again later.",
           },
         });
-        this.timeoutId = setTimeout(() => {
-          this.setState({ httpResponse: null });
-        }, 1000);
       });
   };
 
@@ -139,7 +146,7 @@ class FormCreatePlant extends Component {
               className="inputfile"
               type="file"
               name="image"
-              onChange={this.handleChange}
+              onChange={this.handleChangeFile}
               value={this.props.image}
             ></input>
             <label htmlFor="file">Choose a file</label>
@@ -147,6 +154,19 @@ class FormCreatePlant extends Component {
 
           <button className="btn-submit-plant">Add Plant</button>
         </form>
+        {this.state.file !== null && (
+          <img
+            style={{
+              width: "350px",
+              height: "auto",
+              display: "flex",
+              marginLeft: "60px",
+              marginTop: "20px",
+            }}
+            src={this.state.file}
+            alt="recipeimage"
+          />
+        )}
       </div>
     );
   }

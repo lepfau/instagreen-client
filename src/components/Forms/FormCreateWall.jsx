@@ -10,20 +10,30 @@ class FormCreateWall extends Component {
     author: "",
     subtitle: "",
     comments: "",
-    picture:
+    image:
       "https://cdn1.iconfinder.com/data/icons/gardening-filled-line/614/1935_-_Growing_Plant-512.png",
     httpResponse: null,
     error: null,
     loading: false,
+    file: null,
+  };
+
+  handleChangeFile = (event) => {
+    event.preventDefault();
+    this.setState({
+      image: event.target.files[0],
+      file: URL.createObjectURL(event.target.files[0]),
+    });
   };
 
   handleChange = (event) => {
     const key = event.target.name;
     const value =
       event.target.type === "file" ? event.target.files[0] : event.target.value;
-
     console.log(key, value);
-    this.setState({ [key]: value });
+    this.setState({
+      [key]: value,
+    });
   };
 
   handleSubmit = (event) => {
@@ -43,6 +53,7 @@ class FormCreateWall extends Component {
             subtitle: "",
             image: "",
             comments: "",
+            file: null,
             loading: false,
             httpResponse: {
               status: "success",
@@ -109,12 +120,23 @@ class FormCreateWall extends Component {
               className="inputfile"
               type="file"
               name="image"
-              onChange={this.handleChange}
-              value={this.props.picture}
+              onChange={this.handleChangeFile}
             ></input>
             <label htmlFor="file">Choose a file</label>
           </div>
-
+          {this.state.file !== null && (
+            <img
+              style={{
+                width: "350px",
+                height: "auto",
+                display: "flex",
+                marginLeft: "60px",
+                marginTop: "20px",
+              }}
+              src={this.state.file}
+              alt="recipeimage"
+            />
+          )}
           {this.state.loading ? (
             <button className="btn-submit-plant">
               <img style={{ height: "35px" }} src={loadingwall} alt="loading" />

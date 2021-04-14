@@ -21,10 +21,6 @@ class Myplants extends Component {
     }
   };
 
-  renderForm() {
-    return <FormCreatePlant addItem={this.addItem} />;
-  }
-
   //AFFICHER PLANTES SUR LA PAGE DEPUIS LA DB
   componentDidMount() {
     apiHandler
@@ -40,7 +36,7 @@ class Myplants extends Component {
   }
 
   addItem = (plant) => {
-    this.setState({ plants: [...this.state.plants, plant], showForm: false });
+    this.setState({ plants: [...this.state.plants, plant] });
   };
 
   deleteItem = (itemId) => {
@@ -56,14 +52,11 @@ class Myplants extends Component {
 
     apiHandler.editItem(itemId, { waterDate: now }).then((data) => {
       apiHandler
-        .getPlants()
+        .getUserPlants()
         .then((apiResp) => {
           console.log(apiResp);
-          const userPlants = apiResp.filter(
-            (plant) => plant.id_user === this.props.context.user._id
-          );
           this.setState({
-            plants: userPlants,
+            plants: apiResp,
           });
         })
         .catch((error) => {
@@ -82,7 +75,7 @@ class Myplants extends Component {
         <button className="addplantbtn" onClick={() => this.showForm()}>
           Add a new plant
         </button>
-        {showForm && this.renderForm()}
+        {showForm && <FormCreatePlant addItem={this.addItem} />}
         <div className="plantcards">
           {this.state.plants.length > 0 ? (
             this.state.plants.map((plant) => {

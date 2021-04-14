@@ -91,48 +91,44 @@ class Wall extends Component {
 
   render() {
     return (
-      <div className="wallFullPage">
-        <div className="wallpage">
-          <div className="fullbodywall">
-            <h1 className="walltitle"> Main Wall</h1>
+      <div className="fullbodywall">
+        <h1 className="walltitle"> Main Wall</h1>
 
-            <FormCreateWall addPost={this.addPost} />
-            <div className="wallPost">
-              {this.state.loading ? (
-                <img
-                  style={{ height: "100px", marginLeft: "70px" }}
-                  src={loadingGif}
-                  alt="loading gif"
-                  position="relative"
-                />
-              ) : (
-                this.props.context.isLoggedIn &&
-                this.state.wall.map((post) => {
-                  return (
-                    <div className="wallbody" key={post._id}>
-                      <WallPost
-                        userLogged={this.props.context.user.email}
-                        id={post._id}
-                        title={post.title}
-                        image={post.image}
-                        subtitle={post.subtitle}
-                        userFirst={post.id_user.firstName}
-                        userLast={post.id_user.lastName}
-                        userPic={post.id_user.profileImg}
-                        userId={post.id_user._id}
-                        date={post.created_at}
-                        userEmail={post.id_user.email}
-                        deletePost={this.deletePost}
-                        comments={post.id_comments}
-                        seeNewComment={this.seeNewComment}
-                        deleteComment={this.deleteComment}
-                      />
-                    </div>
-                  );
-                })
-              )}
-            </div>
-          </div>
+        <FormCreateWall addPost={this.addPost} />
+        <div className="wallPost">
+          {this.state.loading ? (
+            <img
+              style={{ height: "100px", marginLeft: "70px" }}
+              src={loadingGif}
+              alt="loading gif"
+              position="relative"
+            />
+          ) : (
+            this.props.context.isLoggedIn &&
+            this.state.wall.map((post) => {
+              return (
+                <div className="wallbody" key={post._id}>
+                  <WallPost
+                    userLogged={this.props.context.user.email}
+                    id={post._id}
+                    title={post.title}
+                    image={post.image}
+                    subtitle={post.subtitle}
+                    userFirst={post.id_user.firstName}
+                    userLast={post.id_user.lastName}
+                    userPic={post.id_user.profileImg}
+                    userId={post.id_user._id}
+                    date={post.created_at}
+                    userEmail={post.id_user.email}
+                    deletePost={this.deletePost}
+                    comments={post.id_comments}
+                    seeNewComment={this.seeNewComment}
+                    deleteComment={this.deleteComment}
+                  />
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     );

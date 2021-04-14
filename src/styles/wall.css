@@ -228,6 +228,22 @@ hr {
   box-shadow: 2px 2px 4px darkgrey;
 }
 
+.wallForm2 {
+  position: relative;
+  left: 50px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  top: 90px;
+  background-color: white;
+  width: 50vw;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px darkgrey;
+}
+
 .labelwall {
   display: inline-block;
   width: 80px;
@@ -476,4 +492,21 @@ p {
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: baseline;
+}
+
+@media screen and (max-width: 500px) {
+  .wallPost {
+    display: flex;
+    flex-direction: column;
+    /* align-self: center; */
+    justify-content: center;
+    width: 375px;
+  }
+
+  .wallbody {
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+  }
 }

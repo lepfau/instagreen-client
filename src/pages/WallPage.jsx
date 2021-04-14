@@ -14,7 +14,6 @@ function WallPage() {
     >
       <Users />
       <div style={{ marginTop: "90px" }}>
-        {" "}
         <Wall />
       </div>
     </div>

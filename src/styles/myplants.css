@@ -138,6 +138,10 @@
   box-shadow: 2px 2px 4px darkgrey;
 }
 
+.PlantFormContainer {
+  display: flex;
+}
+
 .labelplant {
   display: inline-block;
   width: 140px;
@@ -209,10 +213,14 @@
   top: 90px;
   background-color: white;
   padding: 15px;
-  width: 600px;
+  width: 50vw;
   border-radius: 15px;
   box-shadow: 2px 2px 4px lightgrey;
   margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .userpageplantstitle {
@@ -262,4 +270,10 @@
 .fullbodyprofile {
   position: relative;
   top: 120px;
+}
+
+.ItemForm-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }

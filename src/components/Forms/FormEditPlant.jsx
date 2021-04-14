@@ -10,6 +10,7 @@ require("dotenv").config();
 class FormEditPlant extends Component {
   state = {
     httpResponse: null,
+    file: null,
   };
 
   formRef = React.createRef();
@@ -24,8 +25,11 @@ class FormEditPlant extends Component {
         this.setState({
           name: plantToEdit[0].name,
           description: plantToEdit[0].description,
-
+          enlightment: plantToEdit[0].enlightment,
+          watering: plantToEdit[0].watering,
+          wateringinterval: plantToEdit[0].wateringinterval,
           id: plantToEdit[0]._id,
+          file: plantToEdit[0].image,
         });
       })
       .catch((err) => {
@@ -40,6 +44,14 @@ class FormEditPlant extends Component {
 
     console.log(key, value);
     this.setState({ [key]: value });
+  };
+
+  handleChangeFile = (event) => {
+    event.preventDefault();
+    this.setState({
+      image: event.target.files[0],
+      file: URL.createObjectURL(event.target.files[0]),
+    });
   };
 
   handleSubmit = (event) => {
@@ -90,7 +102,7 @@ class FormEditPlant extends Component {
               className="selectplant"
               name="enlightment"
               onChange={this.handleChange}
-              defaultValue={this.state.enlightment}
+              value={this.state.enlightment}
             >
               <option value="">Choose an option</option>
               <option value="Direct sun">Direct sun</option>
@@ -108,7 +120,7 @@ class FormEditPlant extends Component {
               className="selectplant"
               name="watering"
               onChange={this.handleChange}
-              defaultValue={this.state.watering}
+              value={this.state.watering}
             >
               <option value="">Choose an option</option>
               <option value="Heavy">Heavy</option>
@@ -127,7 +139,7 @@ class FormEditPlant extends Component {
               name="wateringinterval"
               type="number"
               onChange={this.handleChange}
-              value={this.state.wateringinterval}
+              defaultValue={this.state.wateringinterval}
             />
           </div>
 
@@ -136,14 +148,27 @@ class FormEditPlant extends Component {
               className="inputfile"
               type="file"
               name="image"
-              onChange={this.handleChange}
+              onChange={this.handleChangeFile}
               id="image"
             ></input>
-            <label for="image">Choose a file</label>
+            <label htmlFor="image">Choose a file</label>
           </div>
 
           <button className="btn-submit-plant">Save Changes</button>
         </form>
+        {this.state.file !== null && (
+          <img
+            style={{
+              width: "350px",
+              height: "auto",
+              display: "flex",
+              marginLeft: "60px",
+              marginTop: "120px",
+            }}
+            src={this.state.file}
+            alt="recipeimage"
+          />
+        )}
       </div>
     );
   }
