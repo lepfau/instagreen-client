@@ -142,7 +142,7 @@ class FormCreateWall extends Component {
               <img style={{ height: "35px" }} src={loadingwall} alt="loading" />
             </button>
           ) : (
-            <button className="btn-submit-plant">Poster sur le mur</button>
+            <button className="btn-submit-plant">Post on the wall</button>
           )}
         </form>
       </div>

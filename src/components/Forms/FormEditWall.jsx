@@ -142,7 +142,7 @@ class FormEditWall extends Component {
                 />
               </button>
             ) : (
-              <button className="btn-submit-plant">Poster sur le mur</button>
+              <button className="btn-submit-plant">Update post</button>
             )}
           </form>
         </div>
