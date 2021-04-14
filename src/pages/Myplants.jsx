@@ -47,14 +47,12 @@ class Myplants extends Component {
     });
   };
 
-  waterDate = (itemId) => {
+  setWaterDate = (itemId) => {
     var now = dayjs();
-
     apiHandler.editItem(itemId, { waterDate: now }).then((data) => {
       apiHandler
         .getUserPlants()
         .then((apiResp) => {
-          console.log(apiResp);
           this.setState({
             plants: apiResp,
           });
@@ -79,54 +77,138 @@ class Myplants extends Component {
         <div className="plantcards">
           {this.state.plants.length > 0 ? (
             this.state.plants.map((plant) => {
-              return (
-                <div className="plantcard" key={plant._id}>
-                  <div className="plantcardtop">
-                    <p className="plantcardname">{plant.name}</p>
-                    <div className="plantcardtopbtn">
-                      <Link to={`/plant/edit/${plant._id}`}>
-                        <i className="fas fa-edit"></i>
-                      </Link>
-                      <i
-                        onClick={() => {
-                          this.deleteItem(plant._id);
-                        }}
-                        className="fas fa-trash"
-                      ></i>
+              var GivenDate = new Date(`${plant.waterDate}`);
+              GivenDate.setDate(
+                GivenDate.getDate() - `${plant.wateringinterval}`
+              );
+
+              var CurrentDate = new Date();
+
+              if (GivenDate > CurrentDate) {
+                console.log("La plante a besoin d'eau");
+                return (
+                  <div className="plantcard" key={plant._id}>
+                    <div className="plantcardtop">
+                      <p className="plantcardname">{plant.name}</p>
+
+                      <div className="plantcardtopbtn">
+                        <Link to={`/plant/edit/${plant._id}`}>
+                          <i className="fas fa-edit"></i>
+                        </Link>
+                        <i
+                          onClick={() => {
+                            this.deleteItem(plant._id);
+                          }}
+                          className="fas fa-trash"
+                        ></i>
+                      </div>
+                    </div>
+
+                    <img
+                      className="plantcardimage"
+                      src={plant.image}
+                      alt="plant"
+                    />
+                    <div className="plantcardallinfo">
+                      <p className="plantcardinfo">
+                        <b>Enlightment</b>: {plant.enlightment}
+                      </p>
+                      <p className="plantcardinfo">
+                        <b>Watering: </b>
+                        {plant.watering}
+                      </p>
+                      <p className="plantcardinfo">
+                        <b> Water interval:</b> {plant.wateringinterval} days
+                      </p>
+                      <br></br>
+                      <p className="plantcardinfo">
+                        <b> Last watering:</b> {plant.waterDate.slice(0, 10)}
+                      </p>
+                    </div>
+                    <button
+                      className="givemewater"
+                      onClick={() => {
+                        this.setWaterDate(plant._id);
+                      }}
+                    >
+                      Water me ! <i className="fas fa-hand-holding-water"></i>
+                    </button>
+                    <div
+                      style={{
+                        textAlign: "center",
+                        margin: "15px",
+                        color: "red",
+                      }}
+                    >
+                      <img
+                        style={{ height: "30px" }}
+                        src="https://static.wixstatic.com/media/595488_898025ed38bb4367827dca2895d87d12~mv2.gif/v1/fit/w_445%2Ch_410%2Cal_c%2Cq_80/file.gif"
+                      ></img>
+                      <span> I need water !</span>
                     </div>
                   </div>
+                );
+              } else {
+                console.log("La plante n'a pas besion d'eau");
+                return (
+                  <div className="plantcard" key={plant._id}>
+                    <div className="plantcardtop">
+                      <p className="plantcardname">{plant.name}</p>
 
-                  <img
-                    className="plantcardimage"
-                    src={plant.image}
-                    alt="plant"
-                  />
-                  <div className="plantcardallinfo">
-                    <p className="plantcardinfo">
-                      <b>Enlightment</b>: {plant.enlightment}
-                    </p>
-                    <p className="plantcardinfo">
-                      <b>Watering: </b>
-                      {plant.watering}
-                    </p>
-                    <p className="plantcardinfo">
-                      <b> Water interval:</b> {plant.wateringinterval} days
-                    </p>
-                    <br></br>
-                    <p className="plantcardinfo">
-                      <b> Last watering:</b> {plant.waterDate.slice(0, 10)}
-                    </p>
+                      <div className="plantcardtopbtn">
+                        <Link to={`/plant/edit/${plant._id}`}>
+                          <i className="fas fa-edit"></i>
+                        </Link>
+                        <i
+                          onClick={() => {
+                            this.deleteItem(plant._id);
+                          }}
+                          className="fas fa-trash"
+                        ></i>
+                      </div>
+                    </div>
+
+                    <img
+                      className="plantcardimage"
+                      src={plant.image}
+                      alt="plant"
+                    />
+                    <div className="plantcardallinfo">
+                      <p className="plantcardinfo">
+                        <b>Enlightment</b>: {plant.enlightment}
+                      </p>
+                      <p className="plantcardinfo">
+                        <b>Watering: </b>
+                        {plant.watering}
+                      </p>
+                      <p className="plantcardinfo">
+                        <b> Water interval:</b> {plant.wateringinterval} days
+                      </p>
+                      <br></br>
+                      <p className="plantcardinfo">
+                        <b> Last watering:</b> {plant.waterDate.slice(0, 10)}
+                      </p>
+                    </div>
+                    <button
+                      className="givemewater"
+                      onClick={() => {
+                        this.setWaterDate(plant._id);
+                      }}
+                    >
+                      Water me ! <i className="fas fa-hand-holding-water"></i>
+                    </button>
+                    <div
+                      style={{
+                        textAlign: "center",
+                        margin: "15px",
+                        color: "green",
+                      }}
+                    >
+                      <i class="fas fa-check-circle"></i>No water needed
+                    </div>
                   </div>
-                  <button
-                    className="givemewater"
-                    onClick={() => {
-                      this.waterDate(plant._id);
-                    }}
-                  >
-                    Water me ! <i className="fas fa-hand-holding-water"></i>
-                  </button>
-                </div>
-              );
+                );
+              }
             })
           ) : (
             <p className="noplants">No plants added for now...</p>
