@@ -12,6 +12,8 @@ import FormEditWall from "./components/Forms/FormEditWall";
 import OneUser from "./pages/OneUser";
 import UserPage from "./pages/UserPage";
 import WallPage from "./pages/WallPage";
+import MapPage from "./pages/MapPage";
+
 function App() {
   return (
     <div className="App">
@@ -21,6 +23,7 @@ function App() {
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/wall" component={WallPage} />
+        <ProtectedRoute exact path="/map" component={MapPage} />
         <ProtectedRoute exact path="/myplants" component={Myplants} />
         <ProtectedRoute exact path="/profile" component={Profile} />
 

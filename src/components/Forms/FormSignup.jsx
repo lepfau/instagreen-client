@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { UserContext } from "../Auth/UserContext";
+import UserContext from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
 import { Redirect } from "react-router-dom";
 import { buildFormData } from "../../utils";
@@ -18,8 +18,8 @@ class FormSignup extends Component {
 
   handleChange = (event) => {
     const value =
-    event.target.type === "file" ? event.target.files[0] : event.target.value;
-    
+      event.target.type === "file" ? event.target.files[0] : event.target.value;
+
     const key = event.target.name;
 
     this.setState({ [key]: value });
@@ -28,12 +28,9 @@ class FormSignup extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-
     const fd = new FormData();
     const { httpResponse, ...data } = this.state;
     buildFormData(fd, data);
-
-
 
     apiHandler
       .signup(fd)
@@ -52,40 +49,44 @@ class FormSignup extends Component {
 
     return (
       <div class="formcontainersignup">
-      <form onSubmit={this.handleSubmit} className="signupform">
-        <label htmlFor="firstName">First Name</label>
-        <input className="signupinput"
-          onChange={this.handleChange}
-          value={this.state.firstName}
-          type="text"
-          id="firstName"
-          name="firstName"
-        />
-        <label htmlFor="lastName">Last Name</label>
-        <input className="signupinput"
-          onChange={this.handleChange}
-          value={this.state.lastName}
-          type="text"
-          id="lastName"
-          name="lastName"
-        />
-        <label htmlFor="email">Email</label>
-        <input className="signupinput"
-          onChange={this.handleChange}
-          value={this.state.email}
-          type="email"
-          id="email"
-          name="email"
-        />
-        <label htmlFor="password">Password</label>
-        <input className="signupinput"
-          onChange={this.handleChange}
-          value={this.state.password}
-          type="password"
-          id="password"
-          name="password"
-        />
- <div>
+        <form onSubmit={this.handleSubmit} className="signupform">
+          <label htmlFor="firstName">First Name</label>
+          <input
+            className="signupinput"
+            onChange={this.handleChange}
+            value={this.state.firstName}
+            type="text"
+            id="firstName"
+            name="firstName"
+          />
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            className="signupinput"
+            onChange={this.handleChange}
+            value={this.state.lastName}
+            type="text"
+            id="lastName"
+            name="lastName"
+          />
+          <label htmlFor="email">Email</label>
+          <input
+            className="signupinput"
+            onChange={this.handleChange}
+            value={this.state.email}
+            type="email"
+            id="email"
+            name="email"
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            className="signupinput"
+            onChange={this.handleChange}
+            value={this.state.password}
+            type="password"
+            id="password"
+            name="password"
+          />
+          <div>
             <input
               type="file"
               name="profileImg"
@@ -93,9 +94,9 @@ class FormSignup extends Component {
               value={this.props.image}
             ></input>
           </div>
-        
-        <button> Register </button>
-      </form>
+
+          <button> Register </button>
+        </form>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
-import { UserContext } from "./UserContext";
+import UserContext from "./UserContext";
 
 class UserProvider extends Component {
   state = {

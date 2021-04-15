@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/UploadWidget.css"
+import "../../styles/UploadWidget.css";
 
 // https://reactjs.org/docs/forwarding-refs.html
 

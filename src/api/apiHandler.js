@@ -190,4 +190,11 @@ export default {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  getItems() {
+    return service
+      .get("/api/item")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 };
