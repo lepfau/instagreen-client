@@ -20,8 +20,8 @@ It uses "vanilla" react with class components mostly;
 
 ## Screenshots
 
-![App screenshot](./public/instagreenapp2.gif)
-![Create form screenshot](./public/instagreenscreen2.png)
+![App screenshot](./public/instagreengif.gif)
+![Create form screenshot](./public/instagreenscreen3.png)
 
 ## Technologies
 
@@ -40,8 +40,9 @@ It uses "vanilla" react with class components mostly;
 List of features ready and TODOs for future development
 
 - Wall with posts and comments
+- Plant watering follow up and warning 
 - Instagram / facebook inspired look
-- Plant update for watering
+
 
 To-do list:
 
