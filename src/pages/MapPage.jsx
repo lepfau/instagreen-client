@@ -69,7 +69,7 @@ class MapPage extends React.Component {
           <button
             className="addplantbtn"
             onClick={this.displayForm}
-            style={{ position: "fixed", top: "100px" }}
+            style={{ position: "fixed", top: "60px" }}
           >
             Give a plant cut !
           </button>

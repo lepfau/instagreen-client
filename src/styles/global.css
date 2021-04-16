@@ -36,6 +36,10 @@ body {
   background-color: #f0f2f5;
 }
 
+.inputsearchcity {
+  width: 300px;
+}
+
 body::-webkit-scrollbar {
   width: 0.8em;
 }

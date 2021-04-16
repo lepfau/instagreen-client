@@ -1,6 +1,7 @@
 import React from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import plantsvg from "../../assets/plant.png";
+import SearchbarMap from "./SearchbarMap";
 
 const Map = ReactMapboxGl({
   accessToken: process.env.REACT_APP_MAPBOX_TOKEN,
@@ -48,6 +49,13 @@ class AppMap extends React.PureComponent {
     this.props.handleSelectItem(selectedItem);
   };
 
+  handleSearchChange = (arg) => {
+    this.setState({
+      lng: arg.coordinates[0],
+      lat: arg.coordinates[1],
+    });
+  };
+
   render() {
     const plants = this.props.items;
     const plantLayer = (
@@ -68,21 +76,24 @@ class AppMap extends React.PureComponent {
     );
 
     return (
-      <Map
-        // eslint-disable-next-line
-        style="mapbox://styles/mapbox/light-v10"
-        zoom={[12]}
-        containerStyle={{
-          top: 50,
-          left: 0,
-          bottom: 0,
-          right: 0,
-          position: "absolute",
-        }}
-        center={[this.state.lng, this.state.lat]}
-      >
-        {plantLayer}
-      </Map>
+      <div>
+        <SearchbarMap handleSearchChange={this.handleSearchChange} />
+        <Map
+          // eslint-disable-next-line
+          style="mapbox://styles/mapbox/light-v10"
+          zoom={[12]}
+          containerStyle={{
+            top: 150,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            position: "absolute",
+          }}
+          center={[this.state.lng, this.state.lat]}
+        >
+          {plantLayer}
+        </Map>
+      </div>
     );
   }
 }
