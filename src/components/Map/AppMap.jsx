@@ -73,7 +73,7 @@ class AppMap extends React.PureComponent {
         style="mapbox://styles/mapbox/light-v10"
         zoom={[12]}
         containerStyle={{
-          top: 100,
+          top: 50,
           left: 0,
           bottom: 0,
           right: 0,

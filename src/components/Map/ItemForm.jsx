@@ -25,7 +25,8 @@ class ItemForm extends Component {
   formRef = React.createRef();
 
   handleChange = (event) => {
-    const value = event.target.value;
+    const value =
+      event.target.type === "file" ? event.target.files[0] : event.target.value;
     const key = event.target.name;
     this.setState({ [key]: value });
   };
@@ -88,7 +89,7 @@ class ItemForm extends Component {
           <p onClick={this.props.handleClose} className="close-link">
             X
           </p>
-          <h2>Give a plant cut !</h2>
+          <h2 style={{ marginBottom: "20px" }}>Give a plant cut !</h2>
           {httpResponse && (
             <FeedBack
               message={httpResponse.message}
@@ -130,9 +131,16 @@ class ItemForm extends Component {
           </div>
 
           <div className="form-group">
-            <UploadWidget ref={this.imageRef} name="image">
-              Upload image
-            </UploadWidget>
+            <label className="label" htmlFor="name">
+              Image
+            </label>
+            <input
+              className="input"
+              type="file"
+              onChange={this.handleChange}
+              placeholder="Choose file"
+              name="image"
+            />
           </div>
 
           <h4>Contact information</h4>
@@ -150,8 +158,11 @@ class ItemForm extends Component {
               name="phone"
             />
           </div>
-
-          <button>Add Item</button>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button style={{ marginLeft: "0px" }} className="addplantbtn">
+              Add Item
+            </button>
+          </div>
         </form>
       </div>
     );

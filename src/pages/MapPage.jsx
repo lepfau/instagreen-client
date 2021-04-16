@@ -66,12 +66,13 @@ class MapPage extends React.Component {
           />
         </div>
         <div>
-          <a
+          <button
+            className="addplantbtn"
             onClick={this.displayForm}
-            style={{ position: "fixed", top: "60px", right: "20px" }}
+            style={{ position: "fixed", top: "100px" }}
           >
-            Proposer une bouture
-          </a>
+            Give a plant cut !
+          </button>
         </div>
       </React.Fragment>
     );
