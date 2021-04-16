@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import AutoComplete from "./AutoComplete";
 import UploadWidget from "../../components/Divers/UploadWidget";
-import Button from "./Button";
-import Message from "./Message";
 import UserContext from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
 import { buildFormData } from "../../utils";
@@ -14,13 +12,12 @@ class ItemForm extends Component {
 
   state = {
     name: "",
-    category: "",
     quantity: "",
     location: {
       coordinates: [],
     },
     address: "",
-    description: "",
+    phone: "",
     httpResponse: null,
     error: null,
   };
@@ -38,8 +35,7 @@ class ItemForm extends Component {
 
     const fd = new FormData();
     const { httpResponse, ...data } = this.state;
-    buildFormData(fd, data); // You can find this function in ./src/utils.js
-    // Function implemented by user "Vladi Vlad" @stackoverflow : ) => https://stackoverflow.com/a/42241875/13374041
+    buildFormData(fd, data);
 
     apiHandler
       .addItem(fd)
@@ -51,13 +47,12 @@ class ItemForm extends Component {
             message: "Item successfully added.",
           },
           name: "",
-          category: "",
           quantity: "",
           location: {
             coordinates: [],
           },
           address: "",
-          description: "",
+          phone: "",
         });
         this.timeoutId = setTimeout(() => {
           this.setState({ httpResponse: null });
@@ -156,7 +151,7 @@ class ItemForm extends Component {
             />
           </div>
 
-          <button primary>Add Item</button>
+          <button>Add Item</button>
         </form>
       </div>
     );

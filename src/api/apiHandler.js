@@ -197,4 +197,11 @@ export default {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  addItem(data) {
+    return service
+      .post("/api/item", data)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 };

@@ -6,7 +6,7 @@ import Signup from "./pages/Signup";
 import Myplants from "./pages/Myplants";
 import ProtectedRoute from "./components/Divers/ProtectedRoute";
 import Profile from "./pages/Profile";
-import Wall from "./components/Wall/Wall";
+
 import FormEditPlant from "./components/Forms/FormEditPlant";
 import FormEditWall from "./components/Forms/FormEditWall";
 import OneUser from "./pages/OneUser";
@@ -23,7 +23,6 @@ function App() {
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/wall" component={WallPage} />
-        <ProtectedRoute exact path="/map" component={MapPage} />
         <ProtectedRoute exact path="/myplants" component={Myplants} />
         <ProtectedRoute exact path="/profile" component={Profile} />
 
@@ -35,6 +34,7 @@ function App() {
         <ProtectedRoute exact path="/wall/edit/:id" component={FormEditWall} />
         <ProtectedRoute exact path="/users" component={UserPage} />
         <ProtectedRoute exact path="/users/:id" component={OneUser} />
+        <ProtectedRoute exact path="/map" component={MapPage} />
       </Switch>
     </div>
   );

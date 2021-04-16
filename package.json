@@ -7,11 +7,12 @@
     "cloudinary": "^1.23.0",
     "dayjs": "^1.10.4",
     "dotenv": "^8.2.0",
+    "mapbox-gl": "^1.13.1",
     "multer": "^1.4.2",
     "multer-storage-cloudinary": "^4.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-mapbox-gl": "^5.1.1",
+    "react-mapbox-gl": "^4.8.6",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
   },

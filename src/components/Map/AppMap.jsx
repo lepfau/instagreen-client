@@ -1,6 +1,6 @@
 import React from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
-import plantsvg from "../../assets/plant.svg";
+import plantsvg from "../../assets/plant.png";
 
 const Map = ReactMapboxGl({
   accessToken: process.env.REACT_APP_MAPBOX_TOKEN,
@@ -14,7 +14,7 @@ const Map = ReactMapboxGl({
 // Add images for use in layout with prop icon-image. The value should be the imageKey string of the tuple.
 // Alternatively, use mapbox studio to upload the image, it will be fetched with the map style object. (see map.addImage options for the tuple options).
 
-const plantImg = new Image(20, 30);
+const plantImg = new Image(40, 40);
 plantImg.src = plantsvg;
 
 class AppMap extends React.PureComponent {
@@ -49,10 +49,7 @@ class AppMap extends React.PureComponent {
   };
 
   render() {
-    const plants = this.props.items.filter(
-      (item) => item.category[0] === "Plant"
-    );
-
+    const plants = this.props.items;
     const plantLayer = (
       <Layer
         type="symbol"
