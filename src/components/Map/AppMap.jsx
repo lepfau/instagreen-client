@@ -4,7 +4,8 @@ import plantsvg from "../../assets/plant.png";
 import SearchbarMap from "./SearchbarMap";
 
 const Map = ReactMapboxGl({
-  accessToken: process.env.REACT_APP_MAPBOX_TOKEN,
+  accessToken:
+    "pk.eyJ1IjoibGVwZmF1IiwiYSI6ImNranNvd2RvbzB6azcyeXFodTY3dTdnOHoifQ.0ZfEPNG6S9_GX-7K5a_VEw",
 });
 
 // Programatically create image objects with js that we'll pass later to the layers.
