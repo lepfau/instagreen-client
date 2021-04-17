@@ -1,7 +1,7 @@
 import React from "react";
 import Wall from "../components/Wall/Wall";
 import Users from "../components/Users/Users";
-
+import MapPage from "./MapPage";
 function WallPage() {
   return (
     <div

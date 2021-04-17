@@ -76,7 +76,7 @@ class FormEditPlant extends Component {
 
   render() {
     return (
-      <div className="ItemForm-container">
+      <div style={{ display: "flex" }}>
         <form className="formEditplant" onSubmit={this.handleSubmit}>
           <h2 className="myplantstitle">Edit this Plant</h2>
 
