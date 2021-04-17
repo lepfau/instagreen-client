@@ -131,6 +131,13 @@ export default {
       .catch(errorHandler);
   },
 
+  editUser(userId, userInfo) {
+    return service
+      .patch("/api/user/" + userId, userInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   deleteWall(itemId) {
     return service
       .delete("/api/wall/" + itemId)

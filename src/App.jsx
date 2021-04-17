@@ -13,6 +13,7 @@ import OneUser from "./pages/OneUser";
 import UserPage from "./pages/UserPage";
 import WallPage from "./pages/WallPage";
 import MapPage from "./pages/MapPage";
+import UpdateUser from "./components/Forms/UpdateUser";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         <ProtectedRoute exact path="/wall" component={WallPage} />
         <ProtectedRoute exact path="/myplants" component={Myplants} />
         <ProtectedRoute exact path="/profile" component={Profile} />
-
+        <ProtectedRoute exact path="/profileupdate" component={UpdateUser} />
         <ProtectedRoute
           exact
           path="/plant/edit/:id"

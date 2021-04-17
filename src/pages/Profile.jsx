@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
 import { withUser } from "../components/Auth/withUser";
 import ProfileWall from "../components/Wall/ProfileWall";
-
+import { Link } from "react-router-dom";
 class Profile extends Component {
   state = {
     plants: [],
@@ -28,6 +28,9 @@ class Profile extends Component {
     return (
       <div className="fullbodyprofile">
         <h1 className="userpagetitle">My profile</h1>
+
+        <Link to={`/profileupdate`}>Modify my profile</Link>
+
         <div className="flexuserpageprofile">
           <div className="userplantspartleft">
             <h1 className="userpageplantstitle">My plants</h1>
