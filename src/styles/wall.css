@@ -154,12 +154,17 @@ hr {
   margin-top: 20px;
 }
 
+.fa {
+  cursor: pointer;
+}
+
 .commentsubbtn {
   margin-left: 5px;
   border-radius: 50%;
   height: 40px;
   width: 40px;
   border: none;
+  cursor: pointer;
 }
 
 .posttitle {

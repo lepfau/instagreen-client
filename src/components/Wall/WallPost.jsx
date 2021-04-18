@@ -60,6 +60,7 @@ function WallPost(post) {
                 userImg={comment.id_user.profileImg}
                 userFirst={comment.id_user.firstName}
                 userLast={comment.id_user.lastName}
+                userId={comment.id_user._id}
                 text={comment.text}
                 date={comment.created_at}
                 userEmail={comment.id_user.email}

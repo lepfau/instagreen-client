@@ -14,6 +14,11 @@ class FormSignup extends Component {
     password: "",
     firstName: "",
     lastName: "",
+    profileImg: "",
+    file:
+      "https://www.irishrsa.ie/wp-content/uploads/2017/03/default-avatar.png",
+    loading: false,
+    message: null,
   };
 
   handleChange = (event) => {
@@ -25,13 +30,19 @@ class FormSignup extends Component {
     this.setState({ [key]: value });
   };
 
+  handleChangeFile = (event) => {
+    event.preventDefault();
+    this.setState({
+      profileImg: event.target.files[0],
+      file: URL.createObjectURL(event.target.files[0]),
+    });
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
-
     const fd = new FormData();
     const { httpResponse, ...data } = this.state;
     buildFormData(fd, data);
-
     apiHandler
       .signup(fd)
       .then((data) => {
@@ -49,7 +60,7 @@ class FormSignup extends Component {
 
     return (
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <div class="wallForm2">
+        <div className="wallForm2">
           <form
             onSubmit={this.handleSubmit}
             style={{
@@ -108,16 +119,33 @@ class FormSignup extends Component {
                 name="password"
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="file">Profile picture</label>
+            <div style={{ alignSelf: "center" }}>
               <input
-                id="file"
-                className="inputwall"
+                id="profileImg"
+                className="inputfile"
                 type="file"
                 name="profileImg"
-                onChange={this.handleChange}
-                value={this.props.image}
+                onChange={this.handleChangeFile}
+                // value={this.state.profileImg}
               ></input>
+              <label htmlFor="profileImg">Choose a picture</label>
+            </div>
+            <div
+              style={{
+                height: "220px",
+                width: "220px",
+                alignSelf: "center",
+                marginTop: "20px",
+              }}
+              className="ppusercontainercomment"
+            >
+              {this.state.file !== null && (
+                <img
+                  className="ppwall"
+                  src={this.state.file}
+                  alt="recipeimage"
+                />
+              )}
             </div>
 
             <button

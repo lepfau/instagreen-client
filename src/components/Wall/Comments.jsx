@@ -1,19 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Comments(comment) {
   return (
     <div className="commentpart">
       <div className="usercommenting">
         <div className="ppusercontainercomment">
-          <img className="ppwall" src={comment.userImg} alt="userpic" />
+          <Link to={`/users/${comment.userId}`}>
+            <img className="ppwall" src={comment.userImg} alt="userpic" />
+          </Link>
         </div>
       </div>
       <div className="commentinside">
         <div className="commetuser">
           <p className="commentuserinfo">
-            <b>
-              {comment.userFirst} {comment.userLast}
-            </b>{" "}
+            <Link to={`/users/${comment.userId}`}>
+              <b>
+                {comment.userFirst} {comment.userLast}
+              </b>{" "}
+            </Link>
           </p>
           <p className="commenttext">{comment.text}</p>
 

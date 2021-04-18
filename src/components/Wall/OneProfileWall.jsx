@@ -85,8 +85,8 @@ class OneProfileWall extends Component {
                   src={loadingGif}
                   alt="loading gif"
                 />
-              ) : (
-                this.props.context.isLoggedIn &&
+              ) : this.props.context.isLoggedIn &&
+                this.state.wall.length > 0 ? (
                 this.state.wall.map((post) => {
                   return (
                     <div className="wallbody" key={post._id}>
@@ -110,6 +110,8 @@ class OneProfileWall extends Component {
                     </div>
                   );
                 })
+              ) : (
+                <p className="noplants">Nothing posted for now ...</p>
               )}
             </div>
           </div>

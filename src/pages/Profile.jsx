@@ -3,6 +3,7 @@ import apiHandler from "../api/apiHandler";
 import { withUser } from "../components/Auth/withUser";
 import ProfileWall from "../components/Wall/ProfileWall";
 import { Link } from "react-router-dom";
+
 class Profile extends Component {
   state = {
     plants: [],
@@ -27,29 +28,47 @@ class Profile extends Component {
   render() {
     return (
       <div className="fullbodyprofile">
-        <h1 className="userpagetitle">My profile</h1>
-
-        <Link to={`/profileupdate`}>Modify my profile</Link>
-
+        <div>
+          <h1 className="userpagetitle">
+            My profile
+            <br></br>
+            <span>
+              <Link to={`/profileupdate`}>
+                {" "}
+                <i class="fas fa-user-cog"></i>
+              </Link>
+            </span>{" "}
+          </h1>
+        </div>
         <div className="flexuserpageprofile">
           <div className="userplantspartleft">
             <h1 className="userpageplantstitle">My plants</h1>
 
             <div className="usersplants">
-              {this.state.plants.map((plant) => {
-                return (
-                  <div key={plant._id} className="userplantsbody">
-                    <div className="userplantscontainer" key={plant._id}>
-                      <p className="userplantname">{plant.name}</p>
-                      <img
-                        className="userplantimage"
-                        src={plant.image}
-                        alt="plantimg"
-                      />
+              {this.state.plants.length > 0 ? (
+                this.state.plants.map((plant) => {
+                  return (
+                    <div key={plant._id} className="userplantsbody">
+                      <div className="userplantscontainer" key={plant._id}>
+                        <p className="userplantname">{plant.name}</p>
+                        <img
+                          className="userplantimage"
+                          src={plant.image}
+                          alt="plantimg"
+                        />
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })
+              ) : (
+                <p className="noplants">
+                  You can add plants{" "}
+                  <Link to={`/myplants`}>
+                    <b>here</b>
+                  </Link>
+                  !
+                </p>
+              )}
             </div>
           </div>
           <div className="userplantspartright">
