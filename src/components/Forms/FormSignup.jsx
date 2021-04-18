@@ -48,55 +48,87 @@ class FormSignup extends Component {
     }
 
     return (
-      <div class="formcontainersignup">
-        <form onSubmit={this.handleSubmit} className="signupform">
-          <label htmlFor="firstName">First Name</label>
-          <input
-            className="signupinput"
-            onChange={this.handleChange}
-            value={this.state.firstName}
-            type="text"
-            id="firstName"
-            name="firstName"
-          />
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            className="signupinput"
-            onChange={this.handleChange}
-            value={this.state.lastName}
-            type="text"
-            id="lastName"
-            name="lastName"
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            className="signupinput"
-            onChange={this.handleChange}
-            value={this.state.email}
-            type="email"
-            id="email"
-            name="email"
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            className="signupinput"
-            onChange={this.handleChange}
-            value={this.state.password}
-            type="password"
-            id="password"
-            name="password"
-          />
-          <div>
-            <input
-              type="file"
-              name="profileImg"
-              onChange={this.handleChange}
-              value={this.props.image}
-            ></input>
-          </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div class="wallForm2">
+          <form
+            onSubmit={this.handleSubmit}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-end",
+            }}
+          >
+            <h2
+              style={{ alignSelf: "center", marginBottom: "20px" }}
+              className="myplantstitle"
+            >
+              Create your account
+            </h2>
+            <div className="form-group">
+              <label htmlFor="firstName">First Name</label>
+              <input
+                className="inputwall"
+                onChange={this.handleChange}
+                value={this.state.firstName}
+                type="text"
+                id="firstName"
+                name="firstName"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="lastName">Last Name</label>
+              <input
+                className="inputwall"
+                onChange={this.handleChange}
+                value={this.state.lastName}
+                type="text"
+                id="lastName"
+                name="lastName"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                className="inputwall"
+                onChange={this.handleChange}
+                value={this.state.email}
+                type="email"
+                id="email"
+                name="email"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                className="inputwall"
+                onChange={this.handleChange}
+                value={this.state.password}
+                type="password"
+                id="password"
+                name="password"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="file">Profile picture</label>
+              <input
+                id="file"
+                className="inputwall"
+                type="file"
+                name="profileImg"
+                onChange={this.handleChange}
+                value={this.props.image}
+              ></input>
+            </div>
 
-          <button> Register </button>
-        </form>
+            <button
+              style={{ alignSelf: "center", marginLeft: "0px" }}
+              className="btn-submit-plant"
+            >
+              {" "}
+              Register{" "}
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
