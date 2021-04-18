@@ -55,7 +55,7 @@ class FormSignup extends Component {
 
   render() {
     if (this.context.user) {
-      return <Redirect to="/" />;
+      return <Redirect to="/wall" />;
     }
 
     return (
