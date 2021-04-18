@@ -47,6 +47,7 @@ class FormSignup extends Component {
       .signup(fd)
       .then((data) => {
         this.context.setUser(data);
+        this.props.history.push("/wall");
       })
       .catch((error) => {
         console.log(error);
