@@ -431,6 +431,13 @@ p {
   flex-direction: column;
 }
 
+.wallpagecss {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
 .userplantscontainer {
   display: flex;
   flex-direction: column;
@@ -503,19 +510,35 @@ p {
   align-items: baseline;
 }
 
+.tempimgwall {
+  width: 350px;
+  height: auto;
+  display: flex;
+  margin-left: 60px;
+  margin-top: 20px;
+}
+
+.loadingwallgif {
+  height: 35px;
+}
+
+.loadinggifwall {
+  height: 100px;
+  margin-left: 70px;
+}
+
 @media screen and (max-width: 500px) {
   .wallPost {
     display: flex;
     flex-direction: column;
     /* align-self: center; */
     justify-content: center;
-    width: 375px;
+    width: 365px;
   }
 
   .wallbody {
     background-color: #f0f2f5;
     display: flex;
     flex-direction: column;
-    width: 375px;
   }
 }

@@ -98,7 +98,7 @@ class Wall extends Component {
         <div className="wallPost">
           {this.state.loading ? (
             <img
-              style={{ height: "100px", marginLeft: "70px" }}
+              className="loadinggifwall"
               src={loadingGif}
               alt="loading gif"
               position="relative"

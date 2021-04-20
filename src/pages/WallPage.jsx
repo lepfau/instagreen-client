@@ -4,14 +4,7 @@ import Users from "../components/Users/Users";
 import MapPage from "./MapPage";
 function WallPage() {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        flexWrap: "wrap",
-      }}
-    >
+    <div className="wallpagecss">
       <Users />
       <div className="wallfuldiv">
         <Wall />

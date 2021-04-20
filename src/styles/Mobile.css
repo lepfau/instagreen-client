@@ -1,4 +1,4 @@
-@media screen and (min-width: 375px) and (max-width: 440px) {
+@media screen and (max-width: 540px) {
   /* For mobile phones: */
 
   .signin_left_subtitle {
@@ -58,7 +58,7 @@
     margin-bottom: 5px;
     top: 90px;
     background-color: white;
-    width: 370px;
+    width: auto;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 2px 2px 4px darkgrey;
@@ -68,5 +68,160 @@
     position: relative;
     top: 90px;
     display: none;
+  }
+
+  .wallpagecss {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .wallfuldiv {
+    margin-top: 25px;
+  }
+  .wallForm {
+    position: relative;
+    left: 0px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    background-color: white;
+    padding: 15px 21px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px darkgrey;
+    width: min-content;
+  }
+
+  .btn-submit-plant {
+    margin-top: 20px;
+    margin-left: 0px;
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: #4a7f37;
+    box-shadow: 2px 2px 4px darkgrey;
+    color: white;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+  }
+
+  .inputwall {
+    margin: 5px;
+    width: 305px;
+    height: 30px;
+    font-size: 1em;
+    border: none;
+    background-color: #f0f2f5;
+    border-radius: 15px;
+    height: 35px;
+    padding: 10px;
+  }
+
+  .wallPost {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+  }
+  .ppusercontainercomment {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .wallpostcontainer {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    width: -webkit-fill-available;
+    position: relative;
+    left: 0px;
+    background-color: white;
+    align-self: center;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px darkgrey;
+  }
+
+  .commentForm {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  #comment {
+    height: 35px;
+    width: 260px;
+    border-radius: 25px;
+    font-size: 1em;
+    padding-left: 20px;
+    border: none;
+    background-color: #f0f2f5;
+  }
+
+  .usercommenting {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+  }
+  .commentpart {
+    margin: 0px;
+    margin-top: 20px;
+    display: flex;
+    width: 355px;
+  }
+
+  .tempimgwall {
+    width: 190px;
+    height: auto;
+    display: flex;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .loadingwallgif {
+    height: 25px;
+  }
+
+  .loadinggifwall {
+    height: 60px;
+    width: 60px;
+    align-self: center;
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+  .logoApp {
+    font-family: Just Another Hand;
+    font-size: 2.6em;
+    font-weight: 200;
+    display: none;
+  }
+
+  .NavMain {
+    justify-content: space-around;
+    position: sticky;
+    /* padding-top: 32px; */
+    top: 0;
+    background-color: #4a7f37;
+    color: white;
+    display: flex;
+    align-items: center;
+    /* padding-top: 3px; */
+    height: 55px;
+    width: 100%;
+    font-size: 12px;
+    z-index: 2;
   }
 }

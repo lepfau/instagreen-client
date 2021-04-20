@@ -126,20 +126,14 @@ class FormCreateWall extends Component {
           </div>
           {this.state.file !== null && (
             <img
-              style={{
-                width: "350px",
-                height: "auto",
-                display: "flex",
-                marginLeft: "60px",
-                marginTop: "20px",
-              }}
+              className="tempimgwall"
               src={this.state.file}
               alt="recipeimage"
             />
           )}
           {this.state.loading ? (
             <button className="btn-submit-plant">
-              <img style={{ height: "35px" }} src={loadingwall} alt="loading" />
+              <img className="loadingwallgif" src={loadingwall} alt="loading" />
             </button>
           ) : (
             <button className="btn-submit-plant">Post on the wall</button>
