@@ -74,6 +74,14 @@
   box-shadow: 2px 2px 4px darkgrey;
 }
 
+.formplantimg {
+  width: 350px;
+  height: auto;
+  display: flex;
+  margin-left: 60px;
+  margin-top: 20px;
+}
+
 .myplantstitle {
   text-align: center;
 
@@ -81,6 +89,11 @@
   font-size: 3em;
   font-weight: 200;
   text-shadow: 2px 2px 4px darkgrey;
+}
+
+.editplantcontainer {
+  display: flex;
+  justify-content: center;
 }
 
 .walltitle {
@@ -95,7 +108,7 @@
   background-color: #f0f2f5;
   width: 100%;
   position: relative;
-  top: 90px;
+  top: 20px;
 }
 
 .plantcardtop {
@@ -211,9 +224,17 @@
   margin-bottom: 10px;
 }
 
+.formeditplantimg {
+  width: 350px;
+  height: auto;
+  display: flex;
+  margin-left: 60px;
+  margin-top: 100px;
+}
+
 .formEditplant {
   position: relative;
-  top: 90px;
+  top: 20px;
   background-color: white;
   padding: 15px;
   width: 450px;
@@ -230,8 +251,9 @@
   margin-top: 20px;
   margin-bottom: 20px;
   font-family: Roboto;
-  font-weight: 200;
+  font-weight: 600;
   margin-right: 80px;
+  text-align: center;
 }
 
 .usersplants {
@@ -247,6 +269,7 @@
 .flexuserpageprofile {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
 }
 
 .userplantspartleft {

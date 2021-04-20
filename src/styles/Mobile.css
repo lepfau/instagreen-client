@@ -56,7 +56,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
-    top: 90px;
+    top: 20px;
     background-color: white;
     width: auto;
     padding: 20px;
@@ -70,11 +70,60 @@
     display: none;
   }
 
+  .allusercontainerpage {
+    display: flex;
+    flex-direction: column;
+    align-self: left;
+    background-color: white;
+    border-radius: 15px;
+    width: 340px;
+    align-items: flex-start;
+    margin-left: 0px;
+  }
+
+  .searchformuserpage {
+    margin-left: 0px;
+    margin-top: 15px;
+    width: 340px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .usercontainerpage {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    background-color: white;
+    width: 320px;
+    align-items: center;
+  }
+  .flexuserpage {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column-reverse;
+  }
+
+  .flexuserpageprofile {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column-reverse;
+  }
   .wallpagecss {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
+  }
+
+  .searchformuserpage {
+    margin-left: 0px;
+    margin-top: 15px;
+    width: 313px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
   }
 
   .wallfuldiv {
@@ -223,5 +272,121 @@
     width: 100%;
     font-size: 12px;
     z-index: 2;
+  }
+
+  .PlantForm {
+    margin-left: 0px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    background-color: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 4px darkgrey;
+  }
+
+  .myplantspage {
+    background-color: #f0f2f5;
+    width: 99%;
+    position: relative;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .addplantbtn {
+    margin-top: 20px;
+    margin-left: 0px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #4a7f37;
+    color: white;
+    font-size: 1em;
+    border: none;
+    box-shadow: 2px 2px 4px darkgrey;
+  }
+
+  .PlantFormContainer {
+    display: flex;
+    width: 350px;
+    flex-direction: column;
+  }
+
+  .inputplant {
+    margin: 5px;
+    width: -webkit-fill-available;
+    height: 30px;
+    font-size: 0.9em;
+    border: none;
+    background-color: #f0f2f5;
+    border-radius: 15px;
+    padding: 15px;
+  }
+
+  .selectplant {
+    width: -webkit-fill-available;
+    margin: 5px;
+    height: 30px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: #f0f2f5;
+  }
+
+  .editplantcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .formEditplant {
+    position: relative;
+    top: 20px;
+    background-color: white;
+    padding: 15px;
+    width: 330px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px lightgrey;
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .formplantimg {
+    width: 181px;
+    height: auto;
+    display: flex;
+    margin-top: 12px;
+    margin-left: 0px;
+  }
+  .PlantForm {
+    margin-left: 0px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    background-color: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px darkgrey;
+  }
+
+  .formeditplantimg {
+    width: 310px;
+    height: auto;
+    display: flex;
+    margin-left: 0;
+    justify-content: center;
+    margin-top: 40px;
+    align-items: center;
+    margin-bottom: 25px;
   }
 }

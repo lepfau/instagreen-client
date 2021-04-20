@@ -151,22 +151,15 @@ class FormCreatePlant extends Component {
             ></input>
             <label htmlFor="file">Choose a file</label>
           </div>
-
+          {this.state.file !== null && (
+            <img
+              className="formplantimg"
+              src={this.state.file}
+              alt="recipeimage"
+            />
+          )}
           <button className="btn-submit-plant">Add Plant</button>
         </form>
-        {this.state.file !== null && (
-          <img
-            style={{
-              width: "350px",
-              height: "auto",
-              display: "flex",
-              marginLeft: "60px",
-              marginTop: "20px",
-            }}
-            src={this.state.file}
-            alt="recipeimage"
-          />
-        )}
       </div>
     );
   }

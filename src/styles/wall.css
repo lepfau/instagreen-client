@@ -245,7 +245,7 @@ hr {
   justify-content: center;
   align-items: center;
   margin-bottom: 5px;
-  top: 90px;
+  top: 20px;
   background-color: white;
   width: 50vw;
   padding: 20px;
@@ -423,7 +423,7 @@ p {
 
 .oneuserbody {
   position: relative;
-  top: 80px;
+  top: 20px;
 }
 
 .userplantsbody {
@@ -460,7 +460,7 @@ p {
 
 .fullbodyprofile {
   position: relative;
-  top: 80px;
+  top: 20px;
 }
 
 .fileplant {
@@ -500,7 +500,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 
 .wallpage {

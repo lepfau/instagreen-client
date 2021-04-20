@@ -76,7 +76,7 @@ class FormEditPlant extends Component {
 
   render() {
     return (
-      <div style={{ display: "flex" }}>
+      <div className="editplantcontainer">
         <form className="formEditplant" onSubmit={this.handleSubmit}>
           <h2 className="myplantstitle">Edit this Plant</h2>
 
@@ -158,13 +158,7 @@ class FormEditPlant extends Component {
         </form>
         {this.state.file !== null && (
           <img
-            style={{
-              width: "350px",
-              height: "auto",
-              display: "flex",
-              marginLeft: "60px",
-              marginTop: "120px",
-            }}
+            className="formeditplantimg"
             src={this.state.file}
             alt="recipeimage"
           />
