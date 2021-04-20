@@ -118,9 +118,11 @@
   width: 150px;
   height: 50px;
   align-self: center;
-  background-color: #2d98aa;
+  background-color: #2da5dd;
   box-shadow: 2px 2px 4px darkgrey;
   border: none;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .plantcardallinfo {

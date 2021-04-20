@@ -21,9 +21,8 @@ const NavMain = (props) => {
 
   return (
     <nav className="NavMain">
-      <NavLink exact to="/">
-        <h3 className="logoApp">InstaGreen</h3>
-      </NavLink>
+      <h3 className="logoApp">InstaGreen</h3>
+
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>
@@ -47,7 +46,9 @@ const NavMain = (props) => {
               </NavLink>
             </li>
             <li>
-              <p onClick={handleLogout}>Logout</p>
+              <p style={{ cursor: "pointer" }} onClick={handleLogout}>
+                Logout
+              </p>
             </li>
           </React.Fragment>
         )}

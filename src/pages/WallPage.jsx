@@ -13,7 +13,7 @@ function WallPage() {
       }}
     >
       <Users />
-      <div style={{ marginTop: "90px" }}>
+      <div className="wallfuldiv">
         <Wall />
       </div>
     </div>

@@ -17,6 +17,10 @@
   box-shadow: 2px 2px 4px darkgrey;
 }
 
+.wallfuldiv {
+  margin-top: 25px;
+}
+
 .wallpostuser {
   display: flex;
   width: 220px;
@@ -410,7 +414,7 @@ hr {
 
 .fulluserpagebody {
   position: relative;
-  top: 90px;
+  top: 25px;
 }
 
 p {
