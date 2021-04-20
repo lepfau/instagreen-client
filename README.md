@@ -43,16 +43,12 @@ List of features ready and TODOs for future development
 - Plant watering follow up and warning 
 - Interactive map to exchange cuttings or plants
 - Instagram / facebook inspired look
-
-
-To-do list:
-
-- Friend system
 - Responsive design for mobile
+
 
 ## Status
 
-Project is: _in progress_
+Project is: _completed_
 
 ## Contact
 
