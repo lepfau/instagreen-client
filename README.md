@@ -8,7 +8,6 @@
 - [General info](#general-info)
 - [Screenshots](#screenshots)
 - [Technologies](#technologies)
-- [Setup](#setup)
 - [Features](#features)
 - [Status](#status)
 - [Contact](#contact)
@@ -29,30 +28,21 @@ It uses "vanilla" react with class components mostly;
 - Axios - version 0.19.2
 - Cloudinary - version 1.23.0
 
-## Setup
-
-- $npm i
-- create .env REACT_APP_BACKEND_URL = http://localhost:XXXX
-- $npm start
 
 ## Features
 
 List of features ready and TODOs for future development
 
 - Wall with posts and comments
-- Plant watering follow up and warning 
+- Plant watering follow up and warnings 
 - Interactive map to exchange cuttings or plants
 - Instagram / facebook inspired look
-
-
-To-do list:
-
-- Friend system
 - Responsive design for mobile
+
 
 ## Status
 
-Project is: _in progress_
+Project is: _completed_
 
 ## Contact
 
