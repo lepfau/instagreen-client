@@ -67,7 +67,6 @@ class FormSignup extends Component {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "flex-end",
             }}
           >
             <h2

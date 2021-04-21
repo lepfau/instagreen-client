@@ -28,17 +28,13 @@ class Profile extends Component {
   render() {
     return (
       <div className="fullbodyprofile">
-        <div>
-          <h1 className="userpagetitle">
-            My profile
-            <br></br>
-            <span>
-              <Link to={`/profileupdate`}>
-                {" "}
-                <i class="fas fa-user-cog"></i>
-              </Link>
-            </span>{" "}
-          </h1>
+        <div class="myprofiletitle">
+          <h1 className="userpagetitle">My profile</h1>
+
+          <Link to={`/profileupdate`}>
+            {" "}
+            <i class="fas fa-user-cog"></i>
+          </Link>
         </div>
         <div className="flexuserpageprofile">
           <div className="userplantspartleft">

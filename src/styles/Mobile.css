@@ -83,6 +83,10 @@
     width: 85%;
   }
 
+  .usercontainerwidth {
+    width: 95%;
+  }
+
   .wallForm2 {
     position: absolute;
     left: 0px;
@@ -91,7 +95,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
-    top: 50px;
+    top: 60px;
     background-color: white;
     width: 100%;
     font-size: 13px;
@@ -522,5 +526,51 @@
     margin-top: 40px;
     align-items: center;
     margin-bottom: 25px;
+  }
+
+  .userplantspartright {
+    position: relative;
+    top: -50px;
+  }
+
+  .myprofiletitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 50%;
+    margin-bottom: 20px;
+  }
+
+  .fa-user-cog {
+    font-size: 2em;
+  }
+  .fa-location-arrow {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .NavMain {
+    justify-content: space-around;
+    position: sticky;
+    /* padding-top: 32px; */
+    top: 0;
+    background-color: #4a7f37;
+    color: white;
+    display: flex;
+    align-items: center;
+    /* padding-top: 3px; */
+    height: 30px;
+    width: 100%;
+    font-size: 9px;
+    z-index: 2;
+  }
+
+  .myprofiletitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 65%;
+    margin-bottom: 20px;
   }
 }

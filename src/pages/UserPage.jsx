@@ -68,7 +68,7 @@ export default class UserPage extends Component {
             <div className="allusercontainerpage">
               {this.state.users.map((user) => {
                 return (
-                  <div key={user._id}>
+                  <div key={user._id} className="usercontainerwidth">
                     <div className="usercontainerpage" key={user._id}>
                       <div className="ppusercontainer">
                         <img

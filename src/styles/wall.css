@@ -461,6 +461,10 @@ p {
 .fullbodyprofile {
   position: relative;
   top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .fileplant {
@@ -525,4 +529,15 @@ p {
 .loadinggifwall {
   height: 100px;
   margin-left: 70px;
+}
+
+.myprofiletitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 25%;
+}
+
+.fa-user-cog {
+  font-size: 3em;
 }

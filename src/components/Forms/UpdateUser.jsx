@@ -80,20 +80,12 @@ export class UpdateUser extends Component {
     return (
       <div
         style={{
-          position: "relative",
           display: "flex",
           justifyContent: "center",
         }}
       >
         <div class="wallForm2">
-          <form
-            onSubmit={this.handleSubmit}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
-            }}
-          >
+          <form className="form" onSubmit={this.handleSubmit}>
             <h2
               style={{ alignSelf: "center", marginBottom: "20px" }}
               className="myplantstitle"
