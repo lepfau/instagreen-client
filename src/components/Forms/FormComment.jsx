@@ -31,7 +31,7 @@ class FormComment extends Component {
         <div className="ppusercontainercomment ">
           <img src={this.props.userpic} className="ppwall " alt="userpic" />
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="commentform" onSubmit={this.handleSubmit}>
           <label htmlFor="comment"></label>
           <input
             onChange={this.handleChange}

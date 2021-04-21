@@ -122,13 +122,7 @@ class FormEditWall extends Component {
 
             {this.state.file !== null && (
               <img
-                style={{
-                  width: "350px",
-                  height: "auto",
-                  display: "flex",
-                  marginLeft: "60px",
-                  marginTop: "20px",
-                }}
+                className="tempimgwall"
                 src={this.state.file}
                 alt="recipeimage"
               />
@@ -136,7 +130,7 @@ class FormEditWall extends Component {
             {this.state.loading ? (
               <button className="btn-submit-plant">
                 <img
-                  style={{ height: "35px" }}
+                  className="loadingwallgif"
                   src={loadingwall}
                   alt="loading"
                 />

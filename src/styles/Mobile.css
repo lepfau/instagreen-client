@@ -8,8 +8,7 @@
     font-family: Roboto;
     font-weight: 200;
     text-shadow: 16px 16px 32px black;
-    /* margin-top: 20px; */
-    /* padding-top: 20px; */
+
     margin-bottom: 25px;
   }
 
@@ -19,6 +18,25 @@
 
   .homeinfos {
     display: none;
+  }
+
+  .wallPost {
+    display: flex;
+    flex-direction: column;
+    /* align-self: center; */
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+
+  .wallbody {
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
   }
 
   .signin {
@@ -38,7 +56,7 @@
     background: transparent;
     flex-direction: column;
     height: 200px;
-    width: -webkit-fill-available;
+    width: 100%;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
@@ -46,6 +64,23 @@
     margin-bottom: 15px;
     color: white;
     margin-top: 20px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .walltitle {
+    margin-top: -20px;
+    text-align: center;
+    font-family: Just Another Hand;
+    font-size: 3em;
+    font-weight: 200;
+    text-shadow: 2px 2px 4px darkgrey;
+  }
+
+  .commentform {
+    width: 85%;
   }
 
   .wallForm2 {
@@ -58,7 +93,8 @@
     margin-bottom: 5px;
     top: 50px;
     background-color: white;
-    width: auto;
+    width: 100%;
+    font-size: 13px;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 2px 2px 4px darkgrey;
@@ -76,7 +112,7 @@
     align-self: left;
     background-color: white;
     border-radius: 15px;
-    width: 340px;
+    width: 100%;
     align-items: flex-start;
     margin-left: 0px;
   }
@@ -84,7 +120,7 @@
   .searchformuserpage {
     margin-left: 0px;
     margin-top: 15px;
-    width: 340px;
+    width: 100%;
     background-color: white;
     padding: 15px;
     border-radius: 15px;
@@ -96,7 +132,7 @@
     justify-content: flex-start;
     margin-bottom: 20px;
     background-color: white;
-    width: 320px;
+    width: 100%;
     align-items: center;
   }
   .flexuserpage {
@@ -117,10 +153,13 @@
     flex-wrap: wrap;
   }
 
+  .userpagebodyuserpage {
+    width: 100%;
+  }
   .searchformuserpage {
     margin-left: 0px;
     margin-top: 15px;
-    width: 313px;
+    width: 100%;
     background-color: white;
     padding: 15px;
     border-radius: 15px;
@@ -142,14 +181,15 @@
     padding: 15px 21px;
     border-radius: 15px;
     box-shadow: 2px 2px 4px darkgrey;
-    width: min-content;
+    width: 100%;
+    font-size: 13px;
   }
 
   .btn-submit-plant {
     margin-top: 20px;
     margin-left: 0px;
-    width: 200px;
-    height: 35px;
+    width: 150px;
+    height: 40px;
     border-radius: 10px;
     background-color: #4a7f37;
     box-shadow: 2px 2px 4px darkgrey;
@@ -161,7 +201,7 @@
 
   .inputwall {
     margin: 5px;
-    width: 305px;
+    width: 100%;
     height: 30px;
     font-size: 1em;
     border: none;
@@ -171,12 +211,6 @@
     padding: 10px;
   }
 
-  .wallPost {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    justify-content: center;
-  }
   .ppusercontainercomment {
     width: 30px;
     height: 30px;
@@ -186,17 +220,33 @@
     margin-right: 10px;
   }
 
-  .wallpostcontainer {
-    padding-top: 10px;
-    padding-bottom: 20px;
+  .postsubtitle {
     margin-top: 10px;
+    margin-bottom: 5px;
+    align-self: flex-start;
+    margin-left: 20px;
+    font-size: 1em;
+  }
+
+  .posttitle {
+    font-size: 1em;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    align-self: flex-start;
+    margin-left: 15px;
+  }
+
+  .wallpostcontainer {
+    padding-top: 0px;
+    padding-bottom: 10px;
+    margin-top: 5px;
     margin-left: 0px;
     margin-bottom: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: left;
-    width: -webkit-fill-available;
+    width: 100%;
     position: relative;
     left: 0px;
     background-color: white;
@@ -207,12 +257,14 @@
 
   .commentForm {
     display: flex;
+    justify-content: center;
     margin-top: 20px;
+    width: 100%;
   }
 
   #comment {
     height: 35px;
-    width: 260px;
+    width: 75vw;
     border-radius: 25px;
     font-size: 1em;
     padding-left: 20px;
@@ -220,6 +272,27 @@
     background-color: #f0f2f5;
   }
 
+  .ppusercontainer {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .commentpartcontainer {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 95%;
+    margin-top: -12px;
+  }
+
+  .commenttext {
+    margin-top: 4px;
+    margin-bottom: 3px;
+    font-size: 1em;
+  }
   .usercommenting {
     display: flex;
     flex-direction: row;
@@ -229,7 +302,7 @@
     margin: 0px;
     margin-top: 20px;
     display: flex;
-    width: 355px;
+    width: 100%;
   }
 
   .tempimgwall {
@@ -268,10 +341,19 @@
     display: flex;
     align-items: center;
     /* padding-top: 3px; */
-    height: 55px;
+    height: 30px;
     width: 100%;
-    font-size: 12px;
+    font-size: 11px;
     z-index: 2;
+  }
+
+  .commentsubbtn {
+    margin-left: 5px;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    border: none;
+    cursor: pointer;
   }
 
   .PlantForm {
@@ -302,12 +384,13 @@
   .addplantbtn {
     margin-top: 20px;
     margin-left: 0px;
+    margin-bottom: 5px;
     width: 200px;
-    height: 50px;
+    height: 30px;
     border-radius: 10px;
     background-color: #4a7f37;
     color: white;
-    font-size: 1em;
+    font-size: 12px;
     border: none;
     box-shadow: 2px 2px 4px darkgrey;
   }
@@ -320,7 +403,7 @@
 
   .inputplant {
     margin: 5px;
-    width: -webkit-fill-available;
+    width: 100%;
     height: 30px;
     font-size: 0.9em;
     border: none;
@@ -330,7 +413,7 @@
   }
 
   .selectplant {
-    width: -webkit-fill-available;
+    width: 100%;
     margin: 5px;
     height: 30px;
     font-size: 0.9em;
@@ -344,6 +427,56 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .plantcards {
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    justify-content: center;
+    margin-left: 0px;
+  }
+
+  .givemewater {
+    font-size: 1em;
+    margin-top: 20px;
+    border-radius: 6px;
+    width: 120px;
+    height: 33px;
+    align-self: center;
+    background-color: #2da5dd;
+    box-shadow: 2px 2px 4px darkgrey;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .plantcardimage {
+    width: 100%;
+    height: 150px;
+    margin: 15px;
+    align-items: center;
+    align-self: center;
+  }
+
+  .plantcardname {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-left: 8px;
+  }
+
+  .plantcard {
+    display: flex;
+    flex-direction: column;
+    height: 365px;
+    width: 43%;
+    margin: 8px;
+    font-size: 12px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 2px 2px 4px darkgrey;
+    text-align: left;
   }
 
   .formEditplant {
@@ -375,6 +508,7 @@
     background-color: white;
     width: 350px;
     padding: 30px;
+    font-size: 13px;
     border-radius: 15px;
     box-shadow: 2px 2px 4px darkgrey;
   }

@@ -55,7 +55,7 @@ function WallPost(post) {
         />
         {post.comments.map((comment) => {
           return (
-            <div key={comment._id}>
+            <div key={comment._id} className="commentpartcontainer">
               <Comments
                 userImg={comment.id_user.profileImg}
                 userFirst={comment.id_user.firstName}

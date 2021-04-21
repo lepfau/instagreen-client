@@ -526,19 +526,3 @@ p {
   height: 100px;
   margin-left: 70px;
 }
-
-@media screen and (max-width: 500px) {
-  .wallPost {
-    display: flex;
-    flex-direction: column;
-    /* align-self: center; */
-    justify-content: center;
-    width: 365px;
-  }
-
-  .wallbody {
-    background-color: #f0f2f5;
-    display: flex;
-    flex-direction: column;
-  }
-}
