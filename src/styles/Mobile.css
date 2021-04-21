@@ -49,7 +49,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .signin {
@@ -111,7 +111,7 @@
     top: 60px;
     background-color: white;
     width: 100%;
-    font-size: 13px;
+    font-size: 14px;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 2px 2px 4px darkgrey;
@@ -199,7 +199,7 @@
     border-radius: 15px;
     box-shadow: 2px 2px 4px darkgrey;
     width: 100%;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .btn-submit-plant {
@@ -360,7 +360,7 @@
     /* padding-top: 3px; */
     height: 30px;
     width: 100%;
-    font-size: 11px;
+    font-size: 13px;
     z-index: 2;
   }
 
@@ -407,7 +407,7 @@
     border-radius: 10px;
     background-color: #4a7f37;
     color: white;
-    font-size: 12px;
+    font-size: 14px;
     border: none;
     box-shadow: 2px 2px 4px darkgrey;
   }
@@ -478,7 +478,7 @@
   .plantcardname {
     text-align: center;
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 800;
     margin-left: 8px;
   }
@@ -489,7 +489,7 @@
     height: 365px;
     width: 43%;
     margin: 8px;
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 8px;
     background-color: white;
     box-shadow: 2px 2px 4px darkgrey;
@@ -525,7 +525,7 @@
     background-color: white;
     width: 350px;
     padding: 30px;
-    font-size: 13px;
+    font-size: 14px;
     border-radius: 15px;
     box-shadow: 2px 2px 4px darkgrey;
   }
@@ -575,7 +575,7 @@
     /* padding-top: 3px; */
     height: 30px;
     width: 100%;
-    font-size: 9px;
+    font-size: 10.2px;
     z-index: 2;
   }
 
