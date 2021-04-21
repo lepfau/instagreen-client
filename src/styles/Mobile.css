@@ -367,8 +367,8 @@
   .commentsubbtn {
     margin-left: 5px;
     border-radius: 50%;
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
     border: none;
     cursor: pointer;
   }
@@ -487,7 +487,7 @@
     display: flex;
     flex-direction: column;
     height: 365px;
-    width: 43%;
+    width: 215px;
     margin: 8px;
     font-size: 14px;
     border-radius: 8px;
@@ -559,6 +559,15 @@
   }
   .fa-location-arrow {
     font-size: 0.8em;
+  }
+  .NavMain a {
+    font-weight: 800;
+    margin: 2px;
+  }
+
+  .NavMain .nav-list {
+    margin-left: 0px;
+    display: flex;
   }
 }
 
