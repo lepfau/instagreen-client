@@ -29,6 +29,19 @@
     align-self: center;
   }
 
+  .signin_right {
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgba(230, 230, 230, 0.8);
+    height: 288px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 96%;
+    font-size: 14px;
+  }
+
   .wallbody {
     background-color: #f0f2f5;
     display: flex;
