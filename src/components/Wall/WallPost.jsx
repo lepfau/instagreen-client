@@ -7,71 +7,139 @@ import { withUser } from "../Auth/withUser";
 function WallPost(post) {
   return (
     <div className="wallbody">
-      <div className="wallpostcontainer">
-        <div className="posttop">
-          <div className="posttopuser">
-            <div className="wallpostuser">
-              <div className="ppusercontainer">
-                <img className="ppwall" src={post.userPic} alt="userpic" />
-              </div>
-
-              <div className="posttopuserinfo">
-                <p style={{ fontSize: "0.9em" }}>
-                  <Link to={`/users/${post.userId}`}>
-                    <b>
-                      {post.userFirst} {post.userLast}
-                    </b>
-                  </Link>
-                </p>
-                <pre className="postdate">
-                  {post.date.slice(0, 10)} {post.date.slice(11, 16)}
-                </pre>
+      {post.type === "plantadd" ? (
+        <div className="wallpostcontainer">
+          <div className="posttop">
+            <div className="posttopuser">
+              <div className="wallpostuser">
+                <div className="ppusercontainer">
+                  <img className="ppwall" src={post.userPic} alt="userpic" />
+                </div>
+                <div className="posttopuserinfo">
+                  <p style={{ fontSize: "0.9em" }}>
+                    <Link to={`/users/${post.userId}`}>
+                      <b>
+                        {post.userFirst} {post.userLast}
+                      </b>
+                    </Link>
+                  </p>
+                  <pre className="postdate">
+                    {post.date.slice(0, 10)} {post.date.slice(11, 16)}
+                  </pre>
+                </div>
               </div>
             </div>
+
+            {post.userLogged === post.userEmail ? (
+              <div className="posttopbtns">
+                <i
+                  className="fa fa-trash"
+                  onClick={() => post.deletePost(post.id)}
+                ></i>
+                <Link to={`/wall/edit/${post.id}`}>
+                  <i className="fas fa-edit"></i>
+                </Link>
+              </div>
+            ) : null}
           </div>
 
-          {post.userLogged === post.userEmail ? (
-            <div className="posttopbtns">
-              <i
-                className="fa fa-trash"
-                onClick={() => post.deletePost(post.id)}
-              ></i>
-              <Link to={`/wall/edit/${post.id}`}>
-                <i className="fas fa-edit"></i>
-              </Link>
-            </div>
-          ) : null}
-        </div>
+          <hr></hr>
 
-        <hr></hr>
-        <h3 className="posttitle">{post.title}</h3>
-        <img className="wallpic" src={post.image} alt="postimg" />
-        <h5 className="postsubtitle">{post.subtitle}</h5>
-        <hr></hr>
-        <FormComment
-          userpic={post.context.user.profileImg}
-          postId={post.id}
-          seeNewComment={post.seeNewComment}
-        />
-        {post.comments.map((comment) => {
-          return (
-            <div key={comment._id} className="commentpartcontainer">
-              <Comments
-                userImg={comment.id_user.profileImg}
-                userFirst={comment.id_user.firstName}
-                userLast={comment.id_user.lastName}
-                userId={comment.id_user._id}
-                text={comment.text}
-                date={comment.created_at}
-                userEmail={comment.id_user.email}
-                userLogged={post.userLogged}
-                id={comment._id}
-                deleteComment={post.deleteComment}
-              />
+          <h3 className="posttitle">{post.title}</h3>
+          <img className="wallpic2" src={post.image} alt="postimg" />
+          <h5 className="postsubtitle">{post.subtitle}</h5>
+          <hr></hr>
+          <FormComment
+            userpic={post.context.user.profileImg}
+            postId={post.id}
+            seeNewComment={post.seeNewComment}
+          />
+          {post.comments.map((comment) => {
+            return (
+              <div key={comment._id} className="commentpartcontainer">
+                <Comments
+                  userImg={comment.id_user.profileImg}
+                  userFirst={comment.id_user.firstName}
+                  userLast={comment.id_user.lastName}
+                  userId={comment.id_user._id}
+                  text={comment.text}
+                  date={comment.created_at}
+                  userEmail={comment.id_user.email}
+                  userLogged={post.userLogged}
+                  id={comment._id}
+                  deleteComment={post.deleteComment}
+                />
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="wallpostcontainer">
+          <div className="posttop">
+            <div className="posttopuser">
+              <div className="wallpostuser">
+                <div className="ppusercontainer">
+                  <img className="ppwall" src={post.userPic} alt="userpic" />
+                </div>
+                <div className="posttopuserinfo">
+                  <p style={{ fontSize: "0.9em" }}>
+                    <Link to={`/users/${post.userId}`}>
+                      <b>
+                        {post.userFirst} {post.userLast}
+                      </b>
+                    </Link>
+                  </p>
+                  <pre className="postdate">
+                    {post.date.slice(0, 10)} {post.date.slice(11, 16)}
+                  </pre>
+                </div>
+              </div>
             </div>
-          );
-        })}
-      </div>
+
+            {post.userLogged === post.userEmail ? (
+              <div className="posttopbtns">
+                <i
+                  className="fa fa-trash"
+                  onClick={() => post.deletePost(post.id)}
+                ></i>
+                <Link to={`/wall/edit/${post.id}`}>
+                  <i className="fas fa-edit"></i>
+                </Link>
+              </div>
+            ) : null}
+          </div>
+
+          <hr></hr>
+
+          <h3 className="posttitle">{post.title}</h3>
+          <img className="wallpic" src={post.image} alt="postimg" />
+          <h5 className="postsubtitle">{post.subtitle}</h5>
+          <hr></hr>
+          <FormComment
+            userpic={post.context.user.profileImg}
+            postId={post.id}
+            seeNewComment={post.seeNewComment}
+          />
+          {post.comments.map((comment) => {
+            return (
+              <div key={comment._id} className="commentpartcontainer">
+                <Comments
+                  userImg={comment.id_user.profileImg}
+                  userFirst={comment.id_user.firstName}
+                  userLast={comment.id_user.lastName}
+                  userId={comment.id_user._id}
+                  text={comment.text}
+                  date={comment.created_at}
+                  userEmail={comment.id_user.email}
+                  userLogged={post.userLogged}
+                  id={comment._id}
+                  deleteComment={post.deleteComment}
+                />
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

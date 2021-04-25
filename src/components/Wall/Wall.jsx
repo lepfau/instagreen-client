@@ -119,6 +119,7 @@ class Wall extends Component {
                     userPic={post.id_user.profileImg}
                     userId={post.id_user._id}
                     date={post.created_at}
+                    type={post.type}
                     userEmail={post.id_user.email}
                     deletePost={this.deletePost}
                     comments={post.id_comments}

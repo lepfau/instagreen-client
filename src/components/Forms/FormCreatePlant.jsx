@@ -19,6 +19,7 @@ class FormCreatePlant extends Component {
     httpResponse: null,
     error: null,
     file: null,
+    share: true,
   };
 
   handleChange = (event) => {

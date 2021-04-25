@@ -63,6 +63,12 @@
   height: auto;
 }
 
+.wallpic2 {
+  background-size: cover;
+  width: 50%;
+  height: auto;
+}
+
 .posttop {
   display: flex;
   flex-direction: row;
