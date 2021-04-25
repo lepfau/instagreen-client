@@ -14,7 +14,7 @@ class Profile extends Component {
       .getPlants()
       .then((apiResp) => {
         const userPlants = apiResp.filter(
-          (plant) => plant.id_user._id === this.props.context.user._id
+          (plant) => plant.id_user === this.props.context.user._id
         );
         this.setState({
           plants: userPlants,

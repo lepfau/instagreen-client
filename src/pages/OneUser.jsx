@@ -27,7 +27,7 @@ class OneUser extends Component {
 
     apiHandler.getPlants().then((apiResp) => {
       const userPlants = apiResp.filter(
-        (userplant) => userplant.id_user._id === this.props.match.params.id
+        (userplant) => userplant.id_user === this.props.match.params.id
       );
 
       this.setState({
