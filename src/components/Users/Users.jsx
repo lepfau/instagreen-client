@@ -69,20 +69,19 @@ export default class Users extends Component {
             {this.state.users.map((user) => {
               return (
                 <div key={user._id}>
-                  <div className="usercontainer" key={user._id}>
-                    <div className="ppusercontainer">
-                      <img className="ppwall" src={user.profileImg} />
-                    </div>
-                    <p>
-                      {" "}
-                      <Link to={`/users/${user._id}`}>
+                  <Link to={`/users/${user._id}`}>
+                    <div className="usercontainer" key={user._id}>
+                      <div className="ppusercontainer">
+                        <img className="ppwall" src={user.profileImg} />
+                      </div>
+                      <p>
                         {" "}
                         <b>
                           {user.firstName} {user.lastName}{" "}
                         </b>
-                      </Link>
-                    </p>
-                  </div>
+                      </p>
+                    </div>
+                  </Link>
                   <hr className="hruser"></hr>
                 </div>
               );

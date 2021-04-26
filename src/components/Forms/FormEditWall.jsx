@@ -74,7 +74,7 @@ class FormEditWall extends Component {
   render() {
     return (
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <div className="wallForm2">
+        <div className="wallForm3">
           <form className="form" onSubmit={this.handleSubmit}>
             <h2 className="myplantstitle">Edit your Post</h2>
 

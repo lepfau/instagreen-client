@@ -125,6 +125,22 @@
   margin: 5px;
 }
 
+.wallForm3 {
+  position: relative;
+  left: 50px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  top: 20px;
+  background-color: white;
+  width: 650px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px darkgrey;
+}
+
 .posttopbtns i {
   margin: 5px;
   font-size: 1em;
@@ -253,7 +269,7 @@ hr {
   margin-bottom: 5px;
   top: 20px;
   background-color: white;
-  width: 50vw;
+  width: 420px;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 2px 2px 4px darkgrey;
@@ -342,6 +358,9 @@ hr {
   background-color: white;
   width: 300px;
   align-items: center;
+  border-radius: 8px;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .usercontainerpage {

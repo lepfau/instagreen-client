@@ -37,7 +37,10 @@ const Signin = (props) => {
           <FormSignin />
           <p className="signin_right_text">
             {" "}
-            No account yet ?<NavLink to="/signup">Sign up here !</NavLink>
+            No account yet ?
+            <NavLink to="/signup">
+              Sign up <span className="here">here</span>!
+            </NavLink>
           </p>
         </div>
       </div>

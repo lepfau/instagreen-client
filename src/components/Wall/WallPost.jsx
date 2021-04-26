@@ -18,7 +18,7 @@ function WallPost(post) {
                 <div className="posttopuserinfo">
                   <p style={{ fontSize: "0.9em" }}>
                     <Link to={`/users/${post.userId}`}>
-                      <b>
+                      <b className="usernames">
                         {post.userFirst} {post.userLast}
                       </b>
                     </Link>
@@ -65,7 +65,7 @@ function WallPost(post) {
                 <div className="posttopuserinfo">
                   <p style={{ fontSize: "0.9em" }}>
                     <Link to={`/users/${post.userId}`}>
-                      <b>
+                      <b className="usernames">
                         {post.userFirst} {post.userLast}
                       </b>
                     </Link>

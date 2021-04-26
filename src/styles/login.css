@@ -99,6 +99,20 @@
   align-items: center;
 }
 
+.signincontainer {
+  cursor: default;
+}
+
+.here:hover {
+  color: darkgreen;
+  font-weight: 800;
+}
+
+.signinform_button:hover {
+  background-color: darkgreen;
+  box-shadow: 2px 2px 4px grey;
+}
+
 input:focus,
 textarea:focus,
 select:focus,

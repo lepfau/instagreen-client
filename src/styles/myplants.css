@@ -219,6 +219,10 @@
   cursor: pointer;
 }
 
+.btn-submit-plant:hover {
+  background-color: darkgreen;
+}
+
 .profileplant {
   height: 200px;
   width: auto;

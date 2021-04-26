@@ -59,3 +59,15 @@ body::-webkit-scrollbar-thumb {
   padding: 8px;
   border-radius: 8px;
 }
+
+.App {
+  cursor: default;
+}
+
+.usercontainer:hover {
+  background-color: rgba(6, 119, 25, 0.3);
+}
+
+.usernames:hover {
+  color: darkgreen;
+}
