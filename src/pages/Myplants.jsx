@@ -103,12 +103,13 @@ class Myplants extends Component {
                         ></i>
                       </div>
                     </div>
-
-                    <img
-                      className="plantcardimage"
-                      src={plant.image}
-                      alt="plant"
-                    />
+                    <div className="round-image-plant">
+                      <img
+                        className="plantcardimage"
+                        src={plant.image}
+                        alt="plant"
+                      />
+                    </div>
                     <div className="plantcardallinfo">
                       <p className="plantcardinfo">
                         <b>Enlightment</b>: {plant.enlightment}
@@ -141,7 +142,7 @@ class Myplants extends Component {
                       }}
                     >
                       <img
-                        style={{ height: "30px" }}
+                        style={{ height: "16px" }}
                         src="https://static.wixstatic.com/media/595488_898025ed38bb4367827dca2895d87d12~mv2.gif/v1/fit/w_445%2Ch_410%2Cal_c%2Cq_80/file.gif"
                       ></img>
                       <span> I need water !</span>
@@ -168,11 +169,14 @@ class Myplants extends Component {
                       </div>
                     </div>
 
-                    <img
-                      className="plantcardimage"
-                      src={plant.image}
-                      alt="plant"
-                    />
+                    <div className="round-image-plant">
+                      <img
+                        className="plantcardimage"
+                        src={plant.image}
+                        alt="plant"
+                      />
+                    </div>
+
                     <div className="plantcardallinfo">
                       <p className="plantcardinfo">
                         <b>Enlightment</b>: {plant.enlightment}

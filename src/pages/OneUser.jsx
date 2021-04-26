@@ -62,11 +62,13 @@ class OneUser extends Component {
                     <div key={plant._id} className="userplantsbody">
                       <div className="userplantscontainer" key={plant._id}>
                         <p className="userplantname">{plant.name}</p>
-                        <img
-                          className="userplantimage"
-                          src={plant.image}
-                          alt="plantimg"
-                        />
+                        <div className="wall-new-plant">
+                          <img
+                            className="userplantimage"
+                            src={plant.image}
+                            alt="plantimg"
+                          />
+                        </div>
                       </div>
                     </div>
                   );

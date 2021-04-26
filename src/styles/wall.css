@@ -450,11 +450,6 @@ p {
   margin: 20px;
 }
 
-.userplantimage {
-  width: 250px;
-  border-radius: 10px;
-}
-
 .usersplants {
   display: flex;
 }

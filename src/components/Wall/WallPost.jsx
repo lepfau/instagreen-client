@@ -46,32 +46,13 @@ function WallPost(post) {
           <hr></hr>
 
           <h3 className="posttitle">{post.title}</h3>
-          <img className="wallpic2" src={post.image} alt="postimg" />
-          <h5 className="postsubtitle">{post.subtitle}</h5>
-          <hr></hr>
-          <FormComment
-            userpic={post.context.user.profileImg}
-            postId={post.id}
-            seeNewComment={post.seeNewComment}
-          />
-          {post.comments.map((comment) => {
-            return (
-              <div key={comment._id} className="commentpartcontainer">
-                <Comments
-                  userImg={comment.id_user.profileImg}
-                  userFirst={comment.id_user.firstName}
-                  userLast={comment.id_user.lastName}
-                  userId={comment.id_user._id}
-                  text={comment.text}
-                  date={comment.created_at}
-                  userEmail={comment.id_user.email}
-                  userLogged={post.userLogged}
-                  id={comment._id}
-                  deleteComment={post.deleteComment}
-                />
-              </div>
-            );
-          })}
+          <div className="wall-new-plant">
+            <img
+              style={{ width: "auto", height: "100%" }}
+              src={post.image}
+              alt="postimg"
+            />
+          </div>
         </div>
       ) : (
         <div className="wallpostcontainer">
