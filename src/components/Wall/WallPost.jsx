@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FormComment from "../Forms/FormComment";
 import Comments from "./Comments";
 import { withUser } from "../Auth/withUser";
+import OnePost from "../Wall/OnePost";
 
 function WallPost(post) {
+  const [fullscreen, setfullscreen] = useState(false);
+
+  function showfull() {
+    setfullscreen(!fullscreen);
+  }
+
+  function hidefull() {
+    setfullscreen(false);
+  }
+
   return (
     <div className="wallbody">
       {post.type === "plantadd" ? (
@@ -92,9 +103,34 @@ function WallPost(post) {
 
           <hr></hr>
 
-          <h3 className="posttitle">{post.title}</h3>
-          <img className="wallpic" src={post.image} alt="postimg" />
+          <h3
+            style={{ cursor: "pointer" }}
+            onClick={showfull}
+            className="posttitle"
+          >
+            {post.title}{" "}
+          </h3>
+          {fullscreen && (
+            <OnePost
+              image={post.image}
+              title={post.title}
+              hidefull={hidefull}
+              comments={post.comments}
+              deleteComment={post.deleteComment}
+              userLogged={post.userLogged}
+              userpic={post.context.user.profileImg}
+              postId={post.id}
+              seeNewComment={post.seeNewComment}
+            />
+          )}
+          <img
+            onClick={showfull}
+            className="wallpic"
+            src={post.image}
+            alt="postimg"
+          />
           <h5 className="postsubtitle">{post.subtitle}</h5>
+
           <hr></hr>
           <FormComment
             userpic={post.context.user.profileImg}

@@ -65,9 +65,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .usercontainer:hover {
-  background-color: rgba(6, 119, 25, 0.3);
+  background-color: rgba(95, 94, 94, 0.3);
 }
 
 .usernames:hover {
-  color: darkgreen;
+  color: green;
+  border-bottom: darkgreen 1px solid;
 }

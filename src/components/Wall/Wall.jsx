@@ -20,6 +20,10 @@ class Wall extends Component {
     });
   }
 
+  showFullScreen = () => {
+    this.setState({ showFullScreen: !this.state.showFullScreen });
+  };
+
   componentDidMount() {
     apiHandler
       .getWall()

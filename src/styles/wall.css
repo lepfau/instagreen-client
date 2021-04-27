@@ -61,6 +61,7 @@
   background-size: cover;
   width: 100%;
   height: auto;
+  cursor: pointer;
 }
 
 .wallpic2 {
@@ -175,6 +176,16 @@ hr {
   background-color: #f0f2f5;
 }
 
+#comment2 {
+  height: 35px;
+  width: inherit;
+  border-radius: 25px;
+  font-size: 1em;
+  padding-left: 20px;
+  border: none;
+  background-color: #f0f2f5;
+}
+
 .commentForm {
   display: flex;
   margin-top: 20px;
@@ -199,6 +210,7 @@ hr {
   margin-bottom: 18px;
   align-self: flex-start;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .postsubtitle {
@@ -305,22 +317,6 @@ hr {
   font-size: 1em;
 }
 
-.ppusercontainer:active {
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-right: 10px;
-  z-index: 1;
-}
-
-.wallpic:active {
-  width: 800px;
-  height: auto;
-  z-index: 2;
-}
-
 .profiletoppost {
   display: flex;
   align-items: center;
@@ -349,6 +345,8 @@ hr {
   background-color: white;
   padding: 15px;
   border-radius: 15px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .usercontainer {
@@ -380,11 +378,11 @@ hr {
   align-self: center;
   background-color: white;
   border-radius: 15px;
-  padding: 10px;
+
   width: 350px;
   align-items: center;
-
-  height: 500px;
+  padding: 15px;
+  height: 600px;
 
   overflow-x: hidden;
 }
@@ -414,7 +412,7 @@ hr {
   align-self: left;
   background-color: white;
   border-radius: 15px;
-
+  padding: 10px;
   width: 600px;
   align-items: center;
   margin-left: 50px;
@@ -560,4 +558,84 @@ p {
 
 .fa-user-cog {
   font-size: 3em;
+}
+
+.oneposttitle {
+  color: white;
+  margin-bottom: 20px;
+  position: fixed;
+  left: 20px;
+  top: 80px;
+}
+
+.onepostimage {
+  height: 85%;
+  margin-bottom: 20px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.onepostfullscreen {
+  position: fixed;
+  padding-top: 68px;
+
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(34, 34, 34, 0.9);
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.onepostright {
+  padding-top: 5px;
+  padding-left: 15px;
+  display: flex;
+  width: 30%;
+  height: 95%;
+  background-color: white;
+}
+
+.closefull {
+  font-size: 2em;
+  font-weight: 600;
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  top: 10px;
+  text-align: center;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closefull:hover {
+  background-color: rgba(95, 94, 94, 0.9);
+  border-radius: 100%;
+}
+
+.oneposttitleimage {
+  background-color: black;
+  height: 95%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.oneposttitleimage {
+  background-color: black;
+  height: 95%;
+}
+
+.commentpart2 {
+  margin: 10px;
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
 }
