@@ -4,9 +4,11 @@ import FormComment from "../Forms/FormComment";
 import Comments from "./Comments";
 import { withUser } from "../Auth/withUser";
 import OnePost from "../Wall/OnePost";
+import DeletePage from "./DeletePage";
 
 function WallPost(post) {
   const [fullscreen, setfullscreen] = useState(false);
+  const [deletepage, setdeletepage] = useState(false);
 
   function showfull() {
     setfullscreen(!fullscreen);
@@ -16,8 +18,19 @@ function WallPost(post) {
     setfullscreen(false);
   }
 
+  function hideDelete() {
+    setdeletepage(!deletepage);
+  }
+
   return (
     <div className="wallbody">
+      {deletepage ? (
+        <DeletePage
+          hideDelete={hideDelete}
+          deletePost={post.deletePost}
+          id={post.id}
+        />
+      ) : null}
       {post.type === "plantadd" ? (
         <div className="wallpostcontainer">
           <div className="posttop">
@@ -45,7 +58,8 @@ function WallPost(post) {
               <div className="posttopbtns">
                 <i
                   className="fa fa-trash"
-                  onClick={() => post.deletePost(post.id)}
+                  onClick={() => post.showdelete()}
+                  // onClick={() => post.deletePost(post.id)}
                 ></i>
                 <Link to={`/wall/edit/${post.id}`}>
                   <i className="fas fa-edit"></i>
@@ -92,7 +106,8 @@ function WallPost(post) {
               <div className="posttopbtns">
                 <i
                   className="fa fa-trash"
-                  onClick={() => post.deletePost(post.id)}
+                  onClick={() => setdeletepage(!deletepage)}
+                  // onClick={() => post.deletePost(post.id)}
                 ></i>
                 <Link to={`/wall/edit/${post.id}`}>
                   <i className="fas fa-edit"></i>
