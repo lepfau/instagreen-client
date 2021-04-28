@@ -19,7 +19,7 @@ It uses "vanilla" react with class components mostly;
 
 ## Screenshots
 
-![App screenshot](./public/instagreengif.gif)
+![App screenshot](./public/instagreen44.png)
 ![Post screenshot](./public/instagreen22.png)
 ![Plant screenshot](./public/instagreen33.png)
 
