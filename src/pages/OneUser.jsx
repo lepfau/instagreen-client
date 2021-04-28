@@ -17,6 +17,28 @@ class OneUser extends Component {
     });
   }
 
+  componentDidUpdate() {
+    if (this.props.match.params.id !== this.state.user._id) {
+      console.log("changed !");
+      apiHandler.getUser(this.props.match.params.id).then((apiResp) => {
+        console.log(apiResp);
+        this.setState({
+          user: apiResp,
+        });
+      });
+
+      apiHandler.getPlants().then((apiResp) => {
+        const userPlants = apiResp.filter(
+          (userplant) => userplant.id_user === this.props.match.params.id
+        );
+
+        this.setState({
+          plant: userPlants,
+        });
+      });
+    }
+  }
+
   componentDidMount() {
     apiHandler.getUser(this.props.match.params.id).then((apiResp) => {
       console.log(apiResp);
@@ -38,7 +60,7 @@ class OneUser extends Component {
 
   render() {
     return (
-      <div className="oneuserbody">
+      <div className="oneuserbody" key={this.props.match.params.id}>
         <div className="usernameppfu">
           <div className="ppusercontainer2">
             <img

@@ -27,12 +27,12 @@ const NavMain = (props) => {
         {context.isLoggedIn && (
           <React.Fragment>
             <li>
+              <NavLink to="/wall">Wall</NavLink>
+            </li>
+            <li>
               <NavLink to="/myplants">Plants</NavLink>
             </li>
 
-            <li>
-              <NavLink to="/wall">Wall</NavLink>
-            </li>
             <li>
               <NavLink to="/users">Users</NavLink>
             </li>

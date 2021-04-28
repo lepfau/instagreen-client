@@ -6,7 +6,6 @@ import Signup from "./pages/Signup";
 import Myplants from "./pages/Myplants";
 import ProtectedRoute from "./components/Divers/ProtectedRoute";
 import Profile from "./pages/Profile";
-
 import FormEditPlant from "./components/Forms/FormEditPlant";
 import FormEditWall from "./components/Forms/FormEditWall";
 import OneUser from "./pages/OneUser";
@@ -33,6 +32,7 @@ function App() {
           component={FormEditPlant}
         />
         <ProtectedRoute exact path="/wall/edit/:id" component={FormEditWall} />
+
         <ProtectedRoute exact path="/users" component={UserPage} />
         <ProtectedRoute exact path="/users/:id" component={OneUser} />
         <ProtectedRoute exact path="/map" component={MapPage} />

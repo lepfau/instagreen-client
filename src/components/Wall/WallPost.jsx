@@ -58,7 +58,7 @@ function WallPost(post) {
               <div className="posttopbtns">
                 <i
                   className="fa fa-trash"
-                  onClick={() => post.showdelete()}
+                  onClick={() => setdeletepage(!deletepage)}
                   // onClick={() => post.deletePost(post.id)}
                 ></i>
                 <Link to={`/wall/edit/${post.id}`}>
@@ -147,11 +147,13 @@ function WallPost(post) {
           <h5 className="postsubtitle">{post.subtitle}</h5>
 
           <hr></hr>
-          <FormComment
-            userpic={post.context.user.profileImg}
-            postId={post.id}
-            seeNewComment={post.seeNewComment}
-          />
+          <div>
+            <FormComment
+              userpic={post.context.user.profileImg}
+              postId={post.id}
+              seeNewComment={post.seeNewComment}
+            />
+          </div>
           {post.comments.map((comment) => {
             return (
               <div key={comment._id} className="commentpartcontainer">

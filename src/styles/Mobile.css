@@ -94,6 +94,9 @@
 
   .commentform {
     width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .usercontainerwidth {
@@ -280,15 +283,15 @@
   }
 
   #comment {
+    /* margin-top: 0px; */
     height: 35px;
-    width: 75vw;
+    width: 70vw;
     border-radius: 25px;
     font-size: 1em;
     padding-left: 20px;
     border: none;
     background-color: #f0f2f5;
   }
-
   .ppusercontainer {
     width: 30px;
     height: 30px;
@@ -310,6 +313,17 @@
     margin-bottom: 3px;
     font-size: 1em;
   }
+
+  .commentinside {
+    padding: 13px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f2f5;
+    border-radius: 15px;
+    width: 100%;
+    margin: 0px;
+  }
+
   .usercommenting {
     display: flex;
     flex-direction: row;

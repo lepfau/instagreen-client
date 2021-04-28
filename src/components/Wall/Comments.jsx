@@ -17,7 +17,7 @@ function Comments(comment) {
             <Link to={`/users/${comment.userId}`}>
               <b className="usernames">
                 {comment.userFirst} {comment.userLast}
-              </b>{" "}
+              </b>
             </Link>
           </p>
           <p className="commenttext">{comment.text}</p>
