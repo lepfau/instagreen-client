@@ -21,6 +21,10 @@
   margin-top: 25px;
 }
 
+.heart {
+  cursor: pointer;
+}
+
 .likepart {
   display: flex;
   align-self: flex-start;

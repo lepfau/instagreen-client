@@ -107,6 +107,21 @@ function WallPost(post) {
               alt="postimg"
             />
           </div>
+          <div className="likepart">
+            {liked ? (
+              <i
+                style={{ color: "red" }}
+                onClick={() => removeLike()}
+                class="fas fa-heart heart"
+              ></i>
+            ) : (
+              <i class="far fa-heart heart" onClick={() => addLike()}>
+                {" "}
+              </i>
+            )}
+
+            <p>{post.likes.length}</p>
+          </div>
         </div>
       ) : (
         <div className="wallpostcontainer">
@@ -181,7 +196,7 @@ function WallPost(post) {
                 class="fas fa-heart heart"
               ></i>
             ) : (
-              <i class="far fa-heart " onClick={() => addLike()}>
+              <i class="far fa-heart heart" onClick={() => addLike()}>
                 {" "}
               </i>
             )}
