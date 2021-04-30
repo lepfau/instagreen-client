@@ -77,6 +77,20 @@ class Wall extends Component {
       });
   };
 
+  updateLikes = () => {
+    apiHandler
+      .getWall()
+      .then((apiResp) => {
+        this.sortByKey(apiResp, "created_at");
+        this.setState({
+          wall: apiResp,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   deleteComment = (commentId) => {
     apiHandler.deleteComment(commentId).then((apiResp) => {
       apiHandler
@@ -114,6 +128,7 @@ class Wall extends Component {
                 <div className="wallbody" key={post._id}>
                   <WallPost
                     userLogged={this.props.context.user.email}
+                    loggedId={this.props.context.user.id}
                     id={post._id}
                     title={post.title}
                     image={post.image}
@@ -129,6 +144,7 @@ class Wall extends Component {
                     comments={post.id_comments}
                     seeNewComment={this.seeNewComment}
                     deleteComment={this.deleteComment}
+                    likes={post.likes}
                   />
                 </div>
               );

@@ -161,6 +161,22 @@ export default {
       .catch(errorHandler);
   },
 
+  addLike(postId) {
+    return service
+      .post(`/api/wall/${postId}/likes`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  removeLike(postId) {
+    return service
+      .delete(`/api/wall/${postId}/likes`)
+      .then(() => {
+        "like removed";
+      })
+      .catch(errorHandler);
+  },
+
   deleteComment(itemId) {
     return service
       .delete("/api/comment/" + itemId)

@@ -21,6 +21,16 @@
   margin-top: 25px;
 }
 
+.likepart {
+  display: flex;
+  align-self: flex-start;
+  justify-content: space-between;
+  width: 46px;
+  margin-left: 20px;
+  /* height: 191px; */
+  font-size: 1.5em;
+}
+
 .wallpostuser {
   display: flex;
   width: 220px;
