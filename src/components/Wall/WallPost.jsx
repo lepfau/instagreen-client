@@ -8,8 +8,6 @@ import DeletePage from "./DeletePage";
 import apiHandler from "../../api/apiHandler";
 
 function WallPost(post) {
-  const firstLike = post.likes;
-
   const [fullscreen, setfullscreen] = useState(false);
   const [deletepage, setdeletepage] = useState(false);
   const [liked, setLiked] = useState(false);
@@ -229,6 +227,11 @@ function WallPost(post) {
               userpic={post.context.user.profileImg}
               postId={post.id}
               seeNewComment={post.seeNewComment}
+              likes={post.likes}
+              userLogged={post.userLogged}
+              addLike={addLike}
+              removeLike={removeLike}
+              liked={liked}
             />
           )}
           <img
