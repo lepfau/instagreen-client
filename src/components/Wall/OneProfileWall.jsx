@@ -95,6 +95,7 @@ class OneProfileWall extends Component {
                     <div className="wallbody" key={post._id}>
                       <WallPost
                         userLogged={this.props.context.user.email}
+                        loggedId={this.props.context.user.id}
                         id={post._id}
                         title={post.title}
                         image={post.image}
@@ -106,6 +107,7 @@ class OneProfileWall extends Component {
                         date={post.created_at}
                         userEmail={post.id_user.email}
                         deletePost={this.deletePost}
+                        likes={post.likes}
                         comments={post.id_comments}
                         seeNewComment={this.seeNewComment}
                         deleteComment={this.deleteComment}

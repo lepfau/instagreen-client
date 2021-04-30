@@ -23,16 +23,18 @@
 
 .heart {
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .likepart {
   display: flex;
-  align-self: flex-start;
-  justify-content: space-between;
-  width: 46px;
-  margin-left: 20px;
+  align-self: center;
+  justify-content: flex-start;
+  align-items: center;
+  width: 89%;
+  margin-left: 0;
   /* height: 191px; */
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .wallpostuser {

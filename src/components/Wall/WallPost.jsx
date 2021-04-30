@@ -119,8 +119,59 @@ function WallPost(post) {
                 {" "}
               </i>
             )}
-
-            <p>{post.likes.length}</p>
+            {(() => {
+              if (
+                post.likes.length === 1 &&
+                post.likes[0].email === post.context.user.email
+              ) {
+                return <p>You like this</p>;
+              } else if (post.likes.length === 1) {
+                return (
+                  <p>
+                    {post.likes[0].firstName} {post.likes[0].lastName} likes
+                    this
+                  </p>
+                );
+              } else if (
+                post.likes.length === 2 &&
+                post.likes[1].email === post.context.user.email
+              ) {
+                return (
+                  <p>
+                    {"You and"} {""}
+                    {post.likes[0].firstName} {post.likes[0].lastName} like this
+                  </p>
+                );
+              } else if (post.likes.length === 2) {
+                return (
+                  <p>
+                    {post.likes[0].firstName} {post.likes[0].lastName} {""}
+                    {"and"} {""}
+                    {post.likes.length - 1} user like this
+                  </p>
+                );
+              } else if (
+                post.likes.length > 2 &&
+                post.likes[post.likes.length - 1].email ===
+                  post.context.user.email
+              ) {
+                return (
+                  <p>
+                    {"You and"} {""}
+                    {post.likes.length - 1} users like this
+                  </p>
+                );
+              } else if (post.likes.length > 2) {
+                return (
+                  <p>
+                    {post.likes[0].firstName} {post.likes[0].lastName} {""}{" "}
+                    {"and"} {post.likes.length - 1} users like this
+                  </p>
+                );
+              } else {
+                return <p>No one likes this</p>;
+              }
+            })()}
           </div>
         </div>
       ) : (
@@ -201,7 +252,59 @@ function WallPost(post) {
               </i>
             )}
 
-            <p>{post.likes.length}</p>
+            {(() => {
+              if (
+                post.likes.length === 1 &&
+                post.likes[0].email === post.context.user.email
+              ) {
+                return <p>You like this</p>;
+              } else if (post.likes.length === 1) {
+                return (
+                  <p>
+                    {post.likes[0].firstName} {post.likes[0].lastName} likes
+                    this
+                  </p>
+                );
+              } else if (
+                post.likes.length === 2 &&
+                post.likes[1].email === post.context.user.email
+              ) {
+                return (
+                  <p>
+                    {"You and"} {""}
+                    {post.likes[0].firstName} {post.likes[0].lastName} like this
+                  </p>
+                );
+              } else if (post.likes.length === 2) {
+                return (
+                  <p>
+                    {post.likes[0].firstName} {post.likes[0].lastName} {""}
+                    {"and"} {""}
+                    {post.likes.length - 1} user like this
+                  </p>
+                );
+              } else if (
+                post.likes.length > 2 &&
+                post.likes[post.likes.length - 1].email ===
+                  post.context.user.email
+              ) {
+                return (
+                  <p>
+                    {"You and"} {""}
+                    {post.likes.length - 1} users like this
+                  </p>
+                );
+              } else if (post.likes.length > 2) {
+                return (
+                  <p>
+                    {post.likes[0].firstName} {post.likes[0].lastName} {""}{" "}
+                    {"and"} {post.likes.length - 1} users like this
+                  </p>
+                );
+              } else {
+                return <p>No one likes this</p>;
+              }
+            })()}
           </div>
           <div>
             <FormComment

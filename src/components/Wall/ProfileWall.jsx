@@ -108,6 +108,7 @@ class ProfileWall extends Component {
                     <div className="wallbody" key={post._id}>
                       <WallPost
                         userLogged={this.props.context.user.email}
+                        loggedId={this.props.context.user.id}
                         id={post._id}
                         title={post.title}
                         image={post.image}
@@ -120,6 +121,7 @@ class ProfileWall extends Component {
                         userEmail={post.id_user.email}
                         deletePost={this.deletePost}
                         comments={post.id_comments}
+                        likes={post.likes}
                         seeNewComment={this.seeNewComment}
                         deleteComment={this.deleteComment}
                       />
