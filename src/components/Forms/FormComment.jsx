@@ -5,12 +5,16 @@ import { withRouter } from "react-router-dom";
 class FormComment extends Component {
   state = {
     text: "",
+    emojitext: "",
     id_wall: this.props.postId,
   };
 
-  handleChange = (event) => {
-    const value = event.target.value;
+  handleChange = (value) => {
     this.setState({ text: value });
+  };
+
+  handleEmoji = (event) => {
+    this.setState({ emojitext: event.target.value });
   };
 
   handleSubmit = (event) => {
@@ -31,8 +35,8 @@ class FormComment extends Component {
         <div className="ppusercontainercomment ">
           <img src={this.props.userpic} className="ppwall " alt="userpic" />
         </div>
+
         <form className="commentform" onSubmit={this.handleSubmit}>
-          <label htmlFor="comment"></label>
           <input
             onChange={this.handleChange}
             type="text"

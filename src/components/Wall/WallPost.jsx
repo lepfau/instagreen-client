@@ -108,7 +108,7 @@ function WallPost(post) {
           <div className="likepart">
             {liked ? (
               <i
-                style={{ color: "red" }}
+                style={{ color: "firebrick" }}
                 onClick={() => removeLike()}
                 class="fas fa-heart heart"
               ></i>
@@ -216,6 +216,9 @@ function WallPost(post) {
           >
             {post.title}{" "}
           </h3>
+          <h6 style={{ fontSize: "0.9em" }} className="postsubtitle">
+            {post.subtitle}
+          </h6>
           {fullscreen && (
             <OnePost
               image={post.image}
@@ -240,12 +243,14 @@ function WallPost(post) {
             src={post.image}
             alt="postimg"
           />
-          <h5 className="postsubtitle">{post.subtitle}</h5>
-          <hr></hr>
-          <div className="likepart">
+
+          <div
+            className="likepart"
+            style={{ marginBottom: "10px", marginTop: "10px" }}
+          >
             {liked ? (
               <i
-                style={{ color: "red" }}
+                style={{ color: "firebrick" }}
                 onClick={() => removeLike()}
                 class="fas fa-heart heart"
               ></i>
@@ -309,6 +314,8 @@ function WallPost(post) {
               }
             })()}
           </div>
+          <hr></hr>
+
           <div>
             <FormComment
               userpic={post.context.user.profileImg}

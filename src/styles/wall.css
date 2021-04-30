@@ -23,7 +23,13 @@
 
 .heart {
   cursor: pointer;
-  margin-right: 10px;
+
+  padding: 10px;
+  border-radius: 100%;
+}
+
+.heart:hover {
+  background: rgb(255 21 21 / 30%);
 }
 
 .likepart {
@@ -221,16 +227,16 @@ hr {
 }
 
 .posttitle {
-  font-size: 1em;
-  margin-top: 10px;
-  margin-bottom: 18px;
+  font-size: 1.2em;
+  /* margin-top: 10px; */
+  /* margin-bottom: 18px; */
   align-self: flex-start;
   margin-left: 20px;
   cursor: pointer;
 }
 
 .postsubtitle {
-  margin-top: 10px;
+  margin-top: 4px;
   margin-bottom: 18px;
   align-self: flex-start;
   margin-left: 20px;
@@ -368,7 +374,7 @@ hr {
   align-items: center;
   justify-content: flex-start;
   background-color: white;
-  width: 300px;
+  width: 265px;
   align-items: center;
   border-radius: 8px;
   padding: 5px;

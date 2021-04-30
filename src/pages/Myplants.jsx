@@ -132,7 +132,7 @@ class Myplants extends Component {
                         this.setWaterDate(plant._id);
                       }}
                     >
-                      Water me ! <i className="fas fa-hand-holding-water"></i>
+                      Give water <i className="fas fa-tint"></i>
                     </button>
                     <div
                       style={{
@@ -199,7 +199,7 @@ class Myplants extends Component {
                         this.setWaterDate(plant._id);
                       }}
                     >
-                      Water me ! <i className="fas fa-hand-holding-water"></i>
+                      Give water <i className="fas fa-tint"></i>
                     </button>
                     <div
                       style={{

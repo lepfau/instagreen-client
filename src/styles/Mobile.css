@@ -241,10 +241,10 @@
   }
 
   .postsubtitle {
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 18px;
     align-self: flex-start;
-    margin-left: 20px;
+    margin-left: 15px;
     font-size: 1em;
   }
 

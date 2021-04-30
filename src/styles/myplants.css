@@ -198,19 +198,19 @@
   margin-left: 10px;
   margin-right: 10px;
 }
-
 .givemewater {
-  font-size: 1em;
+  font-size: 14px;
   margin-top: 20px;
   border-radius: 6px;
   width: 150px;
   height: 50px;
+  color: white;
   align-self: center;
-  background-color: #2da5dd;
+  background-color: #111b1e;
   box-shadow: 2px 2px 4px darkgrey;
   border: none;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .plantcardallinfo {

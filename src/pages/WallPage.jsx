@@ -14,7 +14,7 @@ function WallPage() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          width: "300px",
+          width: "265px",
           marginTop: "25px",
           position: "sticky",
           top: "80px",
