@@ -18,10 +18,13 @@ function OnePost(onepost) {
               <i
                 style={{ color: "red" }}
                 onClick={() => onepost.removeLike()}
-                class="fas fa-heart heart"
+                className="fas fa-heart heart"
               ></i>
             ) : (
-              <i class="far fa-heart heart" onClick={() => onepost.addLike()}>
+              <i
+                className="far fa-heart heart"
+                onClick={() => onepost.addLike()}
+              >
                 {" "}
               </i>
             )}

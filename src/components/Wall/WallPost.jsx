@@ -110,10 +110,10 @@ function WallPost(post) {
               <i
                 style={{ color: "firebrick" }}
                 onClick={() => removeLike()}
-                class="fas fa-heart heart"
+                className="fas fa-heart heart"
               ></i>
             ) : (
-              <i class="far fa-heart heart" onClick={() => addLike()}>
+              <i className="far fa-heart heart" onClick={() => addLike()}>
                 {" "}
               </i>
             )}
@@ -252,10 +252,10 @@ function WallPost(post) {
               <i
                 style={{ color: "firebrick" }}
                 onClick={() => removeLike()}
-                class="fas fa-heart heart"
+                className="fas fa-heart heart"
               ></i>
             ) : (
-              <i class="far fa-heart heart" onClick={() => addLike()}>
+              <i className="far fa-heart heart" onClick={() => addLike()}>
                 {" "}
               </i>
             )}
