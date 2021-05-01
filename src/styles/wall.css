@@ -348,6 +348,12 @@ hr {
   margin-top: 10px;
 }
 
+.userpagetitle {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 40px;
+}
+
 .searchform {
   margin-left: 0px;
   margin-top: 5px;
