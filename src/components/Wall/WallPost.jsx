@@ -200,10 +200,7 @@ function WallPost(post) {
             alt="postimg"
           />
 
-          <div
-            className="likepart"
-            style={{ marginBottom: "10px", marginTop: "10px" }}
-          >
+          <div className="likepart" style={{ marginTop: "10px" }}>
             {liked ? (
               <i
                 style={{ color: "firebrick" }}
