@@ -41,6 +41,10 @@ class Wall extends Component {
       });
   }
 
+  componentWillUnmount() {
+    this.setState({ wall: null });
+  }
+
   addPost = (post) => {
     apiHandler
       .getWall()

@@ -2,11 +2,17 @@ import React from "react";
 
 function UserLikes(props) {
   return (
-    <div className="userlikes">
-      <div>
-        <h1>User likes:</h1>
-        <p onClick={props.hideUserLikes}>X </p>
-      </div>
+    <div className="userlikeslist">
+      <p>{props.users.length}</p>
+      <ul>
+        {props.users.map((user) => {
+          return (
+            <li key={user._id}>
+              {user.firstName} {user.lastName}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

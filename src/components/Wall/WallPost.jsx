@@ -12,7 +12,6 @@ function WallPost(post) {
   const [fullscreen, setfullscreen] = useState(false);
   const [deletepage, setdeletepage] = useState(false);
   const [liked, setLiked] = useState(false);
-  const [userLiked, setUserLiked] = useState(false);
 
   useEffect(() => {
     post.likes.forEach((like) => {
@@ -32,14 +31,6 @@ function WallPost(post) {
 
   function hideDelete() {
     setdeletepage(!deletepage);
-  }
-
-  function showUserLies() {
-    setUserLiked(true);
-  }
-
-  function hideUserLikes() {
-    setUserLiked(false);
   }
 
   function addLike() {
@@ -127,64 +118,14 @@ function WallPost(post) {
                 {" "}
               </i>
             )}
-            {(() => {
-              if (
-                post.likes.length === 1 &&
-                post.likes[0].email === post.context.user.email
-              ) {
-                return <p>You like this</p>;
-              } else if (post.likes.length === 1) {
-                return (
-                  <p>
-                    {post.likes[0].firstName} {post.likes[0].lastName} likes
-                    this
-                  </p>
-                );
-              } else if (
-                post.likes.length === 2 &&
-                post.likes[1].email === post.context.user.email
-              ) {
-                return (
-                  <p>
-                    {"You and"} {""}
-                    {post.likes[0].firstName} {post.likes[0].lastName} like this
-                  </p>
-                );
-              } else if (post.likes.length === 2) {
-                return (
-                  <p>
-                    {post.likes[0].firstName} {post.likes[0].lastName} {""}
-                    {"and"} {""}
-                    {post.likes.length - 1} user like this
-                  </p>
-                );
-              } else if (
-                post.likes.length > 2 &&
-                post.likes[post.likes.length - 1].email ===
-                  post.context.user.email
-              ) {
-                return (
-                  <p>
-                    {"You and"} {""}
-                    {post.likes.length - 1} users like this
-                  </p>
-                );
-              } else if (post.likes.length > 2) {
-                return (
-                  <p>
-                    {post.likes[0].firstName} {post.likes[0].lastName} {""}{" "}
-                    {"and"} {post.likes.length - 1} users like this
-                  </p>
-                );
-              } else {
-                return <p>No one likes this</p>;
-              }
-            })()}
+            <div>
+              <p>{post.likes.length}</p>
+              <UserLikes users={post.likes} />
+            </div>
           </div>
         </div>
       ) : (
         <div className="wallpostcontainer">
-          {userLiked ? <UserLikes hideUserLikes={hideUserLikes} /> : null}
           <div className="posttop">
             <div className="posttopuser">
               <div className="wallpostuser">
@@ -271,62 +212,7 @@ function WallPost(post) {
               </i>
             )}
 
-            {(() => {
-              if (
-                post.likes.length === 1 &&
-                post.likes[0].email === post.context.user.email
-              ) {
-                return <p>You like this</p>;
-              } else if (post.likes.length === 1) {
-                return (
-                  <p>
-                    {post.likes[0].firstName} {post.likes[0].lastName} likes
-                    this
-                  </p>
-                );
-              } else if (
-                post.likes.length === 2 &&
-                post.likes[1].email === post.context.user.email
-              ) {
-                return (
-                  <p>
-                    {"You and"} {""}
-                    {post.likes[0].firstName} {post.likes[0].lastName} like this
-                  </p>
-                );
-              } else if (post.likes.length === 2) {
-                return (
-                  <p>
-                    {post.likes[0].firstName} {post.likes[0].lastName} {""}
-                    {"and"} {""}
-                    {post.likes.length - 1} user like this
-                  </p>
-                );
-              } else if (
-                post.likes.length > 2 &&
-                post.likes[post.likes.length - 1].email ===
-                  post.context.user.email
-              ) {
-                return (
-                  <p>
-                    {"You and"} {""}{" "}
-                    <span onClick={() => showUserLies()}>
-                      {post.likes.length - 1} users{" "}
-                    </span>
-                    like this
-                  </p>
-                );
-              } else if (post.likes.length > 2) {
-                return (
-                  <p>
-                    {post.likes[0].firstName} {post.likes[0].lastName} {""}{" "}
-                    {"and"} {post.likes.length - 1} users like this
-                  </p>
-                );
-              } else {
-                return <p>No one likes this</p>;
-              }
-            })()}
+            <p>{post.likes.length}</p>
           </div>
           <hr></hr>
 
