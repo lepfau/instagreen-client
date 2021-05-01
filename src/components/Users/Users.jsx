@@ -51,13 +51,12 @@ export default class Users extends Component {
   render() {
     return (
       <div className="fulluserpagebody">
-        <h1 className="myplantstitle">Users list</h1>
+        <h1 className="myplantstitle">Users</h1>
 
         <form className="searchform" onSubmit={this.submitSearch}>
-          <label className="labelplant" htmlFor="search">
-            Search by name
-          </label>
+          <i className="fa fa-search"></i>
           <input
+            placeholder="Search user by name"
             className="inputplant"
             type="text"
             value={this.state.inputValue}

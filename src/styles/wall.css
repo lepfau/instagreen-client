@@ -37,7 +37,7 @@
   align-self: center;
   justify-content: flex-start;
   align-items: center;
-  width: 89%;
+  width: 98%;
   margin-left: 0;
   /* height: 191px; */
   font-size: 1.3em;
@@ -227,14 +227,13 @@ hr {
 }
 
 .posttitle {
-  font-size: 1.2em;
+  font-size: 16px;
   /* margin-top: 10px; */
-  /* margin-bottom: 18px; */
+  /* margin-bottom: -11px; */
   align-self: flex-start;
   margin-left: 20px;
   cursor: pointer;
 }
-
 .postsubtitle {
   margin-top: 4px;
   margin-bottom: 18px;
@@ -355,7 +354,9 @@ hr {
   width: 300px;
   background-color: white;
   padding: 15px;
-  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchformuserpage {
@@ -405,6 +406,12 @@ hr {
   overflow-x: hidden;
 }
 
+.allusercontainer b {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 14px;
+}
+
 .noplants {
   margin-left: 50px;
   margin-top: 50px;
@@ -452,7 +459,7 @@ hr {
 
 .fulluserpagebody {
   position: sticky;
-  top: 80px;
+  top: 85px;
   margin-top: 25px;
 }
 p {
@@ -566,9 +573,9 @@ p {
 
 .myprofiletitle {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 25%;
+  justify-content: space-evenly;
+  align-items: baseline;
+  width: 20%;
 }
 
 .fa-user-cog {
@@ -608,6 +615,21 @@ p {
 }
 
 .deletescreen {
+  position: fixed;
+  padding-top: 68px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(34, 34, 34, 0.9);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.userlikes {
   position: fixed;
   padding-top: 68px;
   width: 100%;

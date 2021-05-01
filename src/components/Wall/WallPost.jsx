@@ -6,11 +6,13 @@ import { withUser } from "../Auth/withUser";
 import OnePost from "../Wall/OnePost";
 import DeletePage from "./DeletePage";
 import apiHandler from "../../api/apiHandler";
+import UserLikes from "./UserLikes";
 
 function WallPost(post) {
   const [fullscreen, setfullscreen] = useState(false);
   const [deletepage, setdeletepage] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [userLiked, setUserLiked] = useState(false);
 
   useEffect(() => {
     post.likes.forEach((like) => {
@@ -30,6 +32,14 @@ function WallPost(post) {
 
   function hideDelete() {
     setdeletepage(!deletepage);
+  }
+
+  function showUserLies() {
+    setUserLiked(true);
+  }
+
+  function hideUserLikes() {
+    setUserLiked(false);
   }
 
   function addLike() {
@@ -174,6 +184,7 @@ function WallPost(post) {
         </div>
       ) : (
         <div className="wallpostcontainer">
+          {userLiked ? <UserLikes hideUserLikes={hideUserLikes} /> : null}
           <div className="posttop">
             <div className="posttopuser">
               <div className="wallpostuser">
@@ -298,8 +309,11 @@ function WallPost(post) {
               ) {
                 return (
                   <p>
-                    {"You and"} {""}
-                    {post.likes.length - 1} users like this
+                    {"You and"} {""}{" "}
+                    <span onClick={() => showUserLies()}>
+                      {post.likes.length - 1} users{" "}
+                    </span>
+                    like this
                   </p>
                 );
               } else if (post.likes.length > 2) {

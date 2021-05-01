@@ -85,7 +85,11 @@ export class UpdateUser extends Component {
         }}
       >
         <div class="wallForm2">
-          <form className="form" onSubmit={this.handleSubmit}>
+          <form
+            className="form"
+            onSubmit={this.handleSubmit}
+            style={{ display: "flex", flexDirection: "column" }}
+          >
             <h2
               style={{ alignSelf: "center", marginBottom: "20px" }}
               className="myplantstitle"

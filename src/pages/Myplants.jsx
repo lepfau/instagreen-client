@@ -69,8 +69,14 @@ class Myplants extends Component {
       <div className="myplantspage">
         {" "}
         {/* <FormCreatePlant addItem={this.addItem} /> */}
-        <h1 className="myplantstitle">My plants</h1>
-        <button className="addplantbtn" onClick={() => this.showForm()}>
+        <h1 className="myplantstitle" style={{ marginTop: "45px" }}>
+          My plants
+        </h1>
+        <button
+          style={{ marginLeft: "0px", marginBottom: "20px" }}
+          className="addplantbtn"
+          onClick={() => this.showForm()}
+        >
           Add a new plant
         </button>
         {showForm && <FormCreatePlant addItem={this.addItem} />}

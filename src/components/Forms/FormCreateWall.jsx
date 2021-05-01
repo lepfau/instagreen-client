@@ -97,6 +97,7 @@ class FormCreateWall extends Component {
               type="text"
               onChange={this.handleChange}
               value={this.state.title}
+              placeholder="Add a title to your post"
             />
           </div>
 
@@ -108,7 +109,7 @@ class FormCreateWall extends Component {
               id="subtitle"
               name="subtitle"
               className="inputwall"
-              placeholder="Tell us something about this plant"
+              placeholder="You can add description here"
               onChange={this.handleChange}
               value={this.state.subtitle}
             ></input>

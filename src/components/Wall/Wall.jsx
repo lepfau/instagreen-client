@@ -110,7 +110,7 @@ class Wall extends Component {
   render() {
     return (
       <div className="fullbodywall">
-        <h1 className="walltitle"> Main Wall</h1>
+        <h1 className="walltitle"> Wall</h1>
 
         <FormCreateWall addPost={this.addPost} />
         <div className="wallPost">

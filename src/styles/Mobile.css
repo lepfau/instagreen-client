@@ -86,10 +86,9 @@
   .walltitle {
     margin-top: -20px;
     text-align: center;
-    font-family: Just Another Hand;
-    font-size: 3em;
-    font-weight: 200;
-    text-shadow: 2px 2px 4px darkgrey;
+    font-family: Roboto;
+    font-size: 30px;
+    font-weight: 300;
   }
 
   .commentform {
@@ -402,6 +401,10 @@
     box-shadow: 2px 2px 4px darkgrey;
   }
 
+  .userpagetitle {
+    font-size: 28px;
+  }
+
   .myplantspage {
     background-color: #f0f2f5;
     width: 99%;
@@ -412,6 +415,11 @@
     justify-content: center;
     align-items: center;
   }
+
+  .myplantstitle {
+    margin-top: 5px;
+  }
+
   .addplantbtn {
     margin-top: 20px;
     margin-left: 0px;

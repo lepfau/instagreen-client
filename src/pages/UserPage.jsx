@@ -54,10 +54,8 @@ export default class UserPage extends Component {
           <h1 className="myplantstitle">Users list</h1>
 
           <form className="searchformuserpage" onSubmit={this.submitSearch}>
-            <label className="labelplant" htmlFor="search">
-              Search by name
-            </label>
             <input
+              placeholder="Search user by name"
               className="inputplant"
               type="text"
               value={this.state.inputValue}

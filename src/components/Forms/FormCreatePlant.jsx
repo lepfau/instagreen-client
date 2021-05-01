@@ -77,7 +77,11 @@ class FormCreatePlant extends Component {
   render() {
     return (
       <div className="PlantFormContainer">
-        <form className="PlantForm" onSubmit={this.handleSubmit}>
+        <form
+          style={{ marginLeft: "0px", marginTop: "0px" }}
+          className="PlantForm"
+          onSubmit={this.handleSubmit}
+        >
           <div className="form-group">
             <label className="labelplant" htmlFor="name">
               Name
