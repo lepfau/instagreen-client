@@ -5,16 +5,11 @@ import { withRouter } from "react-router-dom";
 class FormComment extends Component {
   state = {
     text: "",
-    emojitext: "",
     id_wall: this.props.postId,
   };
-
-  handleChange = (value) => {
+  handleChange = (event) => {
+    const value = event.target.value;
     this.setState({ text: value });
-  };
-
-  handleEmoji = (event) => {
-    this.setState({ emojitext: event.target.value });
   };
 
   handleSubmit = (event) => {

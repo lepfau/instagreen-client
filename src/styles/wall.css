@@ -17,6 +17,30 @@
   box-shadow: 1px 1px 2px darkgrey;
 }
 
+.userlikesss {
+  background: #f0f2f5;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  position: relative;
+  bottom: 8px;
+  display: flex;
+  width: 167px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: 1px 1px 2px darkgrey;
+}
+
+.userlikecount {
+  cursor: pointer;
+}
+
+.userlikecount:hover {
+  color: darkgreen;
+  font-weight: 500;
+}
+
 .userlikeslist {
   display: none;
 }

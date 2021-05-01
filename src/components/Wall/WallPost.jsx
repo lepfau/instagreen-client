@@ -12,6 +12,11 @@ function WallPost(post) {
   const [fullscreen, setfullscreen] = useState(false);
   const [deletepage, setdeletepage] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [users, setUsers] = useState(false);
+
+  function showUsers() {
+    setUsers(!users);
+  }
 
   useEffect(() => {
     post.likes.forEach((like) => {
@@ -119,7 +124,6 @@ function WallPost(post) {
               </i>
             )}
             <div>
-              <p>{post.likes.length}</p>
               <UserLikes users={post.likes} />
             </div>
           </div>
@@ -212,7 +216,11 @@ function WallPost(post) {
               </i>
             )}
 
-            <p>{post.likes.length}</p>
+            <UserLikes
+              users={post.likes}
+              usersshow={users}
+              showUsers={showUsers}
+            />
           </div>
           <hr></hr>
 

@@ -1,25 +1,19 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import InputEmoji from "react-input-emoji";
-import apiHandler from "../../api/apiHandler";
-import { withRouter } from "react-router-dom";
 
-class Emoji extends Component {
-  const [text, setText] = useState("");
+export default function Emoji(props) {
+  const [comment, setComment] = useState("");
 
-  function handleOnEnter(text) {
-    console.log("enter", text);
+  function handleText(value) {
+    setComment(value);
+    props.onSubmit(comment);
   }
 
   return (
     <InputEmoji
-      value={text}
-      onChange={setText}
-      cleanOnEnter
-      onEnter={handleOnEnter}
+      value={comment}
+      onChange={handleText}
       placeholder="Type a message"
-      name="text"
     />
   );
 }
-
-export default withRouter(Emoji);
