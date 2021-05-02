@@ -110,7 +110,7 @@
 
 .wallpic {
   background-size: cover;
-  width: 100%;
+  width: 88%;
   height: auto;
   cursor: pointer;
 }
@@ -256,15 +256,14 @@ hr {
 
 .posttitle {
   font-size: 16px;
-  /* margin-top: 10px; */
-  /* margin-bottom: -11px; */
+
   align-self: flex-start;
   margin-left: 20px;
   cursor: pointer;
-  font-size: 200;
+
   font-family: "Roboto";
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .postsubtitle {
@@ -443,7 +442,7 @@ hr {
   width: 300px;
   align-items: center;
   padding: 15px;
-  height: 600px;
+  height: 550px;
   overflow-x: hidden;
   box-shadow: 1px 1px 2px grey;
 }

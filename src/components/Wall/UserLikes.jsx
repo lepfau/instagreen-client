@@ -13,7 +13,9 @@ function UserLikes(props) {
         height: "18px",
       }}
     >
-      <p className="userlikecount">{props.users.length} people like this</p>
+      <p style={{ fontSize: "15px" }} className="userlikecount">
+        {props.users.length} people like this
+      </p>
       <div className="userlikesss" style={{ display: style }}>
         <ul className="ululul">
           {props.users.map((user) => {
