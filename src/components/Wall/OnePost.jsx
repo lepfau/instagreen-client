@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import CommentsFullScreen from "../Wall/CommentsFullScreen";
 import FormCommentFS from "../Forms/FormCommentFS";
 import { withUser } from "../Auth/withUser";
+import { Link } from "react-router-dom";
+import UserLikes from "./UserLikes";
 
 function OnePost(onepost) {
   return (
@@ -13,6 +15,26 @@ function OnePost(onepost) {
       </div>
       <div className="onepostright">
         <div style={{ width: "90%" }}>
+          <div className="posttopuser">
+            <div className="wallpostuser">
+              <div className="ppusercontainer">
+                <img className="ppwall" src={onepost.userPic} alt="userpic" />
+              </div>
+              <div className="posttopuserinfo">
+                <p style={{ fontSize: "0.9em" }}>
+                  <Link to={`/users/${onepost.userId}`}>
+                    <b className="usernames">
+                      {onepost.userFirst} {onepost.userLast}
+                    </b>
+                  </Link>
+                </p>
+                <pre className="postdate">
+                  {onepost.date.slice(0, 10)} {onepost.date.slice(11, 16)}
+                </pre>
+              </div>
+            </div>
+          </div>
+          <hr style={{ marginTop: "7px" }}></hr>
           <div className="likepart" style={{ marginTop: "10px" }}>
             {onepost.liked ? (
               <i
@@ -28,61 +50,11 @@ function OnePost(onepost) {
                 {" "}
               </i>
             )}
-            {(() => {
-              if (
-                onepost.likes.length === 1 &&
-                onepost.likes[0].email === onepost.context.user.email
-              ) {
-                return <p>You like this</p>;
-              } else if (onepost.likes.length === 1) {
-                return (
-                  <p>
-                    {onepost.likes[0].firstName} {onepost.likes[0].lastName}{" "}
-                    likes this
-                  </p>
-                );
-              } else if (
-                onepost.likes.length === 2 &&
-                onepost.likes[1].email === onepost.context.user.email
-              ) {
-                return (
-                  <p>
-                    {"You and"} {""}
-                    {onepost.likes[0].firstName} {onepost.likes[0].lastName}{" "}
-                    like this
-                  </p>
-                );
-              } else if (onepost.likes.length === 2) {
-                return (
-                  <p>
-                    {onepost.likes[0].firstName} {onepost.likes[0].lastName}{" "}
-                    {""}
-                    {"and"} {""}
-                    {onepost.likes.length - 1} user like this
-                  </p>
-                );
-              } else if (
-                onepost.likes.length > 2 &&
-                onepost.likes[onepost.likes.length - 1].email ===
-                  onepost.context.user.email
-              ) {
-                return (
-                  <p>
-                    {"You and"} {""}
-                    {onepost.likes.length - 1} users like this
-                  </p>
-                );
-              } else if (onepost.likes.length > 2) {
-                return (
-                  <p>
-                    {onepost.likes[0].firstName} {onepost.likes[0].lastName}{" "}
-                    {""} {"and"} {onepost.likes.length - 1} users like this
-                  </p>
-                );
-              } else {
-                return <p>No one likes this</p>;
-              }
-            })()}{" "}
+            <UserLikes
+              users={onepost.likes}
+              usersshow={onepost.users}
+              showUsers={onepost.showUsers}
+            />
           </div>
           <FormCommentFS
             userpic={onepost.userpic}

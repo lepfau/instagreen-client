@@ -28,23 +28,32 @@ class FormComment extends Component {
   render() {
     return (
       <div className="commentForm">
-        <div className="ppusercontainercomment ">
-          <img src={this.props.userpic} className="ppwall " alt="userpic" />
+        <div style={{ display: "flex", width: "100%" }}>
+          <div className="ppusercontainercomment ">
+            <img src={this.props.userpic} className="ppwall " alt="userpic" />
+          </div>
+          <form
+            className="commentform"
+            style={{ width: "100%" }}
+            onSubmit={this.handleSubmit}
+          >
+            <label htmlFor="comment"></label>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              placeholder="Comment this"
+              id="comment2"
+              name="text"
+              value={this.state.text}
+            ></input>
+            <button
+              className="commentsubbtn"
+              style={{ height: "30px", width: "30px" }}
+            >
+              <i className="fas fa-location-arrow"></i>
+            </button>
+          </form>
         </div>
-        <form className="commentform" onSubmit={this.handleSubmit}>
-          <label htmlFor="comment"></label>
-          <input
-            onChange={this.handleChange}
-            type="text"
-            placeholder="Comment this"
-            id="comment2"
-            name="text"
-            value={this.state.text}
-          ></input>
-          <button className="commentsubbtn">
-            <i className="fas fa-location-arrow"></i>
-          </button>
-        </form>
       </div>
     );
   }

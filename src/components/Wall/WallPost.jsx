@@ -177,6 +177,11 @@ function WallPost(post) {
           </h6>
           {fullscreen && (
             <OnePost
+              userPic={post.userPic}
+              date={post.date}
+              userId={post.userId}
+              userLast={post.userLast}
+              userFirst={post.userFirst}
               image={post.image}
               title={post.title}
               hidefull={hidefull}
@@ -191,6 +196,8 @@ function WallPost(post) {
               addLike={addLike}
               removeLike={removeLike}
               liked={liked}
+              users={users}
+              showUsers={showUsers}
             />
           )}
           <img
@@ -230,7 +237,11 @@ function WallPost(post) {
           </div>
           {post.comments.map((comment) => {
             return (
-              <div key={comment._id} className="commentpartcontainer">
+              <div
+                key={comment._id}
+                className="commentpartcontainer"
+                style={{ width: "100%" }}
+              >
                 <Comments
                   userImg={comment.id_user.profileImg}
                   userFirst={comment.id_user.firstName}
