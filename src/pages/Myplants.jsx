@@ -69,7 +69,7 @@ class Myplants extends Component {
       <div className="myplantspage">
         {" "}
         {/* <FormCreatePlant addItem={this.addItem} /> */}
-        <h1 className="myplantstitle" style={{ marginTop: "45px" }}>
+        <h1 className="myplantstitle" style={{ marginTop: "20px" }}>
           My plants
         </h1>
         <button

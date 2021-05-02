@@ -115,7 +115,7 @@ class FormCreateWall extends Component {
             ></input>
           </div>
 
-          <div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <input
               id="file"
               className="inputfile"
@@ -132,13 +132,27 @@ class FormCreateWall extends Component {
               alt="recipeimage"
             />
           )}
-          {this.state.loading ? (
-            <button className="btn-submit-plant">
-              <img className="loadingwallgif" src={loadingwall} alt="loading" />
-            </button>
-          ) : (
-            <button className="btn-submit-plant">Post on the wall</button>
-          )}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            {this.state.loading ? (
+              <button
+                style={{ marginLeft: "0px" }}
+                className="btn-submit-plant"
+              >
+                <img
+                  className="loadingwallgif"
+                  src={loadingwall}
+                  alt="loading"
+                />
+              </button>
+            ) : (
+              <button
+                style={{ marginLeft: "0px" }}
+                className="btn-submit-plant"
+              >
+                Post on the wall
+              </button>
+            )}
+          </div>
         </form>
       </div>
     );

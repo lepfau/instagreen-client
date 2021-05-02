@@ -145,7 +145,7 @@ class FormCreatePlant extends Component {
             />
           </div>
 
-          <div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <input
               id="file"
               className="inputfile"

@@ -6,7 +6,6 @@
   align-items: center;
   flex-flow: wrap;
   justify-content: flex-start;
-  margin-left: 50px;
 }
 
 .plantcard {
@@ -100,6 +99,7 @@
   display: flex;
   margin-left: 60px;
   margin-top: 20px;
+  border-radius: 20px;
 }
 
 .myplantstitle {
