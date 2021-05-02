@@ -47,7 +47,7 @@ class FormSignin extends Component {
           className="signinform"
         >
           <label className="signinform_label" htmlFor="email">
-            email
+            <i class="fas fa-envelope"></i> Email
           </label>
           <input
             type="email"
@@ -57,7 +57,7 @@ class FormSignin extends Component {
           />
 
           <label className="signinform_label" htmlFor="password">
-            password
+            <i class="fas fa-lock"></i> Password
           </label>
           <input
             type="password"
