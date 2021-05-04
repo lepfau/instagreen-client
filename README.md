@@ -32,8 +32,6 @@ It uses "vanilla" react with class components mostly;
 
 ## Features
 
-List of features ready and TODOs for future development
-
 - User posts with comments and likes
 - Plant watering follow up and warnings 
 - Interactive map to exchange cuttings or plants
