@@ -85,25 +85,38 @@ class FormCreateWall extends Component {
   render() {
     return (
       <div className="wallForm">
+
         <form className="form" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label className="labelwall" htmlFor="title">
+            {this.props.language === "French" ?  <label className="labelwall" htmlFor="title">
+              Titre
+            </label> :  <label className="labelwall" htmlFor="title">
               Title
-            </label>
-            <input
+            </label>}
+      
+          {this.props.language === "French" ?   <input
               id="title"
               name="title"
               className="inputwall"
               type="text"
               onChange={this.handleChange}
               value={this.state.title}
-              placeholder="Add a title to your post"
-            />
+              placeholder="Ajouter un titre"
+            /> : 
+            <input
+            id="title"
+            name="title"
+            className="inputwall"
+            type="text"
+            onChange={this.handleChange}
+            value={this.state.title}
+            placeholder="Add a title to your post"
+          />}
           </div>
 
           <div className="form-group">
             <label className="labelwall" htmlFor="description">
-              Subtitle
+              Description
             </label>
             <input
               id="subtitle"

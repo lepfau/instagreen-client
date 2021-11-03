@@ -114,9 +114,8 @@ class Wall extends Component {
   render() {
     return (
       <div className="fullbodywall">
-        <h1 className="walltitle"> Wall</h1>
-
-        <FormCreateWall addPost={this.addPost} />
+        {this.props.context.language === "French" ?  <h1 className="walltitle"> Mur</h1> : <h1 className="walltitle"> Wall</h1>}
+        <FormCreateWall addPost={this.addPost} language={this.props.context.language} />
         <div className="wallPost">
           {this.state.loading ? (
             <img

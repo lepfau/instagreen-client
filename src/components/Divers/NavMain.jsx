@@ -19,6 +19,10 @@ const NavMain = (props) => {
       });
   }
 
+  function changeLanguage() {
+    context.changeLanguage()
+  }
+
   return (
     <nav className="NavMain">
       <h3 className="logoApp">InstaGreen</h3>
@@ -26,6 +30,9 @@ const NavMain = (props) => {
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>
+              <li>
+              <p onClick={() => changeLanguage()}>French</p>
+            </li>
             <li>
               <NavLink to="/wall">Wall</NavLink>
             </li>

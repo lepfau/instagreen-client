@@ -7,6 +7,7 @@ class UserProvider extends Component {
     user: null,
     isLoggedIn: false,
     isLoading: true,
+    language: "English"
   };
 
   componentDidMount() {
@@ -28,6 +29,10 @@ class UserProvider extends Component {
     this.setState({ user: null, isLoggedIn: false });
   };
 
+  changeLanguage = () => {
+    this.setState({language: "French"})
+  }
+
   render() {
     //  Setup all the values/functions you want to expose to anybody reading
     // from the AuthContext.
@@ -37,6 +42,8 @@ class UserProvider extends Component {
       removeUser: this.removeUser,
       isLoggedIn: this.state.isLoggedIn,
       isLoading: this.state.isLoading,
+      language: this.state.language,
+      changeLanguage: this.changeLanguage
     };
 
     return (
